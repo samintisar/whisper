@@ -1,0 +1,725 @@
+The rank sum test is a hypothesis test that's normally attributed to the statistician Wilcoxon.
+It is a two-sample test, and in that respect it's akin to the two-sample t-test that you will have met earlier.
+The rank sum test is an example of a so-called non-parametric test, and we meet other examples of such tests, such as the signed test and the signed rank test.
+And the term non-parametric, we may recall, refers to the fact that the test makes no explicit assumptions about the nature of the distribution, or in this case distributions, which give rise to our data.
+So, let us describe the test in general terms first.
+So, suppose we have data from a random variable, we'll call it capital X, and let's sketch the density function of X, we'll assume that it's continuous, although we don't need to assume that, and it can be of any shape.
+So that's the density function of X, and we'll denote it F subscript X.
+So, we have some data from this random variable, X1, X2, so independent observations, and let's say we have M of them.
+Now, independent to that, we have data from another random variable, which we'll call Y, and its density function.
+So, let's get to like that, and we have some data from Y.
+Let's say we have N observations, N independent observations from the random variable, Y.
+So, our null hypothesis, actually, is that the two distributions are exactly the same, so that the density function for Y is the same as the density function for X.
+Whatever their shape, whatever they look like, they're the same.
+Now, strictly speaking, the alternative hypothesis is that the density function for Y, let's put the argument in X there, is the same as the density function for X,
+but actually shifted by some constant, but actually shifted by some constant that will denote theta.
+Now, in the null hypothesis case, actually, that's the special case of theta being zero.
+So, the density function is not shifted, but we may have that theta is not zero, which leads to a two-sided case,
+or that it's greater than or less than zero, one or the other, which leads to one-sided cases.
+So, let's clarify.
+Let's go back to our random variable X and its density function.
+The null hypothesis would state that, in fact, the density function of Y is exactly the same as the density function of X.
+So, I could sketch over, the best I can do, the density function of X, and that would also be the density function of Y.
+So, basically, both data sets come from exactly the same density function.
+The alternative is that the density function of Y is exactly the same as that of X, but shifted by some parameter theta.
+If I can draw it as best as I can do, so these density functions are supposed to be the same.
+That's now the density function of Y, and it's just been shifted by some constant theta.
+It could be shifted up or down, depending whether theta is positive or negative.
+Now, this rather peculiar alternative hypothesis is sometimes overlooked
+in textbooks that describe the rank sum test,
+and often the test is taken as a general test for a change in location.
+That is sometimes acceptable, except when we think about the test a little further,
+the possibility may arise that simply testing for a shift in location
+will not be satisfactorily detected by the test.
+OK, so how do we do the test?
+Well, we rank all the data,
+that's all the X values and the Y values together,
+in order,
+smallest to largest.
+And we'll give the smallest value rank 1,
+and the largest value rank N plus M.
+We find as our test statistic,
+I'll call it W subscript X,
+and it's the sum over the X values,
+and remember we have M of those,
+of the ranks of the X values.
+So I'll denote by
+R subscript I superscript X,
+although we don't really need this notation,
+because we won't use it again,
+but it's the rank of the i-th X value
+in the combined data.
+So remember the smallest value
+would have rank 1,
+the largest value
+rank N plus M,
+and I'll briefly describe what we might do
+if we have ties at the end.
+Worthwhile considering a special case,
+supposing that the two data sets
+were of the same size,
+so we have as many X values as Y values,
+then under the null hypothesis,
+well, the sum of the ranks of the X values
+would have exactly the same distribution
+as a random variable,
+we write it like this,
+as the sum of the ranks of the Y values.
+They have exactly the same distribution.
+There's no reason why WX
+should behave any differently to WY
+in the case where N equals M.
+They will behave differently
+if we have more X values and Y values,
+or vice versa.
+So that's a special case to have in our minds.
+More generally, we ask the question,
+as we always ask
+when we're doing a hypothesis test,
+is how does our test statistic,
+in this case,
+how does WX behave
+under the null hypothesis?
+And, moreover,
+is the value that we actually observe
+consistent with what we would expect
+if the two distributions were the same?
+Now, one thing we can do
+in most situations
+is we can enumerate,
+which really means we can list and count,
+all the possibilities.
+In other words,
+all the configurations of,
+well, the X values in the combined data set,
+work them all out
+and compute the test statistic
+for each one.
+Well, how many ways are there?
+Well, there are
+N plus M
+choose M,
+which is also N plus M choose N,
+ways
+the
+X values
+can appear
+in the combined
+sample.
+For each of these,
+we can compute the test statistic,
+WX,
+and then we can see, well,
+whether the observed value
+looks to be
+a particularly large
+or particularly small value
+compared to all the
+possible values
+that the test statistic
+could take.
+So, let's have an example
+to fix ideas.
+A fictitious example,
+I should point out.
+So, my wife and I
+like to play
+a computer game
+and
+the scores
+in the computer game
+are
+in thousands.
+But for simplicity here,
+I'll round the scores
+to the nearest thousand.
+and
+I'll write
+my scores
+in the M
+for me
+and
+W
+for my wife.
+So, let's suppose
+we have
+five of my scores.
+So, let's say
+a random sample.
+Let's say
+five,
+seven,
+thirteen,
+eight,
+and four
+to the nearest thousand.
+And
+for my wife,
+nine,
+eleven,
+ten,
+and seventeen.
+Let's say
+we have
+just four scores
+for her.
+So, another hypothesis
+I can call
+my values
+the x values
+and her values
+the y values
+should I wish.
+And
+another hypothesis
+is that
+these two
+data sets
+are from
+the same
+distribution,
+whatever that may be.
+And our alternative,
+well,
+we'll just
+have
+the
+density
+is shifted.
+One is shifted
+from the other one,
+but we won't specify
+the sign
+of the shift parameter,
+which means
+that we're
+not ruling out
+that
+I might be better
+than my wife
+or my wife
+might be better
+than I
+at the start.
+So let's work out
+our test statistic
+and
+let's work out
+my
+ranks.
+So I get
+the lowest value,
+the next
+lowest,
+and
+then
+the next
+lowest,
+the next
+lowest,
+will denote
+my wife's
+ranks
+ry,
+she gets
+the next
+lowest,
+six,
+seven,
+I get the
+second highest
+score,
+and my wife
+gets the
+highest score.
+Now it doesn't
+really matter
+which of these
+test statistics
+we use,
+we'll actually
+use my
+sum of ranks
+which is
+18,
+my wife's
+sum of ranks
+is 27.
+So we have
+our test statistic,
+which is
+wx,
+and it's
+18.
+And we ask
+the question,
+is that
+consistent
+with what
+we would
+expect to see
+under the
+null hypothesis
+that both
+the data
+sets are
+from the
+same
+distribution?
+distribution.
+So,
+how many
+ways are
+there
+that my
+five values
+can be
+distributed
+in the
+nine?
+Well,
+in fact,
+there are
+nine
+choose five
+ways,
+which is
+126,
+and we
+observe one
+of them,
+let's just
+clarify what
+we observe,
+I get
+the four
+lowest
+values,
+my wife
+the next
+three,
+then I
+get the
+second highest
+score,
+and my
+wife the
+highest
+score.
+So,
+that's one
+of these
+126
+configurations.
+We can
+think a little
+bit more
+about this
+test statistic
+and how it
+can behave.
+You can
+demonstrate
+that the
+minimum
+value
+that the
+test statistic
+can take
+is actually
+15.
+That would
+be if all
+my values
+were the
+lowest values,
+the five
+lowest values,
+and in
+fact,
+the highest
+it could
+take
+the
+maximum
+is,
+in fact,
+35.
+That would
+be if my
+values were
+the highest
+values.
+We can
+go further
+than that,
+and perhaps
+with the
+aid of a
+computer,
+we can
+compute the
+exact,
+in this
+case,
+probability
+mass
+function.
+for our
+test statistic
+Wx.
+So let's
+denote a
+possible value
+by W,
+and here
+we'll have
+the probability
+that the
+test statistic
+takes that
+value.
+Now we know
+the lowest
+value it can
+take is
+15,
+15,
+we won't
+draw it
+quite to
+scale,
+and the
+highest value
+is
+35.
+Now,
+in fact,
+there's only one
+way the test statistic
+can take the value
+15.
+that's when
+all my values
+were the lowest,
+so there's
+one out of
+the 126
+ways of
+doing that.
+There's only
+one way it
+can be 16
+too,
+actually.
+There's a
+couple of
+ways it
+can be
+17,
+and three
+ways I
+think that
+it can
+be 18,
+and that's
+the value
+we observe.
+So most of
+the probability
+is around
+values
+near the
+middle of
+the range,
+as we'd
+expect,
+and then we
+have some
+probability on
+the high values.
+So we
+actually observe
+the test
+statistic being
+18.
+In fact,
+there are
+seven
+ways
+in which
+the test
+statistic can
+be 18
+or less,
+and so
+those values
+collectively
+have probability
+on them
+of about
+0.055.
+So that's
+the probability
+of getting
+a value
+of the test
+statistic,
+WX,
+as inconsistent
+or lower,
+so that's
+18 or lower
+than what we
+observed.
+So 18
+was what we
+observed,
+and more
+inconsistent
+on the
+left tail
+would be
+17,
+16,
+or 15.
+But remember
+we're doing
+a two-sided
+hypothesis test
+here,
+so we need
+to consider
+the other
+tail too,
+because values
+at the other
+end of the
+tail would be
+just as
+inconsistent,
+except instead
+of being a lot
+smaller than
+we'd expect,
+they'd be
+larger.
+So we'd
+be considering
+these values
+0.055 as well.
+And by
+symmetry,
+these also
+have
+probability
+0.055.
+So that
+when we
+consider
+these two
+regions
+together,
+their combined
+probability,
+which gives
+the p-value
+for our test
+is approximately
+0.11.
+Hence,
+at the 5%
+significance level,
+there is
+not enough
+evidence
+to reject
+the null
+hypothesis
+that the
+two data
+sets are
+from the
+same
+distribution.
+Now,
+there may
+be a suspicion
+that if we
+were to
+gather some
+more data,
+that perhaps
+that picture
+would change,
+and that
+influence
+would change,
+and my
+wife might
+argue that
+we should
+be taking
+a one-sided
+alternative
+rather than
+a two.
+However,
+as the test
+would stand,
+we would
+not reject
+the null
+hypothesis.
+I could
+have used
+a normal
+approximation.
+Why?
+Because if we
+look at our
+test statistic,
+it's a
+summation,
+and the
+central limit
+theorem tells
+us that
+sums and
+averages are
+approximately
+normally distributed,
+at least as the
+sample grows
+large.
+Now, we only
+have a modest
+number of terms
+in the sum here,
+so we might not
+expect the normal
+approximation to
+work too well,
+but in any event,
+we have computers
+these days,
+so the computations
+can be quite
+easily done,
+for example,
+using the
+software R
+and the
+related command.
+What if we'd
+had ties?
+So what if
+two of the
+observations
+had been the
+same?
+Well, let's
+go back to
+our data,
+and let's
+suppose that
+if instead
+of having
+a score
+of nine
+here,
+my wife
+had actually
+scored eight,
+which ties
+with one of
+my scores.
+What we do
+in the case
+of ties
+is we
+assign
+average
+ranks,
+so now
+both of
+these values
+have rank.
+Well,
+they would
+have rank
+four and
+five,
+they're tied,
+so we give
+each one
+rank
+four and
+a half,
+and proceed
+as before.
+We proceed
+as before,
+mindful that
+the rankings
+being tied
+makes no
+difference to
+the location
+of the
+distribution
+of the
+test statistic,
+but it does
+change the
+variance a
+little.
+So,
+although the
+test can work
+fine,
+if there
+are little
+in the
+way of
+ties,
+it does
+not work
+too well
+if there
+are lots
+of ties,
+and that's
+something to
+be born
+in mind.
+The way
+we've
+conducted the
+test here
+is by
+considering all
+the possibilities
+and enumerating
+the distribution
+of the test
+statistic that we
+chose
+explicitly.
+as such,
+it's an
+example of
+a so-called
+permutation
+test,
+and more
+on that
+later.
+So,
+that's the
+bank sum
+test,
+I hope
+you've
+enjoyed it.
+Thank you.

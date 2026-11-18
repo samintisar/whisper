@@ -1,0 +1,216 @@
+The Kruskal-Wallis test, a test which I understand is named after two statisticians who invented
+it independently. It's another non-parametric procedure, non-parametric meaning as we may
+recall that the procedure makes no explicit assumptions about the distributions that give
+rise to the data. Let's just reflect on a situation that we've met before where we have data arising
+in, let's say, two groups. Let's call them group 1 and group 2. So we have some observations
+in these two groups, and it may be of interest to say whether those two data sets appear to
+be from the same distribution, or less generally whether they appear to be from distributions
+with the same mean. Now we've met at least two procedures for looking at two-sample data.
+You've encountered the two-sample t-test, and we've also met the rank sum test. Now to think
+about the two-sample t-test, the two-sample t-test says, well, we'll summarize the data from
+group 1 to get an estimate of the location of the distribution of the data, the distribution
+that gave rise to the data as a sample mean, and a natural estimate for the mean of the distribution
+that gives rise to the data in group 2 would be x2 bar. So our test as to whether the two
+means, underlying means, are equal, let's call them mu 1 and mu 2, is naturally based on some
+function of these two statistics. Now, without thinking about this at all deeply, we could recognize
+that obviously there's at least two ways we could compare these two statistics. We could
+look at their difference, or maybe we could look at their ratio. Looking at the difference
+proves to be statistically a little easier, and gives rise to something called the two-sample
+t-test, which we've met earlier. Well, we could base a test on the ratio of the two test statistics,
+of the two statistics, but that statistically would be a little harder to construct. My point
+is that a method that involves analyzing data from two groups does not obviously extend to when
+we have more than two groups. So when we have three or more groups. More generally we could say we have g groups.
+Because a method that involves looking at a difference, or even looking at a ratio, works well for a comparison
+between two things, but not when we have more than two. So we need something different.
+What sort of procedure gives rise to data in groups? Well, broadly there are two. We may have samples from multiple, so three or more populations.
+In other words, we may have taken random samples from three or more populations, and we're interested in comparing the population means, for example.
+So we may have a sampling procedure, or we may have performed an experiment. And in which case we've got responses from an experiment, a one-factor experiment. And so, for example, we may have a sample from a population of individuals,
+from a population of individuals who have a particular condition, let's say a particular type of cancer, and we may allocate them at random to, let's suppose, four different treatments, in which case g would be four.
+And then we monitor them. And then we monitor them, and measure some response, under each of the four different treatments, and attempt to decide whether there is a difference between the responses on the treatments.
+For the purposes of the conducting of the test, it makes no difference where the data, how the data arose. It does make some difference in terms of how we can draw inference, a slightly subtle point that we'll discuss subsequently.
+Well, let's have an example.
+And this example is in our notes, and it describes a study where there were 36 children, and they were split into five groups of nine, and they're taught arithmetic.
+Some method of arithmetic, some method of arithmetic for a week, let's supposing it was long division or something.
+And we'll label the groups A, B, C, and D.
+Group A was taught by the usual method.
+Group B were praised while they were taught.
+Group C were criticised, so negative feedback.
+And group D were somehow ignored while they were taught.
+Group C are written gpa, R G and D are
+is not so critical now from the way that i've described it so far you don't know whether this
+was an experiment in other words whether we had a set of 36 children who perhaps could be assumed
+to be a random sample from some larger population of children of the same age range and educational
+level and they were randomly assigned to one of these four different teaching conditions
+or whether it just happened that we had maybe four teachers who taught using different methods
+and we took a sample from each of those teachers classes and which would give somewhat different
+influences we'll assume it's an experiment which would be the best uh the best way in which the
+data could be obtained
+so in such a situation what would our null hypothesis be
+well the null hypothesis is the data in the groups are all from
+the same distribution
+in other words each observate each set of observations in this case nine observations
+is just a sample from a distribution and they're all samples from the same distribution
+this actually implies of course that the means and for that matter the medians
+of the distributions
+are equal
+so that's an implication if they're all all the data from the same distribution they're all from
+different distributions with the same mean
+the alternative is simply that the data
+the data
+are not
+or not
+all from
+the same
+distribution
+you might ponder well does that imply that they're from distributions with
+different means or medians well actually no because they could be from different
+distributions with the same mean
+but certainly it is implied by
+the means and medians of the underlying distributions
+are not equal so a special case of the alternative hypothesis is when the means and medians are
+different
+now if you've done the first course in statistics you may have met an approach
+called the excuse me the analysis of variance
+which can be applied to data of this sort of structure
+the analysis of variance does have some assumptions behind it in particular it assumes that the data
+within each group are from a normal distribution
+it's somewhat robust to those assumptions
+it's not completely robust and in circumstances like in our example
+we don't have lots of data and if we were to do ANOVA we may be a little bit uncomfortable
+with the inference because we're not sure that the assumptions are valid and moreover
+the sample sizes are rather small
+so how would we decide whether ANOVA is appropriate
+well whether we would consider using ANOVA or not
+it's good to do a graph of the data of some description so it's good to graph
+of our data now how would we plot our data here
+how would we do that well we have four different data sets that we would like to compare
+ideally on the same graph and the best approach for this
+would almost certainly be side by side
+box plots
+I'll roughly sketch what these look like so we have four different teaching methods
+so we have four samples
+and these are very rough and ready sketches if you remember with the box plot
+the box covers the interquartile range and within the box there's a
+a line indicating the median
+these pictures are really not super accurate but
+the box plot is given in the notes
+one thing that strikes us is that it does look like there's a difference between the underlying
+distributions they certainly look as though they're differing in terms of location
+they're also perhaps differing in terms of variation so it looks like there's more variation
+of the data in certainly in groups a and c than in b
+so we might be a little bit uncomfortable using the analysis of variance method for these data
+although it would not be wrong as such it would not actually be wrong to do that
+before we proceed we'll introduce a
+probability distribution which you may have met before called the chi-squared distribution
+and it's defined as the following if we have n
+independent
+standard normal variables
+so mean zero
+that's the mean standard deviation one
+so they're all independent of one another so
+from that we mean that the value of one of them doesn't impact the value of any of the others
+we're not getting more technical than that
+then the sum of their squares
+i use this notation to till the sign it's short for is distributed
+as
+so a little short hand notation
+where we see this till the sign just read it as distributed as
+and then we'll define a distribution we use the greek letter chi
+it's the chi-squared
+distribution
+and it has one parameter which i'll denote by its subscript here
+and it's on here n degrees of freedom so the parameter is known as the degrees of freedom
+so we have
+sum of squares of n independent normals standard normals
+and
+it transpires that quite often in statistics we have
+a statistic which is sums of squares and sums of squares of things that are at least
+approximately normal so they can be standardized to be
+approximately standard normal and we're interested in the distribution of their sums of squares
+and so it's convenient to have a name for the distribution and somebody's done the math
+and divide this distribution which has a rather complicated density function in terms of its
+mathematical form but we can picture what it looks like
+so what does the density of the function
+what does the density function look like
+well for start with we know that because we're looking at sums of squares the random variable
+well it can't be negative
+so the chi-square distribution doesn't assign any probability to negative values
+and the picture one should have in one's mind is of a unimodal distribution
+in fact the mode is at n minus 2 so the mode increases
+as the number of terms in the sum increases so as the degrees of freedom increase
+this isn't actually the picture when n is 1 or 2 but we're most interested in here in cases where n is bigger than 2
+so this is the picture one should have in one's mind for the chi-square distribution
+at least when n is bigger than 2
+well there are tables for this distribution which you may have seen
+but these days we have computer software which can find
+percentiles and probabilities over ranges for the chi-square distribution
+so let's come back to our test so our test ranks all our data
+in order so combining all the data together we rank them in order and we give the lowest observation
+rank one so in general let's supposing we've got g groups
+so on we don't have to have equal observation number of observations in each group supposing the lowest
+observation was in group two uh maybe the next lowest was in group three somewhere maybe the next
+lowest was in group two uh the next lowest was in group four and so on
+next lowest was sorry the next lowest was in whatever group that is and um maybe the largest observation
+was in group one say we deal with ties in the same way as we deal with ties in the rank sum test
+we would assign average ranks to tie data
+so we can find the mean of the ranks within each group so let's call that our one bar so that's the
+mean of these ranks our two bar is the mean of these ranks and so on up to our g bar
+now we replace the data by their ranks
+so we've lost the original data so for example the smallest observation may have been way smaller than
+all the others but in terms of its ranking it is its rank is one different from the next smallest
+let's say the overall mean of these ranks
+is our bar
+so how does the test operate well the test appealing to common sense says well if i look at the differences
+between the mean ranks within a group and the overall mean rank
+then i would expect these ranks to be pretty close to the overall mean
+if the null hypothesis were true so if all the data were from the same distribution there's no reason
+why any of these individual mean ranks should be particularly much different from the overall mean
+that should be reflected in a difference in a difference in the mean ranks for that group
+so that's supposing for example that the data within group two
+tended on average to be much smaller than than the data from the other groups
+then the data within group two would tend to have lower ranks and that would be reflected in the mean ranks
+for that group and so that statistic would be smaller than the overall mean of the ranks
+and it that would be reflected in the an increased variation so more variability in the within group mean ranks
+now how do we measure variability well one measure is by considering the variance
+and so we could imagine a test statistic summing up
+across all the groups the square difference in the within group mean rank and the overall mean ranks
+and that's the basis of the test statistic
+i call the test statistic capital h in fact there's some normalization goes on
+and it takes into account how many observations we've got in each group
+so ni is the number of observations in group i and we have our observations in total
+this formula is really not worth memorizing
+but the basic idea is is not difficult
+so as always we ask our question how does our test statistic h behave
+under the null hypothesis
+well in fact under the null hypothesis that all the data from the same distribution
+the test statistic follows a chi-square distribution on g minus one degrees of freedom
+under the null hypothesis
+but what if h naught is not true
+then what happens
+well then the test statistic becomes inflated it it will tend to be larger
+why because there will be more variation in the within group rankings so the mean rankings within the
+groups will tend to vary more and that will increase this statistic
+which is basically a measure of the variation on these r1 bar up to rg bar
+okay so let's conclude by looking at our example
+we have our data in four groups we replace the data by their ranks i won't go through this but
+you can work it out for yourself based on the data in the notes
+and
+the mean rank in group a is 12.4 within group b 30.6 within group c 22.5 and within group d 8.5 and as
+was reflected by the the box plot it's kind of what we'd expect there is quite a lot of variation in
+these group group rankings the overall mean rank is 18.5 there's some ties in the data as we observed
+so if we work out our test statistic here and we won't go through all the details because the
+computer could do that for us but it's essentially routine we have a value of around 24.48
+now we have four groups here so we ask the question is h consistent
+with in this case the chi-squared three distribution
+well we might know the answer to that let's draw a picture so the chi-squared three
+looks something like that
+and in fact this test statistic lies way up in the upper tail here
+so the probability of being as extreme or more extreme with respect to the null hypothesis
+the p value is approximately two times ten to the minus five we can get that from software
+so in other words this value of the test statistic it looks
+very large to be the sort of value that we'd expect to see from the chi-squared three
+we'd only get a value
+as small as that or more or sorry as large as that or larger
+with probability about two times ten to the minus five
+so there's strong evidence here very strong evidence against the null hypothesis
+so that's the classical wallace test and i hope you've enjoyed it

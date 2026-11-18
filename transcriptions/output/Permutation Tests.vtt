@@ -1,0 +1,2009 @@
+WEBVTT
+
+00:00.000 --> 00:15.480
+We're going to describe a class of tests called permutation tests, and in particular two-sample
+
+00:15.480 --> 00:25.620
+permutation tests. Now permutation tests are a family of tests which are at least when sample
+
+00:25.620 --> 00:38.280
+sizes are not small, they're computationally intensive. Luckily today we have software
+
+00:38.280 --> 00:51.660
+available and the software package R provides commands for performing permutation tests.
+
+00:51.660 --> 01:04.900
+Well, we'll illustrate with an example. An example is a US trial, a civil trial, a discrimination
+
+01:04.900 --> 01:18.900
+case from 1981, and the plaintiff was named Andrea Capacci, and she brought a case to the
+
+01:18.900 --> 01:31.900
+court against her employers, Katz and Besthoff, Inc. Now you can Google this trial if you
+
+01:31.900 --> 01:40.900
+like. And this trial was a sexual discrimination trial, and as part of the evidence there were
+
+01:40.900 --> 02:01.900
+data presented about times to promotion in months for men and women in the company over a period
+
+02:01.900 --> 02:13.900
+of time. So, for the men's times to promotion, the figures in order were something like this,
+
+02:13.900 --> 02:27.900
+5, 7, 12, 40, 40, won't give the full data here. There were 22 promotion times for men, and the
+
+02:27.900 --> 02:39.900
+sample size was 483. So let's say N1 sample size for the men was 22. There were only actually two women
+
+02:39.900 --> 02:54.900
+who got promoted, and their promotion times were 229 and 453. So, what would our null hypothesis be here? Well, we'll
+
+02:54.900 --> 03:03.900
+return to the notion of the extent of inference in general, just at the end of this little lecture. We
+
+03:03.900 --> 03:10.900
+noticed that really the data here are not samples, they represent the complete data that were available
+
+03:10.900 --> 03:18.900
+for individuals who were promoted over a particular time period. The time period itself is a form of a sample, but
+
+03:18.900 --> 03:27.900
+given the time period was determined by the duration of time that the plaintiff Kapachi had been in the
+
+03:27.900 --> 03:36.900
+employment of the company, that was kind of fixed. So, the process by which the data give rise to the
+
+03:36.900 --> 03:44.900
+the the process by which these promotion times are created, I suppose, is the the essence of what we're
+
+03:44.900 --> 03:55.900
+interested in. And whatever the processes were, they give rise to some data, we've observed the data. The
+
+03:55.900 --> 04:20.900
+null hypothesis would be that the distribution of times to promotion for men and women were the same over the
+
+04:20.900 --> 04:30.900
+time period in question. This would, of course, imply that they have the same means, the same medians.
+
+04:30.900 --> 04:43.900
+What would we take as the alternative hypothesis? Well, for sure, the distributions are different, which would
+
+04:43.900 --> 04:48.900
+simply be the negation of the null hypothesis. But I would argue here that one should consider only a
+
+04:48.900 --> 05:08.900
+one-sided alternative. The one-sided alternative being that the women's promotion times are greater, on average. So, the
+
+05:08.900 --> 05:15.900
+distribution of the distribution of the women's promotion times was, on average, larger. So, I had a greater
+
+05:15.900 --> 05:29.900
+mean, say, or greater median than that for the men. Now, why would I take a one-sided case here? I would argue that, given
+
+05:29.900 --> 05:39.900
+that this is a discrimination trial, it is inconceivable that a case would make it to the court for a claim for
+
+05:39.900 --> 05:46.900
+discrimination against women, gender discrimination, where in fact there was evidence that there was positive
+
+05:46.900 --> 05:56.900
+discrimination, or it was plausible, in any way, that there was positive discrimination towards women. Hence, I consider here the
+
+05:56.900 --> 06:04.900
+only logical alternative one can take to the null is an alternative which is one-sided. And that is the case that
+
+06:04.900 --> 06:13.900
+we will consider. So, what do we do in a permutation test? Well, we choose some test statistic or other. So, what should I
+
+06:13.900 --> 06:23.900
+choose as a test statistic? You can pretty much choose anything that would be a sensible choice. I'm going to choose something very
+
+06:23.900 --> 06:44.900
+simple. The sum of the women's promotion times, which in this case is 229 plus 453 is 682. That might strike you as
+
+06:44.900 --> 06:50.900
+being an odd choice for test statistic, just the sum of the data for the women. In fact, I'd get exactly the same inference
+
+06:50.900 --> 06:58.900
+inference here, if I chose the sample means, the difference in the sample means of the test statistic, or even the t
+
+06:58.900 --> 07:05.900
+statistic. So, if you were doing a two-sample t-test here, well, you've only got two observations for the women's group, but you
+
+07:05.900 --> 07:19.900
+could do a two-sample t-test, and I'd get the same inference, actually. I think I'm at it saying. So, the question we ask ourselves is, we have data,
+
+07:19.900 --> 07:47.900
+we have data for men, and we have data for women, and we have 22 observations for the men, and two for the women's, so 24 observations in total, two of which were women's, and 22 were men. So, we ask ourselves, well, how many, I'll say regroupings, are there, of 24 observations, where we put two in one group,
+
+07:47.900 --> 08:09.900
+and 22 in another? Well, the answer is, of course, 24 choose 2. So, 24 observations. I don't really care about the ordering in each group, I just care about how many ways I can put two in one group and 22 in another.
+
+08:09.900 --> 08:24.500
+And if we work that out, that comes to 276. So, there are 276 ways of taking 24 numbers and putting two in one group, call that the women, and 22 in the other.
+
+08:24.500 --> 08:28.420
+And under the null hypothesis, well, all of those regroupings should be equally likely.
+
+08:30.920 --> 08:44.140
+Now, the question that we ask is, how many of those give a value of the test statistic at least as inconsistent as the one that we've observed, which is 682?
+
+08:44.140 --> 08:47.420
+Well, we can enumerate them.
+
+08:49.200 --> 08:54.620
+In particular, the one that we observed, so we always include that one.
+
+08:55.860 --> 08:59.480
+So, that was the one that we observed. What else might we have observed?
+
+08:59.480 --> 09:04.700
+Well, we might have observed 229 and 483.
+
+09:07.040 --> 09:15.380
+We might have observed 453 and 483, the two largest values.
+
+09:15.380 --> 09:34.980
+So, those three ways to group our data to give a test statistic
+
+09:34.980 --> 09:54.220
+at least as inconsistent with the null hypothesis as the one that we observed.
+
+10:01.220 --> 10:02.960
+So, how do we find our p-value?
+
+10:02.960 --> 10:09.240
+Well, our p-value says, well, actually there were 276 ways,
+
+10:09.640 --> 10:13.620
+all of which should be equally likely of grouping the data,
+
+10:14.240 --> 10:20.400
+of which three gave a value at least as inconsistent as the one we observed.
+
+10:20.520 --> 10:22.120
+Of course, that includes the one we observed.
+
+10:23.460 --> 10:28.860
+And given that we're doing a one-tailed test,
+
+10:28.860 --> 10:33.860
+the p-value is just based on that tail,
+
+10:33.860 --> 10:38.360
+and we have a p-value of 0.01,
+
+10:39.000 --> 10:42.340
+so around 1%.
+
+10:42.340 --> 10:44.160
+So, that's quite strong evidence
+
+10:44.160 --> 10:56.000
+against the null hypothesis that the men and women's promotion times
+
+10:56.000 --> 10:57.440
+were from the same distribution.
+
+10:59.720 --> 11:01.780
+Notice that if we did a two-tailed test,
+
+11:01.780 --> 11:06.660
+we'd also arrive at a conclusion that there was evidence,
+
+11:06.720 --> 11:07.900
+although a little less strong,
+
+11:08.600 --> 11:10.040
+against the null hypothesis.
+
+11:11.680 --> 11:13.440
+Let's talk in generality now,
+
+11:13.700 --> 11:17.280
+and describe what we've done in the general case,
+
+11:17.280 --> 11:20.540
+where we've got two samples
+
+11:20.540 --> 11:23.120
+of size,
+
+11:24.640 --> 11:29.100
+let's call them M and N, respectively.
+
+11:30.700 --> 11:33.320
+So, I choose a test statistic.
+
+11:33.320 --> 11:40.300
+You can simply choose a test statistic
+
+11:40.300 --> 11:45.560
+that is a test statistic for a test that you already know,
+
+11:45.720 --> 11:48.200
+so you could choose a two-sample-t-test statistic,
+
+11:48.960 --> 11:50.840
+or rank sum, or whatever.
+
+11:55.320 --> 11:57.780
+We find, at least in principle,
+
+11:57.780 --> 11:59.580
+the test statistic
+
+11:59.580 --> 12:03.120
+that we chose
+
+12:03.120 --> 12:05.160
+for all
+
+12:05.160 --> 12:06.240
+of the
+
+12:06.240 --> 12:08.100
+n plus m
+
+12:08.100 --> 12:09.060
+to n
+
+12:09.060 --> 12:13.220
+regroupings
+
+12:13.220 --> 12:15.920
+of the data.
+
+12:18.520 --> 12:20.060
+So, all the ways in which
+
+12:20.060 --> 12:22.320
+we can assign the n plus m
+
+12:22.320 --> 12:22.900
+numbers
+
+12:22.900 --> 12:25.800
+into a group of n and a group of m.
+
+12:27.780 --> 12:31.540
+find the number
+
+12:31.540 --> 12:33.480
+of samples
+
+12:33.480 --> 12:39.560
+that have a test statistic
+
+12:39.560 --> 12:47.360
+at least
+
+12:47.360 --> 12:49.540
+as inconsistent
+
+12:49.540 --> 12:54.740
+with the null hypothesis
+
+12:54.740 --> 13:00.300
+as not observed.
+
+13:01.720 --> 13:02.740
+It's the one that we saw.
+
+13:04.500 --> 13:06.600
+And we divide that number
+
+13:06.600 --> 13:12.300
+so that count
+
+13:12.300 --> 13:14.880
+by
+
+13:14.880 --> 13:17.020
+n plus m
+
+13:17.020 --> 13:17.800
+to n
+
+13:17.800 --> 13:22.100
+to give our p-value.
+
+13:23.500 --> 13:24.500
+So, let's just
+
+13:24.500 --> 13:25.880
+talk a little bit more
+
+13:25.880 --> 13:26.920
+about our example
+
+13:26.920 --> 13:28.980
+in this
+
+13:28.980 --> 13:30.160
+Apache case.
+
+13:30.820 --> 13:31.040
+So,
+
+13:31.720 --> 13:33.000
+the data in the trial
+
+13:33.000 --> 13:37.340
+was such that
+
+13:37.340 --> 13:38.260
+if we choose
+
+13:38.260 --> 13:38.780
+t
+
+13:38.780 --> 13:40.200
+as our test statistic,
+
+13:40.360 --> 13:41.180
+let's say it's the
+
+13:41.180 --> 13:49.820
+total of the women's
+
+13:49.820 --> 13:55.240
+promotion times.
+
+13:56.720 --> 13:57.800
+We notice that
+
+13:57.800 --> 13:58.480
+if we look back
+
+13:58.480 --> 13:59.060
+at our data,
+
+13:59.840 --> 14:00.680
+the smallest value
+
+14:00.680 --> 14:01.420
+that could have taken
+
+14:01.420 --> 14:02.620
+across the regroupings
+
+14:02.620 --> 14:04.640
+is when the two
+
+14:04.640 --> 14:05.560
+smallest observations
+
+14:05.560 --> 14:08.180
+were for the women,
+
+14:08.720 --> 14:10.180
+which were five and seven.
+
+14:10.440 --> 14:11.300
+So, there's one
+
+14:11.300 --> 14:13.780
+out of the 276
+
+14:13.780 --> 14:14.620
+groupings
+
+14:15.420 --> 14:16.320
+that gives a value
+
+14:16.320 --> 14:16.940
+of 12
+
+14:16.940 --> 14:17.900
+for our test statistic.
+
+14:18.700 --> 14:20.180
+The next smallest value
+
+14:20.180 --> 14:21.860
+is 17.
+
+14:22.660 --> 14:23.900
+Again, there's only one way
+
+14:23.900 --> 14:24.580
+to do that.
+
+14:24.580 --> 14:25.740
+The next smallest value
+
+14:25.740 --> 14:26.280
+is 19
+
+14:26.280 --> 14:27.040
+and actually there's
+
+14:27.040 --> 14:27.880
+quite a few ways
+
+14:27.880 --> 14:29.480
+that can arise
+
+14:29.480 --> 14:31.560
+and so on.
+
+14:32.040 --> 14:33.080
+So, we get
+
+14:33.080 --> 14:35.800
+different numbers
+
+14:35.800 --> 14:36.440
+of ways.
+
+14:39.300 --> 14:40.160
+So, remember,
+
+14:40.280 --> 14:41.020
+this is the sampling
+
+14:41.020 --> 14:41.980
+distribution of this
+
+14:41.980 --> 14:42.960
+test statistic
+
+14:42.960 --> 14:44.900
+under the null hypothesis
+
+14:44.900 --> 14:47.980
+and we actually observed
+
+14:47.980 --> 14:49.720
+something way up
+
+14:49.720 --> 14:50.440
+in the upper tail,
+
+14:50.900 --> 14:52.040
+682,
+
+14:52.720 --> 14:56.380
+and we were doing
+
+14:56.380 --> 14:57.600
+a one tail test
+
+14:57.600 --> 15:00.320
+and those three
+
+15:00.320 --> 15:01.200
+cases together
+
+15:01.200 --> 15:02.200
+would only have
+
+15:02.200 --> 15:02.780
+probability
+
+15:02.780 --> 15:05.700
+of about 0.1
+
+15:05.700 --> 15:08.060
+if all of these
+
+15:08.060 --> 15:08.740
+possibilities,
+
+15:09.320 --> 15:11.200
+all of the 276
+
+15:11.200 --> 15:12.100
+were equally likely.
+
+15:12.620 --> 15:14.280
+So, that seems large,
+
+15:14.340 --> 15:14.900
+it seems to be
+
+15:14.900 --> 15:16.040
+way up in the upper tail
+
+15:16.040 --> 15:17.260
+if, in fact,
+
+15:17.800 --> 15:20.140
+T really was
+
+15:20.140 --> 15:20.740
+following this
+
+15:20.740 --> 15:21.440
+distribution
+
+15:21.440 --> 15:25.220
+under our null hypothesis.
+
+15:25.220 --> 15:26.200
+So, as always,
+
+15:26.280 --> 15:26.960
+when we're performing
+
+15:26.960 --> 15:27.580
+a test,
+
+15:28.500 --> 15:29.340
+we're considering
+
+15:29.340 --> 15:30.420
+how does that
+
+15:30.420 --> 15:31.580
+test statistic behave
+
+15:31.580 --> 15:32.640
+if the null hypothesis
+
+15:32.640 --> 15:33.340
+was true?
+
+15:34.060 --> 15:34.660
+And here,
+
+15:34.760 --> 15:35.420
+we're doing a brute
+
+15:35.420 --> 15:36.200
+force approach.
+
+15:36.440 --> 15:37.240
+We're actually
+
+15:37.240 --> 15:39.300
+computing this
+
+15:39.300 --> 15:40.640
+sampling distribution
+
+15:40.640 --> 15:41.240
+explicitly.
+
+15:41.500 --> 15:42.040
+We're really only
+
+15:42.040 --> 15:43.000
+interested in the tails,
+
+15:43.140 --> 15:43.840
+but we should have
+
+15:43.840 --> 15:44.960
+this picture in our mind.
+
+15:47.760 --> 15:48.860
+Interestingly enough,
+
+15:49.760 --> 15:50.800
+the Capacci case
+
+15:50.800 --> 15:53.240
+was defeated
+
+15:53.240 --> 15:57.020
+even, I understand,
+
+15:57.360 --> 15:58.400
+after an appeal.
+
+16:00.220 --> 16:00.800
+Of course,
+
+16:01.040 --> 16:02.140
+although these data
+
+16:02.140 --> 16:02.960
+look compelling,
+
+16:03.600 --> 16:04.600
+there's more to the data
+
+16:04.600 --> 16:06.400
+than meets the eye.
+
+16:06.520 --> 16:07.240
+There's always a story
+
+16:07.240 --> 16:08.160
+behind our data.
+
+16:08.960 --> 16:10.380
+And, of course,
+
+16:11.000 --> 16:11.560
+the data
+
+16:11.560 --> 16:13.380
+only included information
+
+16:13.380 --> 16:14.020
+for people
+
+16:14.020 --> 16:15.080
+who made it to promotion.
+
+16:15.080 --> 16:16.380
+So, there's no
+
+16:16.380 --> 16:17.440
+information about
+
+16:17.440 --> 16:18.280
+people who
+
+16:18.280 --> 16:20.500
+served the company
+
+16:20.500 --> 16:21.440
+and who didn't get
+
+16:21.440 --> 16:22.420
+promoted in that time.
+
+16:22.880 --> 16:23.540
+And there was also
+
+16:23.540 --> 16:24.320
+evidence that there
+
+16:24.320 --> 16:25.340
+were women who had
+
+16:25.340 --> 16:27.400
+turned down promotion,
+
+16:27.620 --> 16:28.260
+so had been offered
+
+16:28.260 --> 16:29.740
+promotion but refused it.
+
+16:30.400 --> 16:31.440
+I think on the grounds
+
+16:31.440 --> 16:32.340
+that the nature of the
+
+16:32.340 --> 16:33.320
+work changed once they
+
+16:33.320 --> 16:33.920
+got promoted
+
+16:33.920 --> 16:35.600
+and didn't suit
+
+16:35.600 --> 16:36.000
+some women.
+
+16:36.840 --> 16:38.280
+So, although the data
+
+16:38.280 --> 16:39.040
+looked quite,
+
+16:39.380 --> 16:40.300
+these data looked
+
+16:40.300 --> 16:42.140
+quite convincing,
+
+16:42.140 --> 16:44.240
+the case was
+
+16:44.240 --> 16:46.500
+defeated in the event.
+
+16:48.400 --> 16:50.120
+Now, let's just
+
+16:50.120 --> 16:51.060
+conclude here
+
+16:51.060 --> 16:52.520
+with a brief
+
+16:52.520 --> 16:53.480
+talk
+
+16:53.480 --> 16:54.920
+about
+
+16:54.920 --> 16:56.500
+the extent
+
+16:56.500 --> 16:58.160
+of statistical
+
+16:58.160 --> 16:58.700
+inference.
+
+17:00.160 --> 17:00.880
+Because, as we
+
+17:00.880 --> 17:01.480
+described
+
+17:01.480 --> 17:02.680
+in this example,
+
+17:03.300 --> 17:04.220
+the data were not
+
+17:04.220 --> 17:04.820
+a sample.
+
+17:05.300 --> 17:05.720
+So, normally,
+
+17:05.820 --> 17:06.280
+when we're doing
+
+17:06.280 --> 17:06.760
+statistics,
+
+17:06.980 --> 17:07.500
+we're thinking to
+
+17:07.500 --> 17:08.360
+ourselves that we
+
+17:08.360 --> 17:09.400
+have some sort
+
+17:09.400 --> 17:10.760
+of population,
+
+17:10.760 --> 17:12.380
+so some sort
+
+17:12.380 --> 17:12.840
+of set
+
+17:12.840 --> 17:14.740
+of individuals
+
+17:14.740 --> 17:16.360
+or objects
+
+17:16.360 --> 17:17.380
+or something,
+
+17:18.540 --> 17:20.240
+and we take
+
+17:20.240 --> 17:22.000
+a sample
+
+17:22.000 --> 17:23.500
+from that
+
+17:23.500 --> 17:25.100
+population.
+
+17:26.180 --> 17:27.220
+We hope,
+
+17:29.200 --> 17:30.000
+or it should be
+
+17:30.000 --> 17:30.320
+hoped,
+
+17:30.700 --> 17:31.600
+that we take
+
+17:31.600 --> 17:32.100
+the sample
+
+17:32.100 --> 17:33.360
+in some sensible
+
+17:33.360 --> 17:34.780
+way as to
+
+17:34.780 --> 17:35.820
+minimise bias.
+
+17:36.280 --> 17:37.460
+And a simple
+
+17:37.460 --> 17:38.340
+random sample,
+
+17:39.080 --> 17:40.340
+rather like a
+
+17:40.340 --> 17:42.020
+lottery or
+
+17:42.020 --> 17:42.320
+raffle,
+
+17:42.700 --> 17:43.880
+is the optimal
+
+17:43.880 --> 17:44.660
+type of sample
+
+17:44.660 --> 17:45.240
+to take.
+
+17:45.640 --> 17:46.240
+And if we were
+
+17:46.240 --> 17:46.840
+to take such a
+
+17:46.840 --> 17:47.120
+sample,
+
+17:47.260 --> 17:48.200
+then we'd be
+
+17:48.200 --> 17:49.000
+probably quite
+
+17:49.000 --> 17:50.420
+happy in
+
+17:50.420 --> 17:51.960
+drawing inference
+
+17:51.960 --> 17:58.240
+about our sample
+
+17:58.240 --> 17:59.860
+back to the
+
+17:59.860 --> 18:00.420
+population.
+
+18:01.360 --> 18:02.240
+More often,
+
+18:02.580 --> 18:03.060
+particularly when
+
+18:03.060 --> 18:03.420
+we're dealing
+
+18:03.420 --> 18:04.100
+with populations
+
+18:04.100 --> 18:05.040
+of human beings,
+
+18:05.040 --> 18:06.260
+it's very difficult
+
+18:06.260 --> 18:07.860
+to take a true
+
+18:07.860 --> 18:08.900
+random sample
+
+18:08.900 --> 18:10.120
+like a lottery.
+
+18:10.640 --> 18:10.820
+Now,
+
+18:10.860 --> 18:11.020
+in the
+
+18:11.020 --> 18:11.720
+Capaccio case,
+
+18:12.600 --> 18:13.260
+the data were
+
+18:13.260 --> 18:14.060
+not a sample.
+
+18:14.980 --> 18:15.420
+So,
+
+18:15.640 --> 18:16.140
+the inference,
+
+18:16.240 --> 18:16.620
+if anything,
+
+18:16.920 --> 18:17.800
+was about the
+
+18:17.800 --> 18:19.240
+process which gave
+
+18:19.240 --> 18:19.880
+rise to the
+
+18:19.880 --> 18:20.720
+promotion times.
+
+18:21.140 --> 18:21.340
+So,
+
+18:21.400 --> 18:21.900
+whatever the
+
+18:21.900 --> 18:22.980
+processes were,
+
+18:23.260 --> 18:23.840
+or if there was
+
+18:23.840 --> 18:24.760
+a single process,
+
+18:25.260 --> 18:26.700
+really did it differ
+
+18:26.700 --> 18:27.620
+for the men
+
+18:27.620 --> 18:28.060
+and the women.
+
+18:28.520 --> 18:28.860
+So,
+
+18:28.860 --> 18:29.620
+we can imagine
+
+18:29.620 --> 18:30.420
+some mechanism,
+
+18:30.740 --> 18:32.240
+some pseudo-random
+
+18:32.240 --> 18:33.120
+process which is
+
+18:33.120 --> 18:34.080
+giving rise to the
+
+18:34.080 --> 18:34.420
+data,
+
+18:34.420 --> 18:36.040
+and we were
+
+18:36.040 --> 18:36.720
+interested in,
+
+18:36.860 --> 18:37.000
+well,
+
+18:37.360 --> 18:38.560
+however this process
+
+18:38.560 --> 18:39.160
+operated,
+
+18:39.640 --> 18:40.420
+is it giving the
+
+18:40.420 --> 18:41.300
+same sort of data
+
+18:41.300 --> 18:42.160
+for men as it did
+
+18:42.160 --> 18:42.580
+for women?
+
+18:45.180 --> 18:45.680
+So,
+
+18:45.740 --> 18:46.060
+there was no
+
+18:46.060 --> 18:46.980
+sample there
+
+18:46.980 --> 18:47.400
+as such,
+
+18:47.460 --> 18:48.260
+unless one thinks
+
+18:48.260 --> 18:50.840
+of hypothetical
+
+18:50.840 --> 18:52.600
+individuals who
+
+18:52.600 --> 18:53.480
+might have worked
+
+18:53.480 --> 18:53.960
+for the company
+
+18:53.960 --> 18:54.540
+but didn't,
+
+18:54.900 --> 18:55.560
+and their promotion
+
+18:55.560 --> 18:57.060
+times we weren't
+
+18:57.060 --> 18:57.620
+observed,
+
+18:57.740 --> 18:58.560
+but we actually
+
+18:58.560 --> 18:59.300
+observed some
+
+18:59.300 --> 19:01.020
+subset of people
+
+19:01.020 --> 19:02.320
+who did work
+
+19:02.320 --> 19:03.240
+for the company.
+
+19:04.420 --> 19:04.980
+Now,
+
+19:05.700 --> 19:06.240
+extending the
+
+19:06.240 --> 19:06.780
+idea a little
+
+19:06.780 --> 19:07.400
+further,
+
+19:07.900 --> 19:09.900
+we'll discuss
+
+19:09.900 --> 19:11.180
+in the course
+
+19:11.180 --> 19:12.080
+examples of
+
+19:12.080 --> 19:13.520
+what we would
+
+19:13.520 --> 19:14.380
+describe as
+
+19:14.380 --> 19:15.320
+experiments.
+
+19:15.940 --> 19:16.100
+So,
+
+19:16.180 --> 19:17.020
+sometimes we
+
+19:17.020 --> 19:19.160
+don't just
+
+19:19.160 --> 19:19.620
+stop at
+
+19:19.620 --> 19:20.120
+taking a
+
+19:20.120 --> 19:21.660
+sample and
+
+19:21.660 --> 19:23.420
+observing what
+
+19:23.420 --> 19:24.280
+we've seen
+
+19:24.280 --> 19:25.000
+from the sample,
+
+19:25.400 --> 19:26.360
+we do some
+
+19:26.360 --> 19:26.680
+sort of
+
+19:26.680 --> 19:27.180
+experiment,
+
+19:27.380 --> 19:27.680
+and an
+
+19:27.680 --> 19:28.100
+experiment
+
+19:28.100 --> 19:28.780
+involves,
+
+19:30.260 --> 19:30.740
+in the
+
+19:30.740 --> 19:31.440
+simplest form,
+
+19:32.140 --> 19:33.580
+just applying
+
+19:33.580 --> 19:34.560
+some treatments
+
+19:34.560 --> 19:37.020
+to our
+
+19:37.020 --> 19:38.100
+sample.
+
+19:40.900 --> 19:41.380
+Now,
+
+19:41.440 --> 19:42.600
+sample individuals
+
+19:42.600 --> 19:43.440
+tend to be
+
+19:43.440 --> 19:43.800
+called
+
+19:43.800 --> 19:45.060
+experimental
+
+19:45.060 --> 19:45.920
+units,
+
+19:46.440 --> 19:46.740
+or,
+
+19:49.140 --> 19:50.260
+less dispassionately
+
+19:50.260 --> 19:50.740
+if they're human
+
+19:50.740 --> 19:51.280
+beings,
+
+19:51.440 --> 19:52.120
+subjects,
+
+19:52.120 --> 19:56.100
+and we
+
+19:56.100 --> 19:56.760
+would hope,
+
+19:57.360 --> 19:58.120
+in a nice
+
+19:58.120 --> 19:58.580
+experiment,
+
+19:59.160 --> 19:59.940
+to allocate
+
+19:59.940 --> 20:01.300
+experimental
+
+20:01.300 --> 20:03.520
+units to
+
+20:03.520 --> 20:04.220
+treatments
+
+20:04.220 --> 20:07.000
+at random.
+
+20:07.680 --> 20:08.000
+And a
+
+20:08.000 --> 20:08.520
+well-designed
+
+20:08.520 --> 20:09.560
+experiment will
+
+20:09.560 --> 20:10.160
+be such that,
+
+20:10.220 --> 20:10.320
+well,
+
+20:10.380 --> 20:11.000
+however we've
+
+20:11.000 --> 20:11.460
+got our
+
+20:11.460 --> 20:11.920
+experimental
+
+20:11.920 --> 20:12.620
+units,
+
+20:13.160 --> 20:13.740
+which will
+
+20:13.740 --> 20:15.080
+almost always
+
+20:15.080 --> 20:15.600
+be by some
+
+20:15.600 --> 20:15.900
+sort of
+
+20:15.900 --> 20:16.240
+sampling
+
+20:16.240 --> 20:16.760
+procedure,
+
+20:16.760 --> 20:18.120
+then we
+
+20:18.120 --> 20:18.620
+have
+
+20:18.620 --> 20:19.780
+randomisation
+
+20:19.780 --> 20:20.700
+in that we
+
+20:20.700 --> 20:21.920
+randomly allocate
+
+20:21.920 --> 20:23.140
+individuals to
+
+20:23.140 --> 20:24.120
+treatments.
+
+20:25.260 --> 20:25.740
+So,
+
+20:25.840 --> 20:26.140
+for example,
+
+20:26.220 --> 20:26.580
+if we had a
+
+20:26.580 --> 20:26.960
+sample of
+
+20:26.960 --> 20:27.700
+cancer patients,
+
+20:27.860 --> 20:28.180
+so a
+
+20:28.180 --> 20:28.520
+sample of
+
+20:28.520 --> 20:29.220
+individuals who
+
+20:29.220 --> 20:29.740
+all suffer
+
+20:29.740 --> 20:30.100
+from,
+
+20:30.200 --> 20:30.540
+let's say,
+
+20:30.600 --> 20:31.280
+colon cancer,
+
+20:31.600 --> 20:32.300
+and we have
+
+20:32.300 --> 20:32.820
+some different
+
+20:32.820 --> 20:33.520
+treatments to
+
+20:33.520 --> 20:33.880
+test,
+
+20:34.240 --> 20:34.860
+then we would
+
+20:34.860 --> 20:35.660
+randomise
+
+20:35.660 --> 20:36.700
+patients to
+
+20:36.700 --> 20:37.180
+treatments.
+
+20:38.000 --> 20:38.420
+So,
+
+20:38.580 --> 20:39.060
+this would be
+
+20:39.060 --> 20:39.260
+done,
+
+20:39.360 --> 20:39.600
+hopefully,
+
+20:39.700 --> 20:40.420
+in a double
+
+20:40.420 --> 20:41.180
+blind way,
+
+20:41.580 --> 20:42.080
+the patients
+
+20:42.080 --> 20:42.520
+don't know
+
+20:42.520 --> 20:42.920
+what treatment
+
+20:42.920 --> 20:43.400
+they're getting,
+
+20:43.620 --> 20:43.920
+and the
+
+20:43.920 --> 20:44.520
+doctors making
+
+20:44.520 --> 20:45.220
+the diagnosis
+
+20:45.220 --> 20:46.220
+don't know
+
+20:46.220 --> 20:46.920
+what sort
+
+20:46.920 --> 20:47.340
+of treatment
+
+20:47.340 --> 20:47.800
+they're getting
+
+20:47.800 --> 20:48.120
+either.
+
+20:48.900 --> 20:49.640
+A little more
+
+20:49.640 --> 20:50.200
+on that later.
+
+20:51.160 --> 20:51.380
+Now,
+
+20:51.420 --> 20:52.120
+in that case,
+
+20:52.360 --> 20:52.980
+it probably
+
+20:52.980 --> 20:53.480
+doesn't matter
+
+20:53.480 --> 20:54.300
+a great deal
+
+20:54.300 --> 20:54.920
+how the
+
+20:54.920 --> 20:55.540
+sample were
+
+20:55.540 --> 20:56.120
+obtained,
+
+20:56.340 --> 20:56.920
+so long as
+
+20:56.920 --> 20:57.080
+there's
+
+20:57.080 --> 20:57.960
+randomisation
+
+20:57.960 --> 20:58.640
+in the
+
+20:58.640 --> 20:59.340
+allocation
+
+20:59.340 --> 21:00.040
+of
+
+21:00.040 --> 21:01.920
+patients to
+
+21:01.920 --> 21:02.260
+treatment,
+
+21:02.720 --> 21:03.200
+we can
+
+21:03.200 --> 21:03.700
+make
+
+21:03.700 --> 21:04.680
+inference
+
+21:04.680 --> 21:05.700
+from
+
+21:05.700 --> 21:06.620
+our
+
+21:06.620 --> 21:08.300
+data,
+
+21:08.800 --> 21:09.280
+so we
+
+21:09.280 --> 21:09.760
+measure some
+
+21:09.760 --> 21:10.280
+responses,
+
+21:12.040 --> 21:12.720
+we can
+
+21:12.720 --> 21:12.940
+make
+
+21:12.940 --> 21:13.520
+inference
+
+21:13.520 --> 21:15.600
+about
+
+21:15.600 --> 21:17.060
+the
+
+21:17.060 --> 21:18.180
+treatments.
+
+21:19.660 --> 21:20.220
+Whether
+
+21:20.220 --> 21:20.680
+we can
+
+21:20.680 --> 21:21.440
+then extend
+
+21:21.440 --> 21:22.800
+that to
+
+21:22.800 --> 21:24.120
+the
+
+21:24.120 --> 21:24.740
+population,
+
+21:26.640 --> 21:27.720
+well,
+
+21:27.840 --> 21:28.340
+that may
+
+21:28.340 --> 21:28.700
+be a little
+
+21:28.700 --> 21:29.400
+more tenuous
+
+21:29.400 --> 21:30.600
+because it
+
+21:30.600 --> 21:31.200
+may not
+
+21:31.200 --> 21:31.900
+be that the
+
+21:31.900 --> 21:32.540
+sample of
+
+21:32.540 --> 21:34.360
+individuals in
+
+21:34.360 --> 21:36.020
+our experiment
+
+21:36.020 --> 21:36.900
+were a
+
+21:36.900 --> 21:37.620
+random sample
+
+21:37.620 --> 21:37.980
+of all
+
+21:37.980 --> 21:38.480
+possible,
+
+21:38.980 --> 21:39.380
+well,
+
+21:39.720 --> 21:40.420
+individuals in
+
+21:40.420 --> 21:41.060
+the so-called
+
+21:41.060 --> 21:42.040
+target population.
+
+21:43.520 --> 21:45.840
+but even
+
+21:45.840 --> 21:46.140
+if the
+
+21:46.140 --> 21:46.700
+sample were
+
+21:46.700 --> 21:48.020
+biased in
+
+21:48.020 --> 21:48.580
+some way,
+
+21:49.660 --> 21:50.340
+we would
+
+21:50.340 --> 21:51.120
+hope that
+
+21:51.120 --> 21:52.640
+randomisation
+
+21:52.640 --> 21:53.440
+will still
+
+21:53.440 --> 21:53.900
+give
+
+21:53.900 --> 21:55.520
+appropriate
+
+21:55.520 --> 21:56.780
+inference
+
+21:56.780 --> 21:57.460
+about the
+
+21:57.460 --> 21:58.060
+treatments,
+
+21:58.060 --> 22:01.900
+whether we
+
+22:01.900 --> 22:02.740
+could extend
+
+22:02.740 --> 22:03.160
+to the
+
+22:03.160 --> 22:03.440
+whole
+
+22:03.440 --> 22:03.840
+target
+
+22:03.840 --> 22:04.500
+population,
+
+22:05.000 --> 22:05.180
+I mean,
+
+22:05.220 --> 22:05.460
+there may
+
+22:05.460 --> 22:05.680
+be,
+
+22:06.020 --> 22:06.500
+for example,
+
+22:07.180 --> 22:08.320
+subsets of
+
+22:08.320 --> 22:08.680
+the target
+
+22:08.680 --> 22:09.260
+population
+
+22:09.260 --> 22:09.900
+which were
+
+22:09.900 --> 22:10.320
+for some
+
+22:10.320 --> 22:11.040
+reason excluded
+
+22:11.040 --> 22:11.740
+from the
+
+22:11.740 --> 22:12.400
+possibility of
+
+22:12.400 --> 22:13.040
+appearing in
+
+22:13.040 --> 22:14.400
+our set of
+
+22:14.400 --> 22:14.980
+experimental
+
+22:14.980 --> 22:15.960
+subjects,
+
+22:16.380 --> 22:16.820
+experimental
+
+22:16.820 --> 22:17.360
+units,
+
+22:17.960 --> 22:19.920
+then we
+
+22:19.920 --> 22:21.960
+may not be
+
+22:21.960 --> 22:22.520
+able to make
+
+22:22.520 --> 22:23.020
+the inference
+
+22:23.020 --> 22:23.400
+that this
+
+22:23.400 --> 22:24.080
+will always
+
+22:24.080 --> 22:24.680
+apply to
+
+22:24.680 --> 22:26.180
+all members
+
+22:26.180 --> 22:26.460
+of the
+
+22:26.460 --> 22:27.020
+population,
+
+22:27.700 --> 22:28.420
+but the
+
+22:28.420 --> 22:30.020
+treatments we
+
+22:30.020 --> 22:30.520
+may be able
+
+22:30.520 --> 22:30.980
+to draw
+
+22:30.980 --> 22:31.920
+conclusions about.
+
+22:33.240 --> 22:33.960
+In the
+
+22:33.960 --> 22:34.740
+ideal world,
+
+22:34.940 --> 22:35.560
+we would have
+
+22:35.560 --> 22:35.920
+a random
+
+22:35.920 --> 22:36.500
+sample from
+
+22:36.500 --> 22:37.160
+our population
+
+22:37.160 --> 22:38.260
+and in an
+
+22:38.260 --> 22:38.620
+experiment
+
+22:38.620 --> 22:39.880
+randomly assign
+
+22:39.880 --> 22:42.480
+individuals to
+
+22:42.480 --> 22:43.020
+treatments,
+
+22:43.660 --> 22:44.420
+and then we
+
+22:44.420 --> 22:44.860
+really,
+
+22:45.000 --> 22:45.640
+we'd be quite
+
+22:45.640 --> 22:46.480
+happy to do
+
+22:46.480 --> 22:46.980
+a,
+
+22:47.860 --> 22:49.760
+in the ideal
+
+22:49.760 --> 22:50.220
+case,
+
+22:50.560 --> 22:51.000
+we'd be quite
+
+22:51.000 --> 22:51.640
+happy to do a
+
+22:51.640 --> 22:52.540
+permutation test
+
+22:52.540 --> 22:53.200
+in those cases,
+
+22:53.200 --> 22:53.920
+we probably don't
+
+22:53.920 --> 22:54.820
+need any statistical
+
+22:54.820 --> 22:56.380
+model to describe
+
+22:56.380 --> 22:57.900
+the variable that
+
+22:57.900 --> 22:58.400
+we're measuring,
+
+22:58.940 --> 22:59.580
+and in that
+
+22:59.580 --> 23:00.420
+case, a
+
+23:00.420 --> 23:01.620
+permutation test
+
+23:01.620 --> 23:03.160
+is simply
+
+23:03.160 --> 23:05.020
+dubbed a
+
+23:05.020 --> 23:06.440
+randomisation test
+
+23:06.440 --> 23:07.420
+just to make it
+
+23:07.420 --> 23:09.000
+clear that
+
+23:09.000 --> 23:10.700
+there was
+
+23:10.700 --> 23:11.680
+randomisation in
+
+23:11.680 --> 23:12.220
+the allocation
+
+23:12.220 --> 23:14.020
+of the units
+
+23:14.020 --> 23:14.740
+to the treatment.
+
+23:16.120 --> 23:17.120
+It's just a
+
+23:17.120 --> 23:18.060
+permutation test.
+
+23:18.060 --> 23:21.880
+the mechanism
+
+23:21.880 --> 23:22.600
+by which the
+
+23:22.600 --> 23:23.100
+test is
+
+23:23.100 --> 23:24.120
+performed
+
+23:24.120 --> 23:25.200
+is really
+
+23:25.200 --> 23:25.660
+just the
+
+23:25.660 --> 23:25.980
+same.
+
+23:28.820 --> 23:29.260
+So,
+
+23:29.380 --> 23:29.780
+permutation
+
+23:29.780 --> 23:30.400
+tests,
+
+23:30.960 --> 23:31.760
+sometimes known
+
+23:31.760 --> 23:32.180
+also as
+
+23:32.180 --> 23:32.740
+randomisation
+
+23:32.740 --> 23:33.120
+tests,
+
+23:33.180 --> 23:33.580
+are very
+
+23:33.580 --> 23:34.000
+powerful
+
+23:34.000 --> 23:34.600
+tests,
+
+23:35.200 --> 23:36.280
+powerful in
+
+23:36.280 --> 23:36.700
+the sense
+
+23:36.700 --> 23:37.540
+of they
+
+23:37.540 --> 23:37.840
+can be
+
+23:37.840 --> 23:38.820
+applied in
+
+23:38.820 --> 23:39.340
+a wide
+
+23:39.340 --> 23:39.780
+range of
+
+23:39.780 --> 23:40.260
+scenarios,
+
+23:40.500 --> 23:40.860
+they give
+
+23:40.860 --> 23:41.860
+an exact
+
+23:41.860 --> 23:42.480
+inference,
+
+23:43.020 --> 23:43.660
+but they
+
+23:43.660 --> 23:44.600
+are computationally
+
+23:44.600 --> 23:45.000
+intensive.
+
+23:45.480 --> 23:45.800
+We have
+
+23:45.800 --> 23:46.440
+computers these
+
+23:46.440 --> 23:47.700
+days, and
+
+23:47.700 --> 23:48.320
+the history
+
+23:48.320 --> 23:48.800
+of statistics
+
+23:48.800 --> 23:49.180
+would have
+
+23:49.180 --> 23:49.640
+looked rather
+
+23:49.640 --> 23:51.040
+different had
+
+23:51.040 --> 23:53.320
+the grandfathers
+
+23:53.320 --> 23:55.060
+and grandmothers
+
+23:55.060 --> 23:56.020
+of the subject
+
+23:56.020 --> 23:57.100
+had the
+
+23:57.100 --> 23:57.640
+computational
+
+23:57.640 --> 23:58.240
+power that
+
+23:58.240 --> 23:58.580
+we have
+
+23:58.580 --> 23:59.220
+available to
+
+23:59.220 --> 23:59.720
+us today.
+
+24:00.840 --> 24:01.700
+So that's a
+
+24:01.700 --> 24:02.400
+little bit about
+
+24:02.400 --> 24:03.560
+permutation tests.
+
+24:03.900 --> 24:04.480
+I hope you
+
+24:04.480 --> 24:05.240
+understood it
+
+24:05.240 --> 24:05.920
+and enjoyed it.
+

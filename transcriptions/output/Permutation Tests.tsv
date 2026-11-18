@@ -1,0 +1,670 @@
+start	end	text
+0	15480	We're going to describe a class of tests called permutation tests, and in particular two-sample
+15480	25620	permutation tests. Now permutation tests are a family of tests which are at least when sample
+25620	38280	sizes are not small, they're computationally intensive. Luckily today we have software
+38280	51660	available and the software package R provides commands for performing permutation tests.
+51660	64900	Well, we'll illustrate with an example. An example is a US trial, a civil trial, a discrimination
+64900	78900	case from 1981, and the plaintiff was named Andrea Capacci, and she brought a case to the
+78900	91900	court against her employers, Katz and Besthoff, Inc. Now you can Google this trial if you
+91900	100900	like. And this trial was a sexual discrimination trial, and as part of the evidence there were
+100900	121900	data presented about times to promotion in months for men and women in the company over a period
+121900	133900	of time. So, for the men's times to promotion, the figures in order were something like this,
+133900	147900	5, 7, 12, 40, 40, won't give the full data here. There were 22 promotion times for men, and the
+147900	159900	sample size was 483. So let's say N1 sample size for the men was 22. There were only actually two women
+159900	174900	who got promoted, and their promotion times were 229 and 453. So, what would our null hypothesis be here? Well, we'll
+174900	183900	return to the notion of the extent of inference in general, just at the end of this little lecture. We
+183900	190900	noticed that really the data here are not samples, they represent the complete data that were available
+190900	198900	for individuals who were promoted over a particular time period. The time period itself is a form of a sample, but
+198900	207900	given the time period was determined by the duration of time that the plaintiff Kapachi had been in the
+207900	216900	employment of the company, that was kind of fixed. So, the process by which the data give rise to the
+216900	224900	the the process by which these promotion times are created, I suppose, is the the essence of what we're
+224900	235900	interested in. And whatever the processes were, they give rise to some data, we've observed the data. The
+235900	260900	null hypothesis would be that the distribution of times to promotion for men and women were the same over the
+260900	270900	time period in question. This would, of course, imply that they have the same means, the same medians.
+270900	283900	What would we take as the alternative hypothesis? Well, for sure, the distributions are different, which would
+283900	288900	simply be the negation of the null hypothesis. But I would argue here that one should consider only a
+288900	308900	one-sided alternative. The one-sided alternative being that the women's promotion times are greater, on average. So, the
+308900	315900	distribution of the distribution of the women's promotion times was, on average, larger. So, I had a greater
+315900	329900	mean, say, or greater median than that for the men. Now, why would I take a one-sided case here? I would argue that, given
+329900	339900	that this is a discrimination trial, it is inconceivable that a case would make it to the court for a claim for
+339900	346900	discrimination against women, gender discrimination, where in fact there was evidence that there was positive
+346900	356900	discrimination, or it was plausible, in any way, that there was positive discrimination towards women. Hence, I consider here the
+356900	364900	only logical alternative one can take to the null is an alternative which is one-sided. And that is the case that
+364900	373900	we will consider. So, what do we do in a permutation test? Well, we choose some test statistic or other. So, what should I
+373900	383900	choose as a test statistic? You can pretty much choose anything that would be a sensible choice. I'm going to choose something very
+383900	404900	simple. The sum of the women's promotion times, which in this case is 229 plus 453 is 682. That might strike you as
+404900	410900	being an odd choice for test statistic, just the sum of the data for the women. In fact, I'd get exactly the same inference
+410900	418900	inference here, if I chose the sample means, the difference in the sample means of the test statistic, or even the t
+418900	425900	statistic. So, if you were doing a two-sample t-test here, well, you've only got two observations for the women's group, but you
+425900	439900	could do a two-sample t-test, and I'd get the same inference, actually. I think I'm at it saying. So, the question we ask ourselves is, we have data,
+439900	467900	we have data for men, and we have data for women, and we have 22 observations for the men, and two for the women's, so 24 observations in total, two of which were women's, and 22 were men. So, we ask ourselves, well, how many, I'll say regroupings, are there, of 24 observations, where we put two in one group,
+467900	489900	and 22 in another? Well, the answer is, of course, 24 choose 2. So, 24 observations. I don't really care about the ordering in each group, I just care about how many ways I can put two in one group and 22 in another.
+489900	504500	And if we work that out, that comes to 276. So, there are 276 ways of taking 24 numbers and putting two in one group, call that the women, and 22 in the other.
+504500	508420	And under the null hypothesis, well, all of those regroupings should be equally likely.
+510920	524140	Now, the question that we ask is, how many of those give a value of the test statistic at least as inconsistent as the one that we've observed, which is 682?
+524140	527420	Well, we can enumerate them.
+529200	534620	In particular, the one that we observed, so we always include that one.
+535860	539480	So, that was the one that we observed. What else might we have observed?
+539480	544700	Well, we might have observed 229 and 483.
+547040	555380	We might have observed 453 and 483, the two largest values.
+555380	574980	So, those three ways to group our data to give a test statistic
+574980	594220	at least as inconsistent with the null hypothesis as the one that we observed.
+601220	602960	So, how do we find our p-value?
+602960	609240	Well, our p-value says, well, actually there were 276 ways,
+609640	613620	all of which should be equally likely of grouping the data,
+614240	620400	of which three gave a value at least as inconsistent as the one we observed.
+620520	622120	Of course, that includes the one we observed.
+623460	628860	And given that we're doing a one-tailed test,
+628860	633860	the p-value is just based on that tail,
+633860	638360	and we have a p-value of 0.01,
+639000	642340	so around 1%.
+642340	644160	So, that's quite strong evidence
+644160	656000	against the null hypothesis that the men and women's promotion times
+656000	657440	were from the same distribution.
+659720	661780	Notice that if we did a two-tailed test,
+661780	666660	we'd also arrive at a conclusion that there was evidence,
+666720	667900	although a little less strong,
+668600	670040	against the null hypothesis.
+671680	673440	Let's talk in generality now,
+673700	677280	and describe what we've done in the general case,
+677280	680540	where we've got two samples
+680540	683120	of size,
+684640	689100	let's call them M and N, respectively.
+690700	693320	So, I choose a test statistic.
+693320	700300	You can simply choose a test statistic
+700300	705560	that is a test statistic for a test that you already know,
+705720	708200	so you could choose a two-sample-t-test statistic,
+708960	710840	or rank sum, or whatever.
+715320	717780	We find, at least in principle,
+717780	719580	the test statistic
+719580	723120	that we chose
+723120	725160	for all
+725160	726240	of the
+726240	728100	n plus m
+728100	729060	to n
+729060	733220	regroupings
+733220	735920	of the data.
+738520	740060	So, all the ways in which
+740060	742320	we can assign the n plus m
+742320	742900	numbers
+742900	745800	into a group of n and a group of m.
+747780	751540	find the number
+751540	753480	of samples
+753480	759560	that have a test statistic
+759560	767360	at least
+767360	769540	as inconsistent
+769540	774740	with the null hypothesis
+774740	780300	as not observed.
+781720	782740	It's the one that we saw.
+784500	786600	And we divide that number
+786600	792300	so that count
+792300	794880	by
+794880	797020	n plus m
+797020	797800	to n
+797800	802100	to give our p-value.
+803500	804500	So, let's just
+804500	805880	talk a little bit more
+805880	806920	about our example
+806920	808980	in this
+808980	810160	Apache case.
+810820	811040	So,
+811720	813000	the data in the trial
+813000	817340	was such that
+817340	818260	if we choose
+818260	818780	t
+818780	820200	as our test statistic,
+820360	821180	let's say it's the
+821180	829820	total of the women's
+829820	835240	promotion times.
+836720	837800	We notice that
+837800	838480	if we look back
+838480	839060	at our data,
+839840	840680	the smallest value
+840680	841420	that could have taken
+841420	842620	across the regroupings
+842620	844640	is when the two
+844640	845560	smallest observations
+845560	848180	were for the women,
+848720	850180	which were five and seven.
+850440	851300	So, there's one
+851300	853780	out of the 276
+853780	854620	groupings
+855420	856320	that gives a value
+856320	856940	of 12
+856940	857900	for our test statistic.
+858700	860180	The next smallest value
+860180	861860	is 17.
+862660	863900	Again, there's only one way
+863900	864580	to do that.
+864580	865740	The next smallest value
+865740	866280	is 19
+866280	867040	and actually there's
+867040	867880	quite a few ways
+867880	869480	that can arise
+869480	871560	and so on.
+872040	873080	So, we get
+873080	875800	different numbers
+875800	876440	of ways.
+879300	880160	So, remember,
+880280	881020	this is the sampling
+881020	881980	distribution of this
+881980	882960	test statistic
+882960	884900	under the null hypothesis
+884900	887980	and we actually observed
+887980	889720	something way up
+889720	890440	in the upper tail,
+890900	892040	682,
+892720	896380	and we were doing
+896380	897600	a one tail test
+897600	900320	and those three
+900320	901200	cases together
+901200	902200	would only have
+902200	902780	probability
+902780	905700	of about 0.1
+905700	908060	if all of these
+908060	908740	possibilities,
+909320	911200	all of the 276
+911200	912100	were equally likely.
+912620	914280	So, that seems large,
+914340	914900	it seems to be
+914900	916040	way up in the upper tail
+916040	917260	if, in fact,
+917800	920140	T really was
+920140	920740	following this
+920740	921440	distribution
+921440	925220	under our null hypothesis.
+925220	926200	So, as always,
+926280	926960	when we're performing
+926960	927580	a test,
+928500	929340	we're considering
+929340	930420	how does that
+930420	931580	test statistic behave
+931580	932640	if the null hypothesis
+932640	933340	was true?
+934060	934660	And here,
+934760	935420	we're doing a brute
+935420	936200	force approach.
+936440	937240	We're actually
+937240	939300	computing this
+939300	940640	sampling distribution
+940640	941240	explicitly.
+941500	942040	We're really only
+942040	943000	interested in the tails,
+943140	943840	but we should have
+943840	944960	this picture in our mind.
+947760	948860	Interestingly enough,
+949760	950800	the Capacci case
+950800	953240	was defeated
+953240	957020	even, I understand,
+957360	958400	after an appeal.
+960220	960800	Of course,
+961040	962140	although these data
+962140	962960	look compelling,
+963600	964600	there's more to the data
+964600	966400	than meets the eye.
+966520	967240	There's always a story
+967240	968160	behind our data.
+968960	970380	And, of course,
+971000	971560	the data
+971560	973380	only included information
+973380	974020	for people
+974020	975080	who made it to promotion.
+975080	976380	So, there's no
+976380	977440	information about
+977440	978280	people who
+978280	980500	served the company
+980500	981440	and who didn't get
+981440	982420	promoted in that time.
+982880	983540	And there was also
+983540	984320	evidence that there
+984320	985340	were women who had
+985340	987400	turned down promotion,
+987620	988260	so had been offered
+988260	989740	promotion but refused it.
+990400	991440	I think on the grounds
+991440	992340	that the nature of the
+992340	993320	work changed once they
+993320	993920	got promoted
+993920	995600	and didn't suit
+995600	996000	some women.
+996840	998280	So, although the data
+998280	999040	looked quite,
+999380	1000300	these data looked
+1000300	1002140	quite convincing,
+1002140	1004240	the case was
+1004240	1006500	defeated in the event.
+1008400	1010120	Now, let's just
+1010120	1011060	conclude here
+1011060	1012520	with a brief
+1012520	1013480	talk
+1013480	1014920	about
+1014920	1016500	the extent
+1016500	1018160	of statistical
+1018160	1018700	inference.
+1020160	1020880	Because, as we
+1020880	1021480	described
+1021480	1022680	in this example,
+1023300	1024220	the data were not
+1024220	1024820	a sample.
+1025300	1025720	So, normally,
+1025820	1026280	when we're doing
+1026280	1026760	statistics,
+1026980	1027500	we're thinking to
+1027500	1028360	ourselves that we
+1028360	1029400	have some sort
+1029400	1030760	of population,
+1030760	1032380	so some sort
+1032380	1032840	of set
+1032840	1034740	of individuals
+1034740	1036360	or objects
+1036360	1037380	or something,
+1038540	1040240	and we take
+1040240	1042000	a sample
+1042000	1043500	from that
+1043500	1045100	population.
+1046180	1047220	We hope,
+1049200	1050000	or it should be
+1050000	1050320	hoped,
+1050700	1051600	that we take
+1051600	1052100	the sample
+1052100	1053360	in some sensible
+1053360	1054780	way as to
+1054780	1055820	minimise bias.
+1056280	1057460	And a simple
+1057460	1058340	random sample,
+1059080	1060340	rather like a
+1060340	1062020	lottery or
+1062020	1062320	raffle,
+1062700	1063880	is the optimal
+1063880	1064660	type of sample
+1064660	1065240	to take.
+1065640	1066240	And if we were
+1066240	1066840	to take such a
+1066840	1067120	sample,
+1067260	1068200	then we'd be
+1068200	1069000	probably quite
+1069000	1070420	happy in
+1070420	1071960	drawing inference
+1071960	1078240	about our sample
+1078240	1079860	back to the
+1079860	1080420	population.
+1081360	1082240	More often,
+1082580	1083060	particularly when
+1083060	1083420	we're dealing
+1083420	1084100	with populations
+1084100	1085040	of human beings,
+1085040	1086260	it's very difficult
+1086260	1087860	to take a true
+1087860	1088900	random sample
+1088900	1090120	like a lottery.
+1090640	1090820	Now,
+1090860	1091020	in the
+1091020	1091720	Capaccio case,
+1092600	1093260	the data were
+1093260	1094060	not a sample.
+1094980	1095420	So,
+1095640	1096140	the inference,
+1096240	1096620	if anything,
+1096920	1097800	was about the
+1097800	1099240	process which gave
+1099240	1099880	rise to the
+1099880	1100720	promotion times.
+1101140	1101340	So,
+1101400	1101900	whatever the
+1101900	1102980	processes were,
+1103260	1103840	or if there was
+1103840	1104760	a single process,
+1105260	1106700	really did it differ
+1106700	1107620	for the men
+1107620	1108060	and the women.
+1108520	1108860	So,
+1108860	1109620	we can imagine
+1109620	1110420	some mechanism,
+1110740	1112240	some pseudo-random
+1112240	1113120	process which is
+1113120	1114080	giving rise to the
+1114080	1114420	data,
+1114420	1116040	and we were
+1116040	1116720	interested in,
+1116860	1117000	well,
+1117360	1118560	however this process
+1118560	1119160	operated,
+1119640	1120420	is it giving the
+1120420	1121300	same sort of data
+1121300	1122160	for men as it did
+1122160	1122580	for women?
+1125180	1125680	So,
+1125740	1126060	there was no
+1126060	1126980	sample there
+1126980	1127400	as such,
+1127460	1128260	unless one thinks
+1128260	1130840	of hypothetical
+1130840	1132600	individuals who
+1132600	1133480	might have worked
+1133480	1133960	for the company
+1133960	1134540	but didn't,
+1134900	1135560	and their promotion
+1135560	1137060	times we weren't
+1137060	1137620	observed,
+1137740	1138560	but we actually
+1138560	1139300	observed some
+1139300	1141020	subset of people
+1141020	1142320	who did work
+1142320	1143240	for the company.
+1144420	1144980	Now,
+1145700	1146240	extending the
+1146240	1146780	idea a little
+1146780	1147400	further,
+1147900	1149900	we'll discuss
+1149900	1151180	in the course
+1151180	1152080	examples of
+1152080	1153520	what we would
+1153520	1154380	describe as
+1154380	1155320	experiments.
+1155940	1156100	So,
+1156180	1157020	sometimes we
+1157020	1159160	don't just
+1159160	1159620	stop at
+1159620	1160120	taking a
+1160120	1161660	sample and
+1161660	1163420	observing what
+1163420	1164280	we've seen
+1164280	1165000	from the sample,
+1165400	1166360	we do some
+1166360	1166680	sort of
+1166680	1167180	experiment,
+1167380	1167680	and an
+1167680	1168100	experiment
+1168100	1168780	involves,
+1170260	1170740	in the
+1170740	1171440	simplest form,
+1172140	1173580	just applying
+1173580	1174560	some treatments
+1174560	1177020	to our
+1177020	1178100	sample.
+1180900	1181380	Now,
+1181440	1182600	sample individuals
+1182600	1183440	tend to be
+1183440	1183800	called
+1183800	1185060	experimental
+1185060	1185920	units,
+1186440	1186740	or,
+1189140	1190260	less dispassionately
+1190260	1190740	if they're human
+1190740	1191280	beings,
+1191440	1192120	subjects,
+1192120	1196100	and we
+1196100	1196760	would hope,
+1197360	1198120	in a nice
+1198120	1198580	experiment,
+1199160	1199940	to allocate
+1199940	1201300	experimental
+1201300	1203520	units to
+1203520	1204220	treatments
+1204220	1207000	at random.
+1207680	1208000	And a
+1208000	1208520	well-designed
+1208520	1209560	experiment will
+1209560	1210160	be such that,
+1210220	1210320	well,
+1210380	1211000	however we've
+1211000	1211460	got our
+1211460	1211920	experimental
+1211920	1212620	units,
+1213160	1213740	which will
+1213740	1215080	almost always
+1215080	1215600	be by some
+1215600	1215900	sort of
+1215900	1216240	sampling
+1216240	1216760	procedure,
+1216760	1218120	then we
+1218120	1218620	have
+1218620	1219780	randomisation
+1219780	1220700	in that we
+1220700	1221920	randomly allocate
+1221920	1223140	individuals to
+1223140	1224120	treatments.
+1225260	1225740	So,
+1225840	1226140	for example,
+1226220	1226580	if we had a
+1226580	1226960	sample of
+1226960	1227700	cancer patients,
+1227860	1228180	so a
+1228180	1228520	sample of
+1228520	1229220	individuals who
+1229220	1229740	all suffer
+1229740	1230100	from,
+1230200	1230540	let's say,
+1230600	1231280	colon cancer,
+1231600	1232300	and we have
+1232300	1232820	some different
+1232820	1233520	treatments to
+1233520	1233880	test,
+1234240	1234860	then we would
+1234860	1235660	randomise
+1235660	1236700	patients to
+1236700	1237180	treatments.
+1238000	1238420	So,
+1238580	1239060	this would be
+1239060	1239260	done,
+1239360	1239600	hopefully,
+1239700	1240420	in a double
+1240420	1241180	blind way,
+1241580	1242080	the patients
+1242080	1242520	don't know
+1242520	1242920	what treatment
+1242920	1243400	they're getting,
+1243620	1243920	and the
+1243920	1244520	doctors making
+1244520	1245220	the diagnosis
+1245220	1246220	don't know
+1246220	1246920	what sort
+1246920	1247340	of treatment
+1247340	1247800	they're getting
+1247800	1248120	either.
+1248900	1249640	A little more
+1249640	1250200	on that later.
+1251160	1251380	Now,
+1251420	1252120	in that case,
+1252360	1252980	it probably
+1252980	1253480	doesn't matter
+1253480	1254300	a great deal
+1254300	1254920	how the
+1254920	1255540	sample were
+1255540	1256120	obtained,
+1256340	1256920	so long as
+1256920	1257080	there's
+1257080	1257960	randomisation
+1257960	1258640	in the
+1258640	1259340	allocation
+1259340	1260040	of
+1260040	1261920	patients to
+1261920	1262260	treatment,
+1262720	1263200	we can
+1263200	1263700	make
+1263700	1264680	inference
+1264680	1265700	from
+1265700	1266620	our
+1266620	1268300	data,
+1268800	1269280	so we
+1269280	1269760	measure some
+1269760	1270280	responses,
+1272040	1272720	we can
+1272720	1272940	make
+1272940	1273520	inference
+1273520	1275600	about
+1275600	1277060	the
+1277060	1278180	treatments.
+1279660	1280220	Whether
+1280220	1280680	we can
+1280680	1281440	then extend
+1281440	1282800	that to
+1282800	1284120	the
+1284120	1284740	population,
+1286640	1287720	well,
+1287840	1288340	that may
+1288340	1288700	be a little
+1288700	1289400	more tenuous
+1289400	1290600	because it
+1290600	1291200	may not
+1291200	1291900	be that the
+1291900	1292540	sample of
+1292540	1294360	individuals in
+1294360	1296020	our experiment
+1296020	1296900	were a
+1296900	1297620	random sample
+1297620	1297980	of all
+1297980	1298480	possible,
+1298980	1299380	well,
+1299720	1300420	individuals in
+1300420	1301060	the so-called
+1301060	1302040	target population.
+1303520	1305840	but even
+1305840	1306140	if the
+1306140	1306700	sample were
+1306700	1308020	biased in
+1308020	1308580	some way,
+1309660	1310340	we would
+1310340	1311120	hope that
+1311120	1312640	randomisation
+1312640	1313440	will still
+1313440	1313900	give
+1313900	1315520	appropriate
+1315520	1316780	inference
+1316780	1317460	about the
+1317460	1318060	treatments,
+1318060	1321900	whether we
+1321900	1322740	could extend
+1322740	1323160	to the
+1323160	1323440	whole
+1323440	1323840	target
+1323840	1324500	population,
+1325000	1325180	I mean,
+1325220	1325460	there may
+1325460	1325680	be,
+1326020	1326500	for example,
+1327180	1328320	subsets of
+1328320	1328680	the target
+1328680	1329260	population
+1329260	1329900	which were
+1329900	1330320	for some
+1330320	1331040	reason excluded
+1331040	1331740	from the
+1331740	1332400	possibility of
+1332400	1333040	appearing in
+1333040	1334400	our set of
+1334400	1334980	experimental
+1334980	1335960	subjects,
+1336380	1336820	experimental
+1336820	1337360	units,
+1337960	1339920	then we
+1339920	1341960	may not be
+1341960	1342520	able to make
+1342520	1343020	the inference
+1343020	1343400	that this
+1343400	1344080	will always
+1344080	1344680	apply to
+1344680	1346180	all members
+1346180	1346460	of the
+1346460	1347020	population,
+1347700	1348420	but the
+1348420	1350020	treatments we
+1350020	1350520	may be able
+1350520	1350980	to draw
+1350980	1351920	conclusions about.
+1353240	1353960	In the
+1353960	1354740	ideal world,
+1354940	1355560	we would have
+1355560	1355920	a random
+1355920	1356500	sample from
+1356500	1357160	our population
+1357160	1358260	and in an
+1358260	1358620	experiment
+1358620	1359880	randomly assign
+1359880	1362480	individuals to
+1362480	1363020	treatments,
+1363660	1364420	and then we
+1364420	1364860	really,
+1365000	1365640	we'd be quite
+1365640	1366480	happy to do
+1366480	1366980	a,
+1367860	1369760	in the ideal
+1369760	1370220	case,
+1370560	1371000	we'd be quite
+1371000	1371640	happy to do a
+1371640	1372540	permutation test
+1372540	1373200	in those cases,
+1373200	1373920	we probably don't
+1373920	1374820	need any statistical
+1374820	1376380	model to describe
+1376380	1377900	the variable that
+1377900	1378400	we're measuring,
+1378940	1379580	and in that
+1379580	1380420	case, a
+1380420	1381620	permutation test
+1381620	1383160	is simply
+1383160	1385020	dubbed a
+1385020	1386440	randomisation test
+1386440	1387420	just to make it
+1387420	1389000	clear that
+1389000	1390700	there was
+1390700	1391680	randomisation in
+1391680	1392220	the allocation
+1392220	1394020	of the units
+1394020	1394740	to the treatment.
+1396120	1397120	It's just a
+1397120	1398060	permutation test.
+1398060	1401880	the mechanism
+1401880	1402600	by which the
+1402600	1403100	test is
+1403100	1404120	performed
+1404120	1405200	is really
+1405200	1405660	just the
+1405660	1405980	same.
+1408820	1409260	So,
+1409380	1409780	permutation
+1409780	1410400	tests,
+1410960	1411760	sometimes known
+1411760	1412180	also as
+1412180	1412740	randomisation
+1412740	1413120	tests,
+1413180	1413580	are very
+1413580	1414000	powerful
+1414000	1414600	tests,
+1415200	1416280	powerful in
+1416280	1416700	the sense
+1416700	1417540	of they
+1417540	1417840	can be
+1417840	1418820	applied in
+1418820	1419340	a wide
+1419340	1419780	range of
+1419780	1420260	scenarios,
+1420500	1420860	they give
+1420860	1421860	an exact
+1421860	1422480	inference,
+1423020	1423660	but they
+1423660	1424600	are computationally
+1424600	1425000	intensive.
+1425480	1425800	We have
+1425800	1426440	computers these
+1426440	1427700	days, and
+1427700	1428320	the history
+1428320	1428800	of statistics
+1428800	1429180	would have
+1429180	1429640	looked rather
+1429640	1431040	different had
+1431040	1433320	the grandfathers
+1433320	1435060	and grandmothers
+1435060	1436020	of the subject
+1436020	1437100	had the
+1437100	1437640	computational
+1437640	1438240	power that
+1438240	1438580	we have
+1438580	1439220	available to
+1439220	1439720	us today.
+1440840	1441700	So that's a
+1441700	1442400	little bit about
+1442400	1443560	permutation tests.
+1443900	1444480	I hope you
+1444480	1445240	understood it
+1445240	1445920	and enjoyed it.

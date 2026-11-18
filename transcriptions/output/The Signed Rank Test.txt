@@ -1,0 +1,132 @@
+The signed rank test. Now this test is usually attributable to Wilcoxon, statistician Wilcoxon,
+and it's nearly always used as a test for matched pair data. So we have data in matched pairs.
+We'll clarify what that looks like presently. And as with a number of other methods we've looked at so far,
+it's a non-parametric test in that it makes no explicit assumption about the nature of the
+distribution that gives rise to the matched pairs. Well, here we'll start with an example. And an
+example is based here on assessing the mileage of a fuel with and without an additive, which is
+designed to increase the mileage per gallon. So the data is as follows. There are 12 compact cars
+cars. And their mileages were found with eight gallons of regular fuel. Let's call that R. And
+the same fuel with an additive. The additive being designed to, if anything, increase the miles per
+gallon. Let's call that A. So what would our data look like in this case? Well, let's label our cars
+one, two, three, four, and so on, up to 12. And for each car we have two mileages, one with the regular fuel
+and one with the fuel with the additive. Well, the full data are included in the online notes. But let's say
+for car one, it takes 142 miles for the eight gallons on the regular fuel and 144 with the additive.
+Car two actually did better with the regular fuel than with the additive. Car three 137 with the regular
+150 with the additive. And let's say for the final car 134 miles on the regular and 146 with the additive.
+So our data are in pairs. And that's a very important feature of the data in that we cannot assume
+that let's say the observations on each car. So if we chose a particular car, let's say car three,
+we couldn't assume that these observations 137 and 150 are independent of one another.
+So we don't have two independent samples of size 12. We have 12 sets of pairs of observations.
+Now, you have already met a test which considers paired data, and that's the paired t-test. And what do we do in the paired t-test?
+Well, we look at the within-pair differences. And I'll call the within-pair differences D.
+And I'll take the regular away from the additive. You could do it the other way around without any loss.
+So here we have 2, here minus 8, 13, and so on, and 12 at the end here.
+I'll write out the full set of differences later on. Now, these are taken to be observations
+from some random variable, let's call it capital D. So that's the distribution
+of the differences. And we have 12 observed differences. And our null hypothesis is that
+this random variable D, the distribution of the differences, is such that it's symmetric.
+So it has a symmetric distribution about zero. So whatever it looks like, whatever the shape is,
+it's symmetrically distributed about zero.
+Our alternative could be just the negation of that. But here, in this particular example,
+we consider that the only possible alternative to the null hypothesis would be that, well,
+the additive increases mileage per gallon. And so the differences then would be expected,
+because we're taking the regular value away from the additive value, we'd expect
+more of these differences to be positive than negative. And so we'd expect
+D to have a median greater than zero. So the median difference between the mileage on the additive
+and the regular fuel, in the way that we've subtracted them here, is tending to be positive.
+So that will be our null hypothesis here. And that's a one-sided case. Now let me just reiterate,
+because this is often a source of confusion. Why do we sometimes take a one-sided? Why do we sometimes
+take a two-sided? Well, we have to consider the context. And the context here is that the additive
+to the fuel is expected, if it has any effect at all, to increase mileage, not decrease.
+That seems to be the logical case to take. So let's consider the test in more generality before we return
+to our example. So in general, we have n pairs of observations. So we have an x and a y
+value paired together, and we've got n such pairs. What sort of circumstances do we have paired data?
+Well, it could be like the example in hand, where we have different measurements on the same individual
+or the same item. It could be something like a before and an after test. So we apply a treatment
+before and take a measurement. We apply a treatment afterwards and take a measurement. Or it could be
+something like data on identical twins. So it's very important that when we have data in pairs, that we do
+not overlook the fact because analyzing the data as if they were two independent samples will be nonsensical.
+So what do we do? Well, we find the differences. And let's take the x value away from the y value.
+We could do it the other way around. It really doesn't matter. So we're going to have n differences.
+And we're going to rank the absolute value of these differences, smallest to largest.
+So the smallest one will have rank one, and the largest one will have rank n. And our test statistic
+is, I'll denote it by t plus. It's the sum of the ranks of the differences
+for which, let's say, the y value was greater than the x value,
+which I could write, which I could write if I want to use some notation. I could write it as the sum
+of all the pairs of t subscript i, where t subscript i takes the value 0, so it really doesn't count in
+the sum if the y value were less than the x value. And it's the rank of the i-th difference if the y value
+was greater than the x value. This begs the question, what happens if the y value and the x value do equal?
+Well, the simple answer to that is we usually would simply remove that observation and reduce n by 1.
+So another hypothesis is that the difference is d is symmetric
+symmetric about 0. And a necessary condition, sorry, rather a sufficient condition for that,
+is that the x and the y values each come from the same distribution, so they're identically distributed.
+That's not actually necessary, but that would be a sufficient case. So that's a special case
+which would make the distribution of the differences symmetric about 0. So when we're looking at the
+the signs of the ranks, so we're looking at these ranks before we took absolute values,
+well, we'd pretty much expect under another hypothesis that either positive or negative in sign
+so neither is equally likely. So neither the y value is expected to be bigger than the x value, nor the x value is
+expected to be bigger than the y value. If we go back to our example, I'll work through this in some detail.
+Let me write out the differences. The differences are 2, minus 8, 13, 7, minus 6, 5, 17, minus 3, 8, 10, 4, and 12.
+And then, when I rank the absolute values, well, the smallest value is 2, in absolute terms the next value is the minus 3 there, forget about the sign,
+1, then that has, sorry, this has the next value, this has the next value, this the next one.
+We have two 8s, a plus 8 and a minus 8, in absolute terms they're equal, we give them both rank
+seven and a half, because they're the seventh and eighth values in order, then we move on to the
+ninth observation, which is 10, 13 has rank, sorry, 13 has rank 11, 12 has rank 10,
+apologies for going out of order slightly, 17 has rank 12.
+When we add up the sum of the positive ranks, so remember, that's a positive, that's a positive,
+that's a positive, positive, positive, positive, positive, positive, positive, all but four of the
+observations, all but three of the observations actually were positive, then the sum of these ranks
+comes to 63.5, and we ask the question, is that consistent with the null hypothesis
+that the ranks are from a distribution?
+Now, we have 12 pairs of observations,
+and in this case, it's not too difficult to completely enumerate
+all the possible values of t
+at least if we have access to a computer. So the smallest value would occur
+in fact, when all of all of these values here were negative, because then when we're computing our
+test statistic, in fact, if the y value is always less than the x value,
+all of the terms in this sum would be zero. And so the test statistic would be zero.
+What's the largest value that the test statistic can take? Well, the largest value is when
+all of the ranks are of positive values, so all of the y values are bigger than the x values,
+and in that case, there would be 78 when we add up the numbers 1 to 12. And we can observe values
+and so on, and so on, and so on in that range.
+Now, clearly, under the null hypothesis,
+not all of these values are equally likely, and there will be very little chance of observing
+all the y values being less than all the x values, not much chance of the test statistic being 1,
+and so on, and so on. So we would get a distribution, which looks normal-like, over the range of numbers,
+0 to 78. Now we observed
+the test statistic taking the value 63.5. So we have to ask the question,
+what's the probability that the test statistic takes a value at least as extreme as that under the null hypothesis?
+Now remember, we're here in a one-tailed case,
+because we are only considering that the additive can, if anything, increase the mileage per gallon,
+in which case the y values will be greater than the x values. We will not consider that there's
+any possibility that the additive decreases the mileage. Well, via the software package R,
+we can discover that, in fact, the p-value of our test statistic, so the probability of observing
+the value of the test statistic t-plus as being 63.5 or bigger is 0.0271. So our p-value
+is around 0.0271. And so at the 5% significance level,
+because our p-value is smaller than 0.05, there is quite strong evidence
+to reject the null hypothesis that the differences in the mileages on the regular fuel and the fuel
+with the additive are symmetrically distributed about zero.
+Just a couple of points about the assigned rank test. We could have used a normal approximation.
+Why could we do that? Well, remember, our test statistic is a summation. So by the central limit theorem,
+sums and averages are approximately normally distributed, at least as the sample size,
+the number of terms in the sum grows large. The sample size isn't particularly large here,
+but if we didn't have a computer, it might have to do. So we could compute a normal approximation.
+The details of how you do that are in the notes. But actually, we have computers these days,
+and the use of a normal approximation is not so important.
+You might say, well, perhaps we could have used a paired t-test here. Maybe it would be reasonable to
+assume that the differences are normally distributed. Unlike some non-parametric tests, the sidelamp test
+actually compares well with its most commonly used parametric equivalent,
+even when the differences are normally distributed.
+If you're rather smart, and have thought carefully about the sign test, you might say,
+well, just a minute, couldn't we just look at our differences, as we have them here,
+and use the sign test on those. And the sign test would simply record the number of pluses and
+the number of minuses, and say, well, under the null hypothesis, each observation, each difference here,
+is equally likely to be positive and negative, and use the sign test. Now that's a valid test to use.
+Most often, this is inferior to using the sign rank test, because it fails to take into account
+the magnitude of the differences. So it fails to take into account how large the differences were.
+And for example, we noticed that the three largest values, for example, 17, 13, and 12,
+in fact, the fourth largest value, were all positive. And the sign test would simply ignore
+that, and just be recording their sign. There are circumstances where, perhaps,
+we only want to incorporate the sign. But otherwise, I would say, the signed rank test
+is preferable to the sign test, and will have more power. That's the signed rank test,
+and I hope you've enjoyed it.

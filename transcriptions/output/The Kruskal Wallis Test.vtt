@@ -1,0 +1,650 @@
+WEBVTT
+
+00:00.000 --> 00:20.920
+The Kruskal-Wallis test, a test which I understand is named after two statisticians who invented
+
+00:20.920 --> 00:32.300
+it independently. It's another non-parametric procedure, non-parametric meaning as we may
+
+00:32.300 --> 00:39.020
+recall that the procedure makes no explicit assumptions about the distributions that give
+
+00:39.020 --> 00:50.900
+rise to the data. Let's just reflect on a situation that we've met before where we have data arising
+
+00:50.900 --> 00:57.860
+in, let's say, two groups. Let's call them group 1 and group 2. So we have some observations
+
+00:57.860 --> 01:07.760
+in these two groups, and it may be of interest to say whether those two data sets appear to
+
+01:07.760 --> 01:14.580
+be from the same distribution, or less generally whether they appear to be from distributions
+
+01:14.580 --> 01:23.080
+with the same mean. Now we've met at least two procedures for looking at two-sample data.
+
+01:23.800 --> 01:32.960
+You've encountered the two-sample t-test, and we've also met the rank sum test. Now to think
+
+01:32.960 --> 01:38.540
+about the two-sample t-test, the two-sample t-test says, well, we'll summarize the data from
+
+01:38.540 --> 01:47.680
+group 1 to get an estimate of the location of the distribution of the data, the distribution
+
+01:47.680 --> 01:58.880
+that gave rise to the data as a sample mean, and a natural estimate for the mean of the distribution
+
+01:58.880 --> 02:06.740
+that gives rise to the data in group 2 would be x2 bar. So our test as to whether the two
+
+02:06.740 --> 02:13.500
+means, underlying means, are equal, let's call them mu 1 and mu 2, is naturally based on some
+
+02:13.500 --> 02:24.000
+function of these two statistics. Now, without thinking about this at all deeply, we could recognize
+
+02:24.000 --> 02:30.480
+that obviously there's at least two ways we could compare these two statistics. We could
+
+02:30.480 --> 02:42.340
+look at their difference, or maybe we could look at their ratio. Looking at the difference
+
+02:42.340 --> 02:49.280
+proves to be statistically a little easier, and gives rise to something called the two-sample
+
+02:49.280 --> 02:59.720
+t-test, which we've met earlier. Well, we could base a test on the ratio of the two test statistics,
+
+02:59.720 --> 03:08.300
+of the two statistics, but that statistically would be a little harder to construct. My point
+
+03:08.300 --> 03:19.100
+is that a method that involves analyzing data from two groups does not obviously extend to when
+
+03:19.100 --> 03:26.100
+we have more than two groups. So when we have three or more groups. More generally we could say we have g groups.
+
+03:26.100 --> 03:38.100
+Because a method that involves looking at a difference, or even looking at a ratio, works well for a comparison
+
+03:38.100 --> 03:46.100
+between two things, but not when we have more than two. So we need something different.
+
+03:46.100 --> 04:13.100
+What sort of procedure gives rise to data in groups? Well, broadly there are two. We may have samples from multiple, so three or more populations.
+
+04:13.100 --> 04:28.100
+In other words, we may have taken random samples from three or more populations, and we're interested in comparing the population means, for example.
+
+04:28.100 --> 04:56.100
+So we may have a sampling procedure, or we may have performed an experiment. And in which case we've got responses from an experiment, a one-factor experiment. And so, for example, we may have a sample from a population of individuals,
+
+04:56.100 --> 05:11.100
+from a population of individuals who have a particular condition, let's say a particular type of cancer, and we may allocate them at random to, let's suppose, four different treatments, in which case g would be four.
+
+05:11.100 --> 05:23.100
+And then we monitor them. And then we monitor them, and measure some response, under each of the four different treatments, and attempt to decide whether there is a difference between the responses on the treatments.
+
+05:23.100 --> 05:39.100
+For the purposes of the conducting of the test, it makes no difference where the data, how the data arose. It does make some difference in terms of how we can draw inference, a slightly subtle point that we'll discuss subsequently.
+
+05:39.100 --> 05:46.100
+Well, let's have an example.
+
+05:46.100 --> 06:08.100
+And this example is in our notes, and it describes a study where there were 36 children, and they were split into five groups of nine, and they're taught arithmetic.
+
+06:08.100 --> 06:15.100
+Some method of arithmetic, some method of arithmetic for a week, let's supposing it was long division or something.
+
+06:15.100 --> 06:21.100
+And we'll label the groups A, B, C, and D.
+
+06:21.100 --> 06:26.100
+Group A was taught by the usual method.
+
+06:26.100 --> 06:31.100
+Group B were praised while they were taught.
+
+06:31.100 --> 06:39.100
+Group C were criticised, so negative feedback.
+
+06:39.100 --> 06:44.100
+And group D were somehow ignored while they were taught.
+
+06:44.100 --> 07:14.100
+Group C are written gpa, R G and D areanianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianian
+
+07:14.100 --> 07:21.620
+is not so critical now from the way that i've described it so far you don't know whether this
+
+07:21.620 --> 07:32.180
+was an experiment in other words whether we had a set of 36 children who perhaps could be assumed
+
+07:32.180 --> 07:37.700
+to be a random sample from some larger population of children of the same age range and educational
+
+07:37.700 --> 07:43.540
+level and they were randomly assigned to one of these four different teaching conditions
+
+07:44.340 --> 07:50.340
+or whether it just happened that we had maybe four teachers who taught using different methods
+
+07:50.340 --> 07:57.380
+and we took a sample from each of those teachers classes and which would give somewhat different
+
+07:57.380 --> 08:07.140
+influences we'll assume it's an experiment which would be the best uh the best way in which the
+
+08:07.140 --> 08:08.180
+data could be obtained
+
+08:13.380 --> 08:16.980
+so in such a situation what would our null hypothesis be
+
+08:16.980 --> 08:29.860
+well the null hypothesis is the data in the groups are all from
+
+08:29.860 --> 08:35.380
+the same distribution
+
+08:42.100 --> 08:48.580
+in other words each observate each set of observations in this case nine observations
+
+08:48.580 --> 08:54.980
+is just a sample from a distribution and they're all samples from the same distribution
+
+08:56.500 --> 09:03.140
+this actually implies of course that the means and for that matter the medians
+
+09:03.140 --> 09:06.660
+of the distributions
+
+09:12.740 --> 09:13.300
+are equal
+
+09:16.740 --> 09:22.980
+so that's an implication if they're all all the data from the same distribution they're all from
+
+09:22.980 --> 09:25.220
+different distributions with the same mean
+
+09:27.700 --> 09:29.860
+the alternative is simply that the data
+
+09:29.860 --> 09:34.020
+the data
+
+09:35.860 --> 09:36.260
+are not
+
+09:39.780 --> 09:40.260
+or not
+
+09:40.260 --> 09:40.420
+all from
+
+09:43.940 --> 09:44.420
+the same
+
+09:47.860 --> 09:48.580
+distribution
+
+09:48.580 --> 09:54.340
+you might ponder well does that imply that they're from distributions with
+
+09:56.340 --> 10:01.060
+different means or medians well actually no because they could be from different
+
+10:01.060 --> 10:02.500
+distributions with the same mean
+
+10:03.220 --> 10:05.780
+but certainly it is implied by
+
+10:05.780 --> 10:11.700
+the means and medians of the underlying distributions
+
+10:15.300 --> 10:20.740
+are not equal so a special case of the alternative hypothesis is when the means and medians are
+
+10:21.540 --> 10:21.940
+different
+
+10:25.300 --> 10:30.020
+now if you've done the first course in statistics you may have met an approach
+
+10:30.020 --> 10:34.420
+called the excuse me the analysis of variance
+
+10:36.420 --> 10:40.260
+which can be applied to data of this sort of structure
+
+10:41.860 --> 10:47.540
+the analysis of variance does have some assumptions behind it in particular it assumes that the data
+
+10:47.540 --> 10:49.540
+within each group are from a normal distribution
+
+10:52.180 --> 10:54.100
+it's somewhat robust to those assumptions
+
+10:54.100 --> 11:00.660
+it's not completely robust and in circumstances like in our example
+
+11:01.940 --> 11:07.380
+we don't have lots of data and if we were to do ANOVA we may be a little bit uncomfortable
+
+11:07.380 --> 11:14.180
+with the inference because we're not sure that the assumptions are valid and moreover
+
+11:14.900 --> 11:17.140
+the sample sizes are rather small
+
+11:17.140 --> 11:26.740
+so how would we decide whether ANOVA is appropriate
+
+11:27.380 --> 11:32.100
+well whether we would consider using ANOVA or not
+
+11:33.460 --> 11:36.980
+it's good to do a graph of the data of some description so it's good to graph
+
+11:39.060 --> 11:41.780
+of our data now how would we plot our data here
+
+11:41.780 --> 11:51.140
+how would we do that well we have four different data sets that we would like to compare
+
+11:51.860 --> 11:56.740
+ideally on the same graph and the best approach for this
+
+11:58.820 --> 12:02.660
+would almost certainly be side by side
+
+12:02.660 --> 12:06.020
+box plots
+
+12:09.620 --> 12:18.580
+I'll roughly sketch what these look like so we have four different teaching methods
+
+12:19.220 --> 12:20.820
+so we have four samples
+
+12:23.060 --> 12:27.700
+and these are very rough and ready sketches if you remember with the box plot
+
+12:27.700 --> 12:33.460
+the box covers the interquartile range and within the box there's a
+
+12:38.580 --> 12:40.420
+a line indicating the median
+
+12:42.020 --> 12:44.420
+these pictures are really not super accurate but
+
+12:47.460 --> 12:49.060
+the box plot is given in the notes
+
+12:50.180 --> 12:55.060
+one thing that strikes us is that it does look like there's a difference between the underlying
+
+12:55.060 --> 12:58.820
+distributions they certainly look as though they're differing in terms of location
+
+12:58.820 --> 13:03.700
+they're also perhaps differing in terms of variation so it looks like there's more variation
+
+13:04.180 --> 13:07.220
+of the data in certainly in groups a and c than in b
+
+13:08.100 --> 13:13.860
+so we might be a little bit uncomfortable using the analysis of variance method for these data
+
+13:13.860 --> 13:18.580
+although it would not be wrong as such it would not actually be wrong to do that
+
+13:18.580 --> 13:24.420
+before we proceed we'll introduce a
+
+13:26.660 --> 13:34.980
+probability distribution which you may have met before called the chi-squared distribution
+
+13:38.660 --> 13:42.980
+and it's defined as the following if we have n
+
+13:42.980 --> 13:47.300
+independent
+
+13:51.300 --> 13:52.980
+standard normal variables
+
+13:54.500 --> 13:55.940
+so mean zero
+
+13:57.940 --> 14:00.900
+that's the mean standard deviation one
+
+14:02.500 --> 14:04.420
+so they're all independent of one another so
+
+14:05.140 --> 14:10.020
+from that we mean that the value of one of them doesn't impact the value of any of the others
+
+14:10.020 --> 14:11.780
+we're not getting more technical than that
+
+14:13.780 --> 14:16.180
+then the sum of their squares
+
+14:23.860 --> 14:30.420
+i use this notation to till the sign it's short for is distributed
+
+14:30.420 --> 14:34.180
+as
+
+14:34.180 --> 14:36.180
+so a little short hand notation
+
+14:37.540 --> 14:41.140
+where we see this till the sign just read it as distributed as
+
+14:41.860 --> 14:46.180
+and then we'll define a distribution we use the greek letter chi
+
+14:48.420 --> 14:49.860
+it's the chi-squared
+
+14:53.460 --> 14:54.260
+distribution
+
+14:54.260 --> 15:00.580
+and it has one parameter which i'll denote by its subscript here
+
+15:01.460 --> 15:11.060
+and it's on here n degrees of freedom so the parameter is known as the degrees of freedom
+
+15:13.140 --> 15:14.180
+so we have
+
+15:15.700 --> 15:19.540
+sum of squares of n independent normals standard normals
+
+15:20.260 --> 15:20.580
+and
+
+15:21.780 --> 15:24.580
+it transpires that quite often in statistics we have
+
+15:25.700 --> 15:30.900
+a statistic which is sums of squares and sums of squares of things that are at least
+
+15:30.900 --> 15:33.860
+approximately normal so they can be standardized to be
+
+15:34.500 --> 15:39.700
+approximately standard normal and we're interested in the distribution of their sums of squares
+
+15:40.260 --> 15:45.380
+and so it's convenient to have a name for the distribution and somebody's done the math
+
+15:46.100 --> 15:50.820
+and divide this distribution which has a rather complicated density function in terms of its
+
+15:50.820 --> 15:56.100
+mathematical form but we can picture what it looks like
+
+15:58.100 --> 15:59.700
+so what does the density of the function
+
+16:01.300 --> 16:03.540
+what does the density function look like
+
+16:03.540 --> 16:08.340
+well for start with we know that because we're looking at sums of squares the random variable
+
+16:08.980 --> 16:10.660
+well it can't be negative
+
+16:10.660 --> 16:15.940
+so the chi-square distribution doesn't assign any probability to negative values
+
+16:16.820 --> 16:23.460
+and the picture one should have in one's mind is of a unimodal distribution
+
+16:23.460 --> 16:30.020
+in fact the mode is at n minus 2 so the mode increases
+
+16:30.980 --> 16:35.220
+as the number of terms in the sum increases so as the degrees of freedom increase
+
+16:35.220 --> 16:47.540
+this isn't actually the picture when n is 1 or 2 but we're most interested in here in cases where n is bigger than 2
+
+16:48.420 --> 16:51.620
+so this is the picture one should have in one's mind for the chi-square distribution
+
+16:51.620 --> 16:54.900
+at least when n is bigger than 2
+
+16:56.340 --> 16:59.940
+well there are tables for this distribution which you may have seen
+
+17:00.740 --> 17:05.140
+but these days we have computer software which can find
+
+17:06.740 --> 17:10.660
+percentiles and probabilities over ranges for the chi-square distribution
+
+17:10.660 --> 17:22.580
+so let's come back to our test so our test ranks all our data
+
+17:25.060 --> 17:33.780
+in order so combining all the data together we rank them in order and we give the lowest observation
+
+17:33.780 --> 17:40.260
+rank one so in general let's supposing we've got g groups
+
+17:44.740 --> 17:51.220
+so on we don't have to have equal observation number of observations in each group supposing the lowest
+
+17:51.220 --> 17:57.940
+observation was in group two uh maybe the next lowest was in group three somewhere maybe the next
+
+17:57.940 --> 18:03.060
+lowest was in group two uh the next lowest was in group four and so on
+
+18:03.940 --> 18:10.980
+next lowest was sorry the next lowest was in whatever group that is and um maybe the largest observation
+
+18:10.980 --> 18:18.100
+was in group one say we deal with ties in the same way as we deal with ties in the rank sum test
+
+18:18.100 --> 18:21.300
+we would assign average ranks to tie data
+
+18:23.700 --> 18:33.540
+so we can find the mean of the ranks within each group so let's call that our one bar so that's the
+
+18:33.540 --> 18:42.820
+mean of these ranks our two bar is the mean of these ranks and so on up to our g bar
+
+18:44.180 --> 18:46.420
+now we replace the data by their ranks
+
+18:48.580 --> 18:56.020
+so we've lost the original data so for example the smallest observation may have been way smaller than
+
+18:56.020 --> 19:03.220
+all the others but in terms of its ranking it is its rank is one different from the next smallest
+
+19:07.620 --> 19:09.940
+let's say the overall mean of these ranks
+
+19:12.100 --> 19:12.820
+is our bar
+
+19:12.820 --> 19:23.700
+so how does the test operate well the test appealing to common sense says well if i look at the differences
+
+19:25.940 --> 19:30.100
+between the mean ranks within a group and the overall mean rank
+
+19:30.900 --> 19:36.180
+then i would expect these ranks to be pretty close to the overall mean
+
+19:38.900 --> 19:43.860
+if the null hypothesis were true so if all the data were from the same distribution there's no reason
+
+19:43.860 --> 19:49.140
+why any of these individual mean ranks should be particularly much different from the overall mean
+
+19:49.140 --> 20:00.580
+that should be reflected in a difference in a difference in the mean ranks for that group
+
+20:00.580 --> 20:03.780
+so that's supposing for example that the data within group two
+
+20:06.820 --> 20:11.780
+tended on average to be much smaller than than the data from the other groups
+
+20:11.780 --> 20:19.540
+then the data within group two would tend to have lower ranks and that would be reflected in the mean ranks
+
+20:19.540 --> 20:26.980
+for that group and so that statistic would be smaller than the overall mean of the ranks
+
+20:28.900 --> 20:39.620
+and it that would be reflected in the an increased variation so more variability in the within group mean ranks
+
+20:39.620 --> 20:47.460
+now how do we measure variability well one measure is by considering the variance
+
+20:48.820 --> 20:53.620
+and so we could imagine a test statistic summing up
+
+20:55.780 --> 21:04.820
+across all the groups the square difference in the within group mean rank and the overall mean ranks
+
+21:04.820 --> 21:08.100
+and that's the basis of the test statistic
+
+21:10.580 --> 21:15.220
+i call the test statistic capital h in fact there's some normalization goes on
+
+21:16.020 --> 21:20.100
+and it takes into account how many observations we've got in each group
+
+21:22.740 --> 21:28.260
+so ni is the number of observations in group i and we have our observations in total
+
+21:28.260 --> 21:31.860
+this formula is really not worth memorizing
+
+21:34.500 --> 21:39.220
+but the basic idea is is not difficult
+
+21:42.100 --> 21:48.740
+so as always we ask our question how does our test statistic h behave
+
+21:48.740 --> 21:52.900
+under the null hypothesis
+
+21:56.020 --> 22:00.420
+well in fact under the null hypothesis that all the data from the same distribution
+
+22:03.540 --> 22:09.860
+the test statistic follows a chi-square distribution on g minus one degrees of freedom
+
+22:09.860 --> 22:13.620
+under the null hypothesis
+
+22:17.700 --> 22:19.940
+but what if h naught is not true
+
+22:24.820 --> 22:25.700
+then what happens
+
+22:28.820 --> 22:35.460
+well then the test statistic becomes inflated it it will tend to be larger
+
+22:36.180 --> 22:44.420
+why because there will be more variation in the within group rankings so the mean rankings within the
+
+22:44.420 --> 22:49.140
+groups will tend to vary more and that will increase this statistic
+
+22:50.340 --> 22:55.220
+which is basically a measure of the variation on these r1 bar up to rg bar
+
+22:55.220 --> 23:02.340
+okay so let's conclude by looking at our example
+
+23:03.780 --> 23:12.580
+we have our data in four groups we replace the data by their ranks i won't go through this but
+
+23:12.580 --> 23:20.980
+you can work it out for yourself based on the data in the notes
+
+23:22.740 --> 23:23.060
+and
+
+23:26.340 --> 23:41.140
+the mean rank in group a is 12.4 within group b 30.6 within group c 22.5 and within group d 8.5 and as
+
+23:41.140 --> 23:47.140
+was reflected by the the box plot it's kind of what we'd expect there is quite a lot of variation in
+
+23:47.140 --> 24:01.780
+these group group rankings the overall mean rank is 18.5 there's some ties in the data as we observed
+
+24:03.540 --> 24:08.500
+so if we work out our test statistic here and we won't go through all the details because the
+
+24:08.500 --> 24:16.260
+computer could do that for us but it's essentially routine we have a value of around 24.48
+
+24:17.940 --> 24:23.460
+now we have four groups here so we ask the question is h consistent
+
+24:27.380 --> 24:32.340
+with in this case the chi-squared three distribution
+
+24:32.340 --> 24:38.980
+well we might know the answer to that let's draw a picture so the chi-squared three
+
+24:41.780 --> 24:42.980
+looks something like that
+
+24:46.180 --> 24:52.740
+and in fact this test statistic lies way up in the upper tail here
+
+24:52.740 --> 25:02.340
+so the probability of being as extreme or more extreme with respect to the null hypothesis
+
+25:04.740 --> 25:11.540
+the p value is approximately two times ten to the minus five we can get that from software
+
+25:14.420 --> 25:17.300
+so in other words this value of the test statistic it looks
+
+25:17.860 --> 25:22.420
+very large to be the sort of value that we'd expect to see from the chi-squared three
+
+25:25.060 --> 25:26.260
+we'd only get a value
+
+25:29.140 --> 25:33.620
+as small as that or more or sorry as large as that or larger
+
+25:35.540 --> 25:39.060
+with probability about two times ten to the minus five
+
+25:39.060 --> 25:51.220
+so there's strong evidence here very strong evidence against the null hypothesis
+
+25:58.340 --> 26:01.780
+so that's the classical wallace test and i hope you've enjoyed it
+

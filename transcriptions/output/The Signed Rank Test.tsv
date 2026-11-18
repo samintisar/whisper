@@ -1,0 +1,133 @@
+start	end	text
+0	21840	The signed rank test. Now this test is usually attributable to Wilcoxon, statistician Wilcoxon,
+21840	33120	and it's nearly always used as a test for matched pair data. So we have data in matched pairs.
+33120	43280	We'll clarify what that looks like presently. And as with a number of other methods we've looked at so far,
+43280	55120	it's a non-parametric test in that it makes no explicit assumption about the nature of the
+55120	63040	distribution that gives rise to the matched pairs. Well, here we'll start with an example. And an
+63040	74240	example is based here on assessing the mileage of a fuel with and without an additive, which is
+74240	82960	designed to increase the mileage per gallon. So the data is as follows. There are 12 compact cars
+82960	109760	cars. And their mileages were found with eight gallons of regular fuel. Let's call that R. And
+109760	123920	the same fuel with an additive. The additive being designed to, if anything, increase the miles per
+123920	133840	gallon. Let's call that A. So what would our data look like in this case? Well, let's label our cars
+133840	149040	one, two, three, four, and so on, up to 12. And for each car we have two mileages, one with the regular fuel
+149040	158240	and one with the fuel with the additive. Well, the full data are included in the online notes. But let's say
+158240	169680	for car one, it takes 142 miles for the eight gallons on the regular fuel and 144 with the additive.
+170560	181360	Car two actually did better with the regular fuel than with the additive. Car three 137 with the regular
+181360	195920	150 with the additive. And let's say for the final car 134 miles on the regular and 146 with the additive.
+198480	207360	So our data are in pairs. And that's a very important feature of the data in that we cannot assume
+208080	213520	that let's say the observations on each car. So if we chose a particular car, let's say car three,
+213520	219760	we couldn't assume that these observations 137 and 150 are independent of one another.
+219760	227200	So we don't have two independent samples of size 12. We have 12 sets of pairs of observations.
+227200	237280	Now, you have already met a test which considers paired data, and that's the paired t-test. And what do we do in the paired t-test?
+238720	244960	Well, we look at the within-pair differences. And I'll call the within-pair differences D.
+244960	256240	And I'll take the regular away from the additive. You could do it the other way around without any loss.
+256240	268960	So here we have 2, here minus 8, 13, and so on, and 12 at the end here.
+268960	278000	I'll write out the full set of differences later on. Now, these are taken to be observations
+280800	287200	from some random variable, let's call it capital D. So that's the distribution
+287200	296720	of the differences. And we have 12 observed differences. And our null hypothesis is that
+296720	303040	this random variable D, the distribution of the differences, is such that it's symmetric.
+303040	313600	So it has a symmetric distribution about zero. So whatever it looks like, whatever the shape is,
+315440	318960	it's symmetrically distributed about zero.
+323840	330080	Our alternative could be just the negation of that. But here, in this particular example,
+330080	340640	we consider that the only possible alternative to the null hypothesis would be that, well,
+340640	348400	the additive increases mileage per gallon. And so the differences then would be expected,
+348400	353280	because we're taking the regular value away from the additive value, we'd expect
+354880	358960	more of these differences to be positive than negative. And so we'd expect
+358960	371520	D to have a median greater than zero. So the median difference between the mileage on the additive
+372080	380000	and the regular fuel, in the way that we've subtracted them here, is tending to be positive.
+381280	387920	So that will be our null hypothesis here. And that's a one-sided case. Now let me just reiterate,
+387920	393200	because this is often a source of confusion. Why do we sometimes take a one-sided? Why do we sometimes
+393200	398640	take a two-sided? Well, we have to consider the context. And the context here is that the additive
+399440	405680	to the fuel is expected, if it has any effect at all, to increase mileage, not decrease.
+405680	417520	That seems to be the logical case to take. So let's consider the test in more generality before we return
+417520	424880	to our example. So in general, we have n pairs of observations. So we have an x and a y
+425920	432240	value paired together, and we've got n such pairs. What sort of circumstances do we have paired data?
+432240	438320	Well, it could be like the example in hand, where we have different measurements on the same individual
+438320	446080	or the same item. It could be something like a before and an after test. So we apply a treatment
+446080	451600	before and take a measurement. We apply a treatment afterwards and take a measurement. Or it could be
+451600	461600	something like data on identical twins. So it's very important that when we have data in pairs, that we do
+461600	470560	not overlook the fact because analyzing the data as if they were two independent samples will be nonsensical.
+470560	486800	So what do we do? Well, we find the differences. And let's take the x value away from the y value.
+486800	494800	We could do it the other way around. It really doesn't matter. So we're going to have n differences.
+494800	507280	And we're going to rank the absolute value of these differences, smallest to largest.
+507280	519520	So the smallest one will have rank one, and the largest one will have rank n. And our test statistic
+519520	533280	is, I'll denote it by t plus. It's the sum of the ranks of the differences
+537040	542480	for which, let's say, the y value was greater than the x value,
+542480	549360	which I could write, which I could write if I want to use some notation. I could write it as the sum
+550400	560880	of all the pairs of t subscript i, where t subscript i takes the value 0, so it really doesn't count in
+560880	578000	the sum if the y value were less than the x value. And it's the rank of the i-th difference if the y value
+578000	584800	was greater than the x value. This begs the question, what happens if the y value and the x value do equal?
+584800	595120	Well, the simple answer to that is we usually would simply remove that observation and reduce n by 1.
+598320	604560	So another hypothesis is that the difference is d is symmetric
+604560	616320	symmetric about 0. And a necessary condition, sorry, rather a sufficient condition for that,
+616320	622160	is that the x and the y values each come from the same distribution, so they're identically distributed.
+622160	627840	That's not actually necessary, but that would be a sufficient case. So that's a special case
+627840	637360	which would make the distribution of the differences symmetric about 0. So when we're looking at the
+637360	643680	the signs of the ranks, so we're looking at these ranks before we took absolute values,
+645360	652640	well, we'd pretty much expect under another hypothesis that either positive or negative in sign
+653200	661040	so neither is equally likely. So neither the y value is expected to be bigger than the x value, nor the x value is
+661040	669200	expected to be bigger than the y value. If we go back to our example, I'll work through this in some detail.
+669200	691680	Let me write out the differences. The differences are 2, minus 8, 13, 7, minus 6, 5, 17, minus 3, 8, 10, 4, and 12.
+691680	709440	And then, when I rank the absolute values, well, the smallest value is 2, in absolute terms the next value is the minus 3 there, forget about the sign,
+709440	720800	1, then that has, sorry, this has the next value, this has the next value, this the next one.
+723600	732480	We have two 8s, a plus 8 and a minus 8, in absolute terms they're equal, we give them both rank
+733280	740160	seven and a half, because they're the seventh and eighth values in order, then we move on to the
+740160	750000	ninth observation, which is 10, 13 has rank, sorry, 13 has rank 11, 12 has rank 10,
+750560	754560	apologies for going out of order slightly, 17 has rank 12.
+754560	764880	When we add up the sum of the positive ranks, so remember, that's a positive, that's a positive,
+764880	771680	that's a positive, positive, positive, positive, positive, positive, positive, all but four of the
+771680	782240	observations, all but three of the observations actually were positive, then the sum of these ranks
+783040	793280	comes to 63.5, and we ask the question, is that consistent with the null hypothesis
+793280	797840	that the ranks are from a distribution?
+805520	808160	Now, we have 12 pairs of observations,
+808160	814560	and in this case, it's not too difficult to completely enumerate
+817680	819360	all the possible values of t
+825440	830080	at least if we have access to a computer. So the smallest value would occur
+830080	839280	in fact, when all of all of these values here were negative, because then when we're computing our
+839280	844880	test statistic, in fact, if the y value is always less than the x value,
+847520	854000	all of the terms in this sum would be zero. And so the test statistic would be zero.
+855040	859040	What's the largest value that the test statistic can take? Well, the largest value is when
+859760	868240	all of the ranks are of positive values, so all of the y values are bigger than the x values,
+868960	880800	and in that case, there would be 78 when we add up the numbers 1 to 12. And we can observe values
+880800	884640	and so on, and so on, and so on in that range.
+887040	890480	Now, clearly, under the null hypothesis,
+890480	900240	not all of these values are equally likely, and there will be very little chance of observing
+901920	906880	all the y values being less than all the x values, not much chance of the test statistic being 1,
+906880	917200	and so on, and so on. So we would get a distribution, which looks normal-like, over the range of numbers,
+917200	924880	0 to 78. Now we observed
+924880	934160	the test statistic taking the value 63.5. So we have to ask the question,
+934960	942000	what's the probability that the test statistic takes a value at least as extreme as that under the null hypothesis?
+942000	947200	Now remember, we're here in a one-tailed case,
+947200	960240	because we are only considering that the additive can, if anything, increase the mileage per gallon,
+960240	964880	in which case the y values will be greater than the x values. We will not consider that there's
+964880	973440	any possibility that the additive decreases the mileage. Well, via the software package R,
+975760	983200	we can discover that, in fact, the p-value of our test statistic, so the probability of observing
+983200	997040	the value of the test statistic t-plus as being 63.5 or bigger is 0.0271. So our p-value
+997040	1009760	is around 0.0271. And so at the 5% significance level,
+1015600	1022000	because our p-value is smaller than 0.05, there is quite strong evidence
+1027040	1039920	to reject the null hypothesis that the differences in the mileages on the regular fuel and the fuel
+1039920	1043280	with the additive are symmetrically distributed about zero.
+1045920	1052240	Just a couple of points about the assigned rank test. We could have used a normal approximation.
+1052240	1064560	Why could we do that? Well, remember, our test statistic is a summation. So by the central limit theorem,
+1065440	1072720	sums and averages are approximately normally distributed, at least as the sample size,
+1072720	1077920	the number of terms in the sum grows large. The sample size isn't particularly large here,
+1077920	1084720	but if we didn't have a computer, it might have to do. So we could compute a normal approximation.
+1084720	1088960	The details of how you do that are in the notes. But actually, we have computers these days,
+1089600	1095360	and the use of a normal approximation is not so important.
+1097920	1102880	You might say, well, perhaps we could have used a paired t-test here. Maybe it would be reasonable to
+1102880	1112000	assume that the differences are normally distributed. Unlike some non-parametric tests, the sidelamp test
+1112000	1119040	actually compares well with its most commonly used parametric equivalent,
+1121360	1123840	even when the differences are normally distributed.
+1123840	1140400	If you're rather smart, and have thought carefully about the sign test, you might say,
+1140400	1147280	well, just a minute, couldn't we just look at our differences, as we have them here,
+1147280	1156240	and use the sign test on those. And the sign test would simply record the number of pluses and
+1156240	1162880	the number of minuses, and say, well, under the null hypothesis, each observation, each difference here,
+1162880	1168480	is equally likely to be positive and negative, and use the sign test. Now that's a valid test to use.
+1169760	1176480	Most often, this is inferior to using the sign rank test, because it fails to take into account
+1177120	1183840	the magnitude of the differences. So it fails to take into account how large the differences were.
+1183840	1193280	And for example, we noticed that the three largest values, for example, 17, 13, and 12,
+1194880	1200400	in fact, the fourth largest value, were all positive. And the sign test would simply ignore
+1200400	1204960	that, and just be recording their sign. There are circumstances where, perhaps,
+1204960	1211360	we only want to incorporate the sign. But otherwise, I would say, the signed rank test
+1211360	1217920	is preferable to the sign test, and will have more power. That's the signed rank test,
+1217920	1228560	and I hope you've enjoyed it.

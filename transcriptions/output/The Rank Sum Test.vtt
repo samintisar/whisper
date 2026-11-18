@@ -1,0 +1,2177 @@
+WEBVTT
+
+00:00.000 --> 00:20.720
+The rank sum test is a hypothesis test that's normally attributed to the statistician Wilcoxon.
+
+00:20.720 --> 00:34.540
+It is a two-sample test, and in that respect it's akin to the two-sample t-test that you will have met earlier.
+
+00:34.540 --> 00:55.980
+The rank sum test is an example of a so-called non-parametric test, and we meet other examples of such tests, such as the signed test and the signed rank test.
+
+00:55.980 --> 01:10.480
+And the term non-parametric, we may recall, refers to the fact that the test makes no explicit assumptions about the nature of the distribution, or in this case distributions, which give rise to our data.
+
+01:12.340 --> 01:16.400
+So, let us describe the test in general terms first.
+
+01:16.400 --> 01:39.180
+So, suppose we have data from a random variable, we'll call it capital X, and let's sketch the density function of X, we'll assume that it's continuous, although we don't need to assume that, and it can be of any shape.
+
+01:40.080 --> 01:45.160
+So that's the density function of X, and we'll denote it F subscript X.
+
+01:45.160 --> 02:00.260
+So, we have some data from this random variable, X1, X2, so independent observations, and let's say we have M of them.
+
+02:01.960 --> 02:13.720
+Now, independent to that, we have data from another random variable, which we'll call Y, and its density function.
+
+02:15.160 --> 02:26.160
+So, let's get to like that, and we have some data from Y.
+
+02:26.680 --> 02:38.900
+Let's say we have N observations, N independent observations from the random variable, Y.
+
+02:38.900 --> 02:57.020
+So, our null hypothesis, actually, is that the two distributions are exactly the same, so that the density function for Y is the same as the density function for X.
+
+02:57.880 --> 03:01.420
+Whatever their shape, whatever they look like, they're the same.
+
+03:01.420 --> 03:21.340
+Now, strictly speaking, the alternative hypothesis is that the density function for Y, let's put the argument in X there, is the same as the density function for X,
+
+03:21.340 --> 03:28.400
+but actually shifted by some constant, but actually shifted by some constant that will denote theta.
+
+03:30.260 --> 03:37.420
+Now, in the null hypothesis case, actually, that's the special case of theta being zero.
+
+03:37.420 --> 03:54.220
+So, the density function is not shifted, but we may have that theta is not zero, which leads to a two-sided case,
+
+03:54.220 --> 04:09.600
+or that it's greater than or less than zero, one or the other, which leads to one-sided cases.
+
+04:09.600 --> 04:13.940
+So, let's clarify.
+
+04:15.640 --> 04:19.360
+Let's go back to our random variable X and its density function.
+
+04:20.080 --> 04:27.340
+The null hypothesis would state that, in fact, the density function of Y is exactly the same as the density function of X.
+
+04:27.720 --> 04:38.780
+So, I could sketch over, the best I can do, the density function of X, and that would also be the density function of Y.
+
+04:38.780 --> 04:44.100
+So, basically, both data sets come from exactly the same density function.
+
+04:45.220 --> 04:56.440
+The alternative is that the density function of Y is exactly the same as that of X, but shifted by some parameter theta.
+
+04:57.480 --> 05:02.160
+If I can draw it as best as I can do, so these density functions are supposed to be the same.
+
+05:02.160 --> 05:12.160
+That's now the density function of Y, and it's just been shifted by some constant theta.
+
+05:12.660 --> 05:17.040
+It could be shifted up or down, depending whether theta is positive or negative.
+
+05:17.040 --> 05:28.540
+Now, this rather peculiar alternative hypothesis is sometimes overlooked
+
+05:28.540 --> 05:36.760
+in textbooks that describe the rank sum test,
+
+05:36.760 --> 05:43.740
+and often the test is taken as a general test for a change in location.
+
+05:45.220 --> 05:50.160
+That is sometimes acceptable, except when we think about the test a little further,
+
+05:50.840 --> 05:58.840
+the possibility may arise that simply testing for a shift in location
+
+05:58.840 --> 06:04.340
+will not be satisfactorily detected by the test.
+
+06:08.340 --> 06:10.740
+OK, so how do we do the test?
+
+06:11.440 --> 06:16.620
+Well, we rank all the data,
+
+06:16.620 --> 06:20.800
+that's all the X values and the Y values together,
+
+06:22.160 --> 06:22.920
+in order,
+
+06:25.520 --> 06:29.240
+smallest to largest.
+
+06:31.380 --> 06:34.280
+And we'll give the smallest value rank 1,
+
+06:34.420 --> 06:38.300
+and the largest value rank N plus M.
+
+06:38.300 --> 06:45.740
+We find as our test statistic,
+
+06:46.800 --> 06:49.460
+I'll call it W subscript X,
+
+06:50.140 --> 06:52.440
+and it's the sum over the X values,
+
+06:52.520 --> 06:54.260
+and remember we have M of those,
+
+06:54.780 --> 06:58.080
+of the ranks of the X values.
+
+06:58.240 --> 07:00.740
+So I'll denote by
+
+07:00.740 --> 07:03.380
+R subscript I superscript X,
+
+07:03.680 --> 07:05.640
+although we don't really need this notation,
+
+07:05.640 --> 07:06.860
+because we won't use it again,
+
+07:06.860 --> 07:11.360
+but it's the rank of the i-th X value
+
+07:11.360 --> 07:16.480
+in the combined data.
+
+07:17.080 --> 07:19.120
+So remember the smallest value
+
+07:19.120 --> 07:22.720
+would have rank 1,
+
+07:23.140 --> 07:24.820
+the largest value
+
+07:24.820 --> 07:30.640
+rank N plus M,
+
+07:31.380 --> 07:34.660
+and I'll briefly describe what we might do
+
+07:34.660 --> 07:37.460
+if we have ties at the end.
+
+07:41.920 --> 07:44.100
+Worthwhile considering a special case,
+
+07:44.600 --> 07:47.500
+supposing that the two data sets
+
+07:47.500 --> 07:49.240
+were of the same size,
+
+07:50.060 --> 07:52.660
+so we have as many X values as Y values,
+
+07:53.160 --> 07:56.580
+then under the null hypothesis,
+
+07:56.580 --> 08:01.080
+well, the sum of the ranks of the X values
+
+08:01.080 --> 08:07.000
+would have exactly the same distribution
+
+08:07.000 --> 08:08.620
+as a random variable,
+
+08:09.080 --> 08:10.220
+we write it like this,
+
+08:11.220 --> 08:14.140
+as the sum of the ranks of the Y values.
+
+08:15.220 --> 08:17.120
+They have exactly the same distribution.
+
+08:17.120 --> 08:19.780
+There's no reason why WX
+
+08:19.780 --> 08:23.080
+should behave any differently to WY
+
+08:23.080 --> 08:24.900
+in the case where N equals M.
+
+08:25.840 --> 08:26.860
+They will behave differently
+
+08:26.860 --> 08:29.100
+if we have more X values and Y values,
+
+08:29.200 --> 08:29.980
+or vice versa.
+
+08:30.560 --> 08:32.600
+So that's a special case to have in our minds.
+
+08:33.400 --> 08:35.320
+More generally, we ask the question,
+
+08:35.980 --> 08:36.960
+as we always ask
+
+08:36.960 --> 08:38.640
+when we're doing a hypothesis test,
+
+08:39.060 --> 08:40.580
+is how does our test statistic,
+
+08:40.580 --> 08:42.100
+in this case,
+
+08:42.240 --> 08:44.060
+how does WX behave
+
+08:44.060 --> 08:49.680
+under the null hypothesis?
+
+08:56.820 --> 08:58.100
+And, moreover,
+
+08:58.340 --> 09:00.140
+is the value that we actually observe
+
+09:00.140 --> 09:02.340
+consistent with what we would expect
+
+09:02.340 --> 09:04.620
+if the two distributions were the same?
+
+09:06.220 --> 09:09.140
+Now, one thing we can do
+
+09:09.140 --> 09:11.880
+in most situations
+
+09:11.880 --> 09:15.380
+is we can enumerate,
+
+09:17.640 --> 09:20.640
+which really means we can list and count,
+
+09:21.400 --> 09:22.860
+all the possibilities.
+
+09:26.280 --> 09:27.480
+In other words,
+
+09:27.640 --> 09:29.580
+all the configurations of,
+
+09:29.580 --> 09:32.400
+well, the X values in the combined data set,
+
+09:33.260 --> 09:37.080
+work them all out
+
+09:37.080 --> 09:39.740
+and compute the test statistic
+
+09:39.740 --> 09:40.440
+for each one.
+
+09:40.860 --> 09:42.240
+Well, how many ways are there?
+
+09:42.960 --> 09:44.300
+Well, there are
+
+09:44.300 --> 09:45.900
+N plus M
+
+09:45.900 --> 09:47.720
+choose M,
+
+09:48.520 --> 09:51.580
+which is also N plus M choose N,
+
+09:53.820 --> 09:54.440
+ways
+
+09:54.440 --> 09:56.060
+the
+
+09:56.060 --> 09:57.880
+X values
+
+09:57.880 --> 10:03.540
+can appear
+
+10:03.540 --> 10:08.420
+in the combined
+
+10:08.420 --> 10:13.280
+sample.
+
+10:16.880 --> 10:18.220
+For each of these,
+
+10:18.720 --> 10:20.500
+we can compute the test statistic,
+
+10:20.740 --> 10:21.380
+WX,
+
+10:22.220 --> 10:24.620
+and then we can see, well,
+
+10:24.620 --> 10:26.040
+whether the observed value
+
+10:26.040 --> 10:27.220
+looks to be
+
+10:27.220 --> 10:28.700
+a particularly large
+
+10:28.700 --> 10:30.140
+or particularly small value
+
+10:30.140 --> 10:31.340
+compared to all the
+
+10:31.340 --> 10:32.960
+possible values
+
+10:32.960 --> 10:34.700
+that the test statistic
+
+10:34.700 --> 10:35.440
+could take.
+
+10:37.440 --> 10:39.040
+So, let's have an example
+
+10:39.040 --> 10:41.100
+to fix ideas.
+
+10:43.900 --> 10:45.300
+A fictitious example,
+
+10:45.420 --> 10:46.100
+I should point out.
+
+10:46.100 --> 10:49.100
+So, my wife and I
+
+10:49.100 --> 10:49.680
+like to play
+
+10:49.680 --> 10:50.680
+a computer game
+
+10:50.680 --> 10:51.640
+and
+
+10:51.640 --> 10:53.660
+the scores
+
+10:53.660 --> 10:54.840
+in the computer game
+
+10:54.840 --> 10:55.540
+are
+
+10:55.540 --> 10:59.840
+in thousands.
+
+11:01.140 --> 11:02.560
+But for simplicity here,
+
+11:02.640 --> 11:04.000
+I'll round the scores
+
+11:04.000 --> 11:05.300
+to the nearest thousand.
+
+11:05.300 --> 11:07.840
+and
+
+11:07.840 --> 11:11.880
+I'll write
+
+11:11.880 --> 11:12.660
+my scores
+
+11:12.660 --> 11:13.460
+in the M
+
+11:13.460 --> 11:14.980
+for me
+
+11:14.980 --> 11:15.680
+and
+
+11:15.680 --> 11:16.520
+W
+
+11:16.520 --> 11:17.560
+for my wife.
+
+11:17.640 --> 11:18.140
+So, let's suppose
+
+11:18.140 --> 11:18.720
+we have
+
+11:18.720 --> 11:20.560
+five of my scores.
+
+11:21.120 --> 11:21.900
+So, let's say
+
+11:21.900 --> 11:22.840
+a random sample.
+
+11:23.100 --> 11:23.280
+Let's say
+
+11:23.280 --> 11:23.820
+five,
+
+11:23.980 --> 11:24.380
+seven,
+
+11:25.000 --> 11:25.740
+thirteen,
+
+11:26.000 --> 11:26.400
+eight,
+
+11:26.700 --> 11:27.440
+and four
+
+11:27.440 --> 11:29.400
+to the nearest thousand.
+
+11:30.340 --> 11:30.900
+And
+
+11:30.900 --> 11:32.240
+for my wife,
+
+11:32.740 --> 11:33.340
+nine,
+
+11:33.960 --> 11:34.900
+eleven,
+
+11:35.300 --> 11:36.300
+ten,
+
+11:36.900 --> 11:37.840
+and seventeen.
+
+11:38.060 --> 11:38.340
+Let's say
+
+11:38.340 --> 11:38.620
+we have
+
+11:38.620 --> 11:39.680
+just four scores
+
+11:39.680 --> 11:40.080
+for her.
+
+11:41.920 --> 11:43.260
+So, another hypothesis
+
+11:43.260 --> 11:44.180
+I can call
+
+11:44.180 --> 11:45.140
+my values
+
+11:45.140 --> 11:46.160
+the x values
+
+11:46.160 --> 11:47.180
+and her values
+
+11:47.180 --> 11:47.840
+the y values
+
+11:47.840 --> 11:48.420
+should I wish.
+
+11:49.300 --> 11:49.660
+And
+
+11:49.660 --> 11:51.400
+another hypothesis
+
+11:51.400 --> 11:52.120
+is that
+
+11:52.120 --> 11:53.460
+these two
+
+11:53.460 --> 11:54.300
+data sets
+
+11:54.300 --> 11:55.020
+are from
+
+11:55.020 --> 11:55.620
+the same
+
+11:55.620 --> 11:57.540
+distribution,
+
+11:58.000 --> 11:59.000
+whatever that may be.
+
+11:59.860 --> 12:01.020
+And our alternative,
+
+12:02.440 --> 12:03.140
+well,
+
+12:03.140 --> 12:06.780
+we'll just
+
+12:06.780 --> 12:07.120
+have
+
+12:07.120 --> 12:07.700
+the
+
+12:07.700 --> 12:12.160
+density
+
+12:12.160 --> 12:13.020
+is shifted.
+
+12:14.340 --> 12:15.300
+One is shifted
+
+12:15.300 --> 12:16.160
+from the other one,
+
+12:16.480 --> 12:18.140
+but we won't specify
+
+12:18.140 --> 12:18.720
+the sign
+
+12:18.720 --> 12:19.660
+of the shift parameter,
+
+12:20.400 --> 12:20.940
+which means
+
+12:20.940 --> 12:21.680
+that we're
+
+12:21.680 --> 12:22.780
+not ruling out
+
+12:22.780 --> 12:23.220
+that
+
+12:23.220 --> 12:25.440
+I might be better
+
+12:25.440 --> 12:26.080
+than my wife
+
+12:26.080 --> 12:26.620
+or my wife
+
+12:26.620 --> 12:27.080
+might be better
+
+12:27.080 --> 12:27.640
+than I
+
+12:27.640 --> 12:28.760
+at the start.
+
+12:28.760 --> 12:31.040
+So let's work out
+
+12:31.040 --> 12:31.920
+our test statistic
+
+12:31.920 --> 12:35.360
+and
+
+12:35.360 --> 12:36.740
+let's work out
+
+12:36.740 --> 12:38.220
+my
+
+12:38.220 --> 12:39.040
+ranks.
+
+12:39.440 --> 12:40.280
+So I get
+
+12:40.280 --> 12:41.340
+the lowest value,
+
+12:42.440 --> 12:43.100
+the next
+
+12:43.100 --> 12:43.980
+lowest,
+
+12:43.980 --> 12:46.260
+and
+
+12:46.260 --> 12:46.560
+then
+
+12:46.560 --> 12:47.780
+the next
+
+12:47.780 --> 12:48.440
+lowest,
+
+12:49.140 --> 12:51.200
+the next
+
+12:51.200 --> 12:51.780
+lowest,
+
+12:52.460 --> 12:53.240
+will denote
+
+12:53.240 --> 12:53.980
+my wife's
+
+12:53.980 --> 12:54.380
+ranks
+
+12:54.380 --> 12:55.280
+ry,
+
+12:56.400 --> 12:57.760
+she gets
+
+12:57.760 --> 12:58.320
+the next
+
+12:58.320 --> 12:58.820
+lowest,
+
+13:00.820 --> 13:03.420
+six,
+
+13:03.980 --> 13:05.900
+seven,
+
+13:06.860 --> 13:07.380
+I get the
+
+13:07.380 --> 13:08.060
+second highest
+
+13:08.060 --> 13:08.560
+score,
+
+13:09.220 --> 13:10.020
+and my wife
+
+13:10.020 --> 13:10.440
+gets the
+
+13:10.440 --> 13:11.140
+highest score.
+
+13:11.140 --> 13:11.960
+Now it doesn't
+
+13:11.960 --> 13:12.500
+really matter
+
+13:12.500 --> 13:13.080
+which of these
+
+13:13.080 --> 13:13.820
+test statistics
+
+13:13.820 --> 13:14.780
+we use,
+
+13:15.500 --> 13:17.040
+we'll actually
+
+13:17.040 --> 13:17.700
+use my
+
+13:17.700 --> 13:18.600
+sum of ranks
+
+13:18.600 --> 13:19.200
+which is
+
+13:19.200 --> 13:19.900
+18,
+
+13:20.660 --> 13:23.900
+my wife's
+
+13:23.900 --> 13:24.580
+sum of ranks
+
+13:24.580 --> 13:25.560
+is 27.
+
+13:26.640 --> 13:27.500
+So we have
+
+13:27.500 --> 13:28.400
+our test statistic,
+
+13:29.900 --> 13:38.380
+which is
+
+13:38.380 --> 13:40.100
+wx,
+
+13:40.100 --> 13:40.760
+and it's
+
+13:40.760 --> 13:41.140
+18.
+
+13:41.860 --> 13:42.420
+And we ask
+
+13:42.420 --> 13:43.060
+the question,
+
+13:44.340 --> 13:46.160
+is that
+
+13:46.160 --> 13:46.940
+consistent
+
+13:46.940 --> 13:50.340
+with what
+
+13:50.340 --> 13:50.640
+we would
+
+13:50.640 --> 13:51.560
+expect to see
+
+13:51.560 --> 13:52.040
+under the
+
+13:52.040 --> 13:52.900
+null hypothesis
+
+13:52.900 --> 13:55.760
+that both
+
+13:55.760 --> 13:56.180
+the data
+
+13:56.180 --> 13:56.720
+sets are
+
+13:56.720 --> 13:57.020
+from the
+
+13:57.020 --> 13:57.220
+same
+
+13:57.220 --> 13:57.820
+distribution?
+
+13:57.820 --> 13:57.940
+distribution.
+
+13:59.860 --> 14:00.380
+So,
+
+14:00.960 --> 14:02.060
+how many
+
+14:02.060 --> 14:02.620
+ways are
+
+14:02.620 --> 14:02.960
+there
+
+14:02.960 --> 14:04.280
+that my
+
+14:04.280 --> 14:06.100
+five values
+
+14:06.100 --> 14:06.480
+can be
+
+14:06.480 --> 14:06.940
+distributed
+
+14:06.940 --> 14:08.020
+in the
+
+14:08.020 --> 14:08.380
+nine?
+
+14:09.500 --> 14:10.020
+Well,
+
+14:10.360 --> 14:10.960
+in fact,
+
+14:11.580 --> 14:12.280
+there are
+
+14:12.280 --> 14:13.860
+nine
+
+14:13.860 --> 14:14.780
+choose five
+
+14:14.780 --> 14:15.320
+ways,
+
+14:15.760 --> 14:16.960
+which is
+
+14:16.960 --> 14:18.040
+126,
+
+14:18.100 --> 14:18.340
+and we
+
+14:18.340 --> 14:19.080
+observe one
+
+14:19.080 --> 14:19.500
+of them,
+
+14:19.680 --> 14:20.120
+let's just
+
+14:20.120 --> 14:20.820
+clarify what
+
+14:20.820 --> 14:21.340
+we observe,
+
+14:21.340 --> 14:22.480
+I get
+
+14:22.480 --> 14:22.880
+the four
+
+14:22.880 --> 14:23.260
+lowest
+
+14:23.260 --> 14:23.940
+values,
+
+14:25.140 --> 14:27.400
+my wife
+
+14:27.400 --> 14:27.900
+the next
+
+14:27.900 --> 14:28.460
+three,
+
+14:29.740 --> 14:30.520
+then I
+
+14:30.520 --> 14:30.880
+get the
+
+14:30.880 --> 14:32.200
+second highest
+
+14:32.200 --> 14:32.640
+score,
+
+14:33.120 --> 14:33.500
+and my
+
+14:33.500 --> 14:33.920
+wife the
+
+14:33.920 --> 14:34.260
+highest
+
+14:34.260 --> 14:34.640
+score.
+
+14:34.640 --> 14:35.220
+So,
+
+14:35.240 --> 14:35.740
+that's one
+
+14:35.740 --> 14:36.120
+of these
+
+14:36.120 --> 14:37.080
+126
+
+14:37.080 --> 14:37.880
+configurations.
+
+14:39.640 --> 14:40.440
+We can
+
+14:40.440 --> 14:41.020
+think a little
+
+14:41.020 --> 14:41.460
+bit more
+
+14:41.460 --> 14:42.260
+about this
+
+14:42.260 --> 14:43.560
+test statistic
+
+14:43.560 --> 14:44.040
+and how it
+
+14:44.040 --> 14:44.680
+can behave.
+
+14:45.480 --> 14:46.020
+You can
+
+14:46.020 --> 14:46.500
+demonstrate
+
+14:46.500 --> 14:47.640
+that the
+
+14:47.640 --> 14:47.960
+minimum
+
+14:47.960 --> 14:48.640
+value
+
+14:48.640 --> 14:49.660
+that the
+
+14:49.660 --> 14:50.320
+test statistic
+
+14:50.320 --> 14:51.060
+can take
+
+14:51.060 --> 14:52.860
+is actually
+
+14:52.860 --> 14:55.040
+15.
+
+14:55.840 --> 14:56.400
+That would
+
+14:56.400 --> 14:56.840
+be if all
+
+14:56.840 --> 14:57.580
+my values
+
+14:57.580 --> 14:58.000
+were the
+
+14:58.000 --> 14:59.540
+lowest values,
+
+14:59.780 --> 15:00.180
+the five
+
+15:00.180 --> 15:00.960
+lowest values,
+
+15:01.760 --> 15:02.320
+and in
+
+15:02.320 --> 15:02.560
+fact,
+
+15:02.640 --> 15:03.140
+the highest
+
+15:03.140 --> 15:03.580
+it could
+
+15:03.580 --> 15:04.180
+take
+
+15:04.180 --> 15:06.780
+the
+
+15:06.780 --> 15:07.340
+maximum
+
+15:07.340 --> 15:13.100
+is,
+
+15:13.280 --> 15:14.080
+in fact,
+
+15:14.160 --> 15:14.760
+35.
+
+15:14.920 --> 15:15.180
+That would
+
+15:15.180 --> 15:16.140
+be if my
+
+15:16.140 --> 15:16.740
+values were
+
+15:16.740 --> 15:17.160
+the highest
+
+15:17.160 --> 15:17.620
+values.
+
+15:21.640 --> 15:22.300
+We can
+
+15:22.300 --> 15:22.820
+go further
+
+15:22.820 --> 15:23.400
+than that,
+
+15:23.620 --> 15:24.060
+and perhaps
+
+15:24.060 --> 15:24.380
+with the
+
+15:24.380 --> 15:24.760
+aid of a
+
+15:24.760 --> 15:25.240
+computer,
+
+15:26.560 --> 15:27.280
+we can
+
+15:27.280 --> 15:28.020
+compute the
+
+15:28.020 --> 15:28.580
+exact,
+
+15:29.900 --> 15:31.440
+in this
+
+15:31.440 --> 15:31.640
+case,
+
+15:31.740 --> 15:32.140
+probability
+
+15:32.140 --> 15:32.560
+mass
+
+15:32.560 --> 15:33.040
+function.
+
+15:34.180 --> 15:35.420
+for our
+
+15:35.420 --> 15:36.060
+test statistic
+
+15:36.060 --> 15:36.660
+Wx.
+
+15:36.720 --> 15:37.060
+So let's
+
+15:37.060 --> 15:37.460
+denote a
+
+15:37.460 --> 15:38.120
+possible value
+
+15:38.120 --> 15:38.920
+by W,
+
+15:39.760 --> 15:40.660
+and here
+
+15:40.660 --> 15:41.400
+we'll have
+
+15:41.400 --> 15:42.200
+the probability
+
+15:42.200 --> 15:43.580
+that the
+
+15:43.580 --> 15:44.300
+test statistic
+
+15:44.300 --> 15:45.020
+takes that
+
+15:45.020 --> 15:45.440
+value.
+
+15:46.720 --> 15:47.340
+Now we know
+
+15:47.340 --> 15:47.720
+the lowest
+
+15:47.720 --> 15:48.420
+value it can
+
+15:48.420 --> 15:48.840
+take is
+
+15:48.840 --> 15:49.440
+15,
+
+15:49.440 --> 15:49.480
+15,
+
+15:49.480 --> 15:54.740
+we won't
+
+15:54.740 --> 15:55.020
+draw it
+
+15:55.020 --> 15:55.440
+quite to
+
+15:55.440 --> 15:55.900
+scale,
+
+15:56.360 --> 15:57.720
+and the
+
+15:57.720 --> 15:58.640
+highest value
+
+15:58.640 --> 16:01.060
+is
+
+16:01.060 --> 16:04.500
+35.
+
+16:09.500 --> 16:10.000
+Now,
+
+16:10.000 --> 16:10.240
+in fact,
+
+16:10.300 --> 16:10.860
+there's only one
+
+16:10.860 --> 16:11.740
+way the test statistic
+
+16:11.740 --> 16:12.640
+can take the value
+
+16:12.640 --> 16:13.220
+15.
+
+16:13.220 --> 16:14.560
+that's when
+
+16:14.560 --> 16:15.240
+all my values
+
+16:15.240 --> 16:15.980
+were the lowest,
+
+16:16.460 --> 16:18.440
+so there's
+
+16:18.440 --> 16:18.880
+one out of
+
+16:18.880 --> 16:19.840
+the 126
+
+16:19.840 --> 16:21.080
+ways of
+
+16:21.080 --> 16:21.660
+doing that.
+
+16:22.860 --> 16:23.580
+There's only
+
+16:23.580 --> 16:24.960
+one way it
+
+16:24.960 --> 16:25.720
+can be 16
+
+16:25.720 --> 16:26.020
+too,
+
+16:26.120 --> 16:26.480
+actually.
+
+16:27.580 --> 16:27.960
+There's a
+
+16:27.960 --> 16:28.380
+couple of
+
+16:28.380 --> 16:28.780
+ways it
+
+16:28.780 --> 16:29.140
+can be
+
+16:29.140 --> 16:30.060
+17,
+
+16:30.520 --> 16:31.620
+and three
+
+16:31.620 --> 16:32.120
+ways I
+
+16:32.120 --> 16:32.500
+think that
+
+16:32.500 --> 16:32.820
+it can
+
+16:32.820 --> 16:34.500
+be 18,
+
+16:35.320 --> 16:36.040
+and that's
+
+16:36.040 --> 16:36.400
+the value
+
+16:36.400 --> 16:36.980
+we observe.
+
+16:37.300 --> 16:37.920
+So most of
+
+16:37.920 --> 16:38.500
+the probability
+
+16:38.500 --> 16:39.900
+is around
+
+16:39.900 --> 16:40.520
+values
+
+16:40.520 --> 16:41.800
+near the
+
+16:41.800 --> 16:42.160
+middle of
+
+16:42.160 --> 16:42.620
+the range,
+
+16:42.680 --> 16:43.060
+as we'd
+
+16:43.060 --> 16:43.620
+expect,
+
+16:44.340 --> 16:46.160
+and then we
+
+16:46.160 --> 16:47.900
+have some
+
+16:47.900 --> 16:48.880
+probability on
+
+16:48.880 --> 16:49.880
+the high values.
+
+16:51.140 --> 16:51.940
+So we
+
+16:51.940 --> 16:52.840
+actually observe
+
+16:52.840 --> 16:53.960
+the test
+
+16:53.960 --> 16:54.800
+statistic being
+
+16:54.800 --> 16:55.880
+18.
+
+17:00.440 --> 17:01.360
+In fact,
+
+17:01.460 --> 17:02.020
+there are
+
+17:02.020 --> 17:04.260
+seven
+
+17:04.260 --> 17:06.400
+ways
+
+17:06.400 --> 17:07.220
+in which
+
+17:07.220 --> 17:07.600
+the test
+
+17:07.600 --> 17:08.700
+statistic can
+
+17:08.700 --> 17:09.640
+be 18
+
+17:09.640 --> 17:10.320
+or less,
+
+17:10.960 --> 17:11.700
+and so
+
+17:11.700 --> 17:12.680
+those values
+
+17:12.680 --> 17:13.280
+collectively
+
+17:13.280 --> 17:14.960
+have probability
+
+17:14.960 --> 17:16.000
+on them
+
+17:16.000 --> 17:18.040
+of about
+
+17:18.040 --> 17:20.680
+0.055.
+
+17:21.660 --> 17:22.740
+So that's
+
+17:22.740 --> 17:23.260
+the probability
+
+17:23.260 --> 17:24.040
+of getting
+
+17:24.040 --> 17:24.820
+a value
+
+17:24.820 --> 17:25.300
+of the test
+
+17:25.300 --> 17:25.880
+statistic,
+
+17:26.020 --> 17:26.840
+WX,
+
+17:27.640 --> 17:29.500
+as inconsistent
+
+17:29.500 --> 17:31.440
+or lower,
+
+17:31.720 --> 17:32.220
+so that's
+
+17:32.220 --> 17:33.260
+18 or lower
+
+17:33.260 --> 17:34.480
+than what we
+
+17:34.480 --> 17:35.000
+observed.
+
+17:35.260 --> 17:35.800
+So 18
+
+17:35.800 --> 17:36.280
+was what we
+
+17:36.280 --> 17:36.800
+observed,
+
+17:36.800 --> 17:37.700
+and more
+
+17:37.700 --> 17:38.360
+inconsistent
+
+17:38.360 --> 17:39.060
+on the
+
+17:39.060 --> 17:39.760
+left tail
+
+17:39.760 --> 17:40.620
+would be
+
+17:40.620 --> 17:41.160
+17,
+
+17:41.420 --> 17:41.780
+16,
+
+17:41.880 --> 17:42.320
+or 15.
+
+17:42.880 --> 17:43.460
+But remember
+
+17:43.460 --> 17:43.960
+we're doing
+
+17:43.960 --> 17:45.340
+a two-sided
+
+17:45.340 --> 17:46.640
+hypothesis test
+
+17:46.640 --> 17:47.000
+here,
+
+17:47.200 --> 17:48.460
+so we need
+
+17:48.460 --> 17:49.060
+to consider
+
+17:49.060 --> 17:50.000
+the other
+
+17:50.000 --> 17:50.720
+tail too,
+
+17:50.940 --> 17:51.780
+because values
+
+17:51.780 --> 17:52.240
+at the other
+
+17:52.240 --> 17:52.680
+end of the
+
+17:52.680 --> 17:53.220
+tail would be
+
+17:53.220 --> 17:53.540
+just as
+
+17:53.540 --> 17:54.100
+inconsistent,
+
+17:54.440 --> 17:55.480
+except instead
+
+17:55.480 --> 17:56.120
+of being a lot
+
+17:56.120 --> 17:56.620
+smaller than
+
+17:56.620 --> 17:57.200
+we'd expect,
+
+17:57.320 --> 17:57.740
+they'd be
+
+17:57.740 --> 17:58.400
+larger.
+
+17:59.080 --> 18:00.000
+So we'd
+
+18:00.000 --> 18:00.980
+be considering
+
+18:00.980 --> 18:01.900
+these values
+
+18:01.900 --> 18:02.580
+0.055 as well.
+
+18:04.020 --> 18:04.760
+And by
+
+18:04.760 --> 18:05.320
+symmetry,
+
+18:06.480 --> 18:07.200
+these also
+
+18:07.200 --> 18:07.600
+have
+
+18:07.600 --> 18:08.740
+probability
+
+18:08.740 --> 18:12.080
+0.055.
+
+18:13.000 --> 18:13.800
+So that
+
+18:13.800 --> 18:14.120
+when we
+
+18:14.120 --> 18:14.500
+consider
+
+18:14.500 --> 18:15.380
+these two
+
+18:15.380 --> 18:16.600
+regions
+
+18:16.600 --> 18:17.160
+together,
+
+18:18.740 --> 18:19.520
+their combined
+
+18:19.520 --> 18:20.100
+probability,
+
+18:20.100 --> 18:20.740
+which gives
+
+18:20.740 --> 18:21.440
+the p-value
+
+18:21.440 --> 18:22.820
+for our test
+
+18:22.820 --> 18:24.580
+is approximately
+
+18:24.580 --> 18:27.640
+0.11.
+
+18:35.700 --> 18:36.220
+Hence,
+
+18:36.600 --> 18:38.840
+at the 5%
+
+18:38.840 --> 18:39.840
+significance level,
+
+18:39.840 --> 18:49.280
+there is
+
+18:49.280 --> 18:52.300
+not enough
+
+18:52.300 --> 18:52.880
+evidence
+
+18:52.880 --> 18:59.980
+to reject
+
+18:59.980 --> 19:04.700
+the null
+
+19:04.700 --> 19:05.280
+hypothesis
+
+19:05.280 --> 19:06.020
+that the
+
+19:06.020 --> 19:06.460
+two data
+
+19:06.460 --> 19:06.920
+sets are
+
+19:06.920 --> 19:07.220
+from the
+
+19:07.220 --> 19:07.500
+same
+
+19:07.500 --> 19:08.260
+distribution.
+
+19:08.260 --> 19:09.940
+Now,
+
+19:10.300 --> 19:12.020
+there may
+
+19:12.020 --> 19:12.640
+be a suspicion
+
+19:12.640 --> 19:13.100
+that if we
+
+19:13.100 --> 19:13.320
+were to
+
+19:13.320 --> 19:13.780
+gather some
+
+19:13.780 --> 19:14.340
+more data,
+
+19:14.900 --> 19:15.600
+that perhaps
+
+19:15.600 --> 19:16.560
+that picture
+
+19:16.560 --> 19:17.300
+would change,
+
+19:17.520 --> 19:17.780
+and that
+
+19:17.780 --> 19:18.120
+influence
+
+19:18.120 --> 19:18.780
+would change,
+
+19:19.740 --> 19:20.560
+and my
+
+19:20.560 --> 19:21.140
+wife might
+
+19:21.140 --> 19:21.700
+argue that
+
+19:21.700 --> 19:22.020
+we should
+
+19:22.020 --> 19:22.520
+be taking
+
+19:22.520 --> 19:23.660
+a one-sided
+
+19:23.660 --> 19:24.400
+alternative
+
+19:24.400 --> 19:25.080
+rather than
+
+19:25.080 --> 19:25.440
+a two.
+
+19:26.160 --> 19:26.580
+However,
+
+19:27.020 --> 19:27.640
+as the test
+
+19:27.640 --> 19:28.200
+would stand,
+
+19:28.400 --> 19:28.820
+we would
+
+19:28.820 --> 19:29.560
+not reject
+
+19:29.560 --> 19:29.900
+the null
+
+19:29.900 --> 19:30.560
+hypothesis.
+
+19:30.560 --> 19:42.040
+I could
+
+19:42.040 --> 19:42.420
+have used
+
+19:42.420 --> 19:42.800
+a normal
+
+19:42.800 --> 19:43.600
+approximation.
+
+19:49.240 --> 19:49.880
+Why?
+
+19:50.360 --> 19:51.220
+Because if we
+
+19:51.220 --> 19:51.720
+look at our
+
+19:51.720 --> 19:52.520
+test statistic,
+
+19:53.760 --> 19:54.500
+it's a
+
+19:54.500 --> 19:54.900
+summation,
+
+19:54.900 --> 19:57.740
+and the
+
+19:57.740 --> 19:58.300
+central limit
+
+19:58.300 --> 19:59.200
+theorem tells
+
+19:59.200 --> 20:00.440
+us that
+
+20:00.440 --> 20:02.940
+sums and
+
+20:02.940 --> 20:05.600
+averages are
+
+20:05.600 --> 20:06.200
+approximately
+
+20:06.200 --> 20:07.180
+normally distributed,
+
+20:07.740 --> 20:08.520
+at least as the
+
+20:08.520 --> 20:09.200
+sample grows
+
+20:09.200 --> 20:09.760
+large.
+
+20:10.080 --> 20:10.660
+Now, we only
+
+20:10.660 --> 20:12.940
+have a modest
+
+20:12.940 --> 20:13.720
+number of terms
+
+20:13.720 --> 20:14.460
+in the sum here,
+
+20:14.460 --> 20:15.180
+so we might not
+
+20:15.180 --> 20:16.760
+expect the normal
+
+20:16.760 --> 20:17.580
+approximation to
+
+20:17.580 --> 20:18.240
+work too well,
+
+20:18.560 --> 20:19.280
+but in any event,
+
+20:19.360 --> 20:20.060
+we have computers
+
+20:20.060 --> 20:20.740
+these days,
+
+20:20.940 --> 20:22.140
+so the computations
+
+20:22.140 --> 20:22.720
+can be quite
+
+20:22.720 --> 20:23.360
+easily done,
+
+20:23.800 --> 20:24.240
+for example,
+
+20:24.340 --> 20:24.800
+using the
+
+20:24.800 --> 20:26.000
+software R
+
+20:26.000 --> 20:27.100
+and the
+
+20:27.100 --> 20:28.340
+related command.
+
+20:29.740 --> 20:30.520
+What if we'd
+
+20:30.520 --> 20:31.580
+had ties?
+
+20:32.000 --> 20:32.560
+So what if
+
+20:32.560 --> 20:33.020
+two of the
+
+20:33.020 --> 20:33.580
+observations
+
+20:33.580 --> 20:34.300
+had been the
+
+20:34.300 --> 20:34.640
+same?
+
+20:35.360 --> 20:35.740
+Well, let's
+
+20:35.740 --> 20:36.280
+go back to
+
+20:36.280 --> 20:36.820
+our data,
+
+20:37.980 --> 20:38.260
+and let's
+
+20:38.260 --> 20:38.920
+suppose that
+
+20:38.920 --> 20:39.460
+if instead
+
+20:39.460 --> 20:40.080
+of having
+
+20:40.080 --> 20:41.280
+a score
+
+20:41.280 --> 20:42.080
+of nine
+
+20:42.080 --> 20:42.920
+here,
+
+20:43.400 --> 20:44.220
+my wife
+
+20:44.220 --> 20:44.640
+had actually
+
+20:44.640 --> 20:45.360
+scored eight,
+
+20:46.060 --> 20:47.100
+which ties
+
+20:47.100 --> 20:47.580
+with one of
+
+20:47.580 --> 20:48.260
+my scores.
+
+20:49.120 --> 20:49.800
+What we do
+
+20:49.800 --> 20:50.280
+in the case
+
+20:50.280 --> 20:50.820
+of ties
+
+20:50.820 --> 20:52.000
+is we
+
+20:52.000 --> 20:52.460
+assign
+
+20:52.460 --> 20:53.040
+average
+
+20:53.040 --> 20:53.580
+ranks,
+
+20:53.700 --> 20:54.060
+so now
+
+20:54.060 --> 20:54.580
+both of
+
+20:54.580 --> 20:55.340
+these values
+
+20:55.340 --> 20:56.040
+have rank.
+
+20:56.440 --> 20:56.800
+Well,
+
+20:57.140 --> 20:57.420
+they would
+
+20:57.420 --> 20:57.820
+have rank
+
+20:57.820 --> 20:58.240
+four and
+
+20:58.240 --> 20:58.900
+five,
+
+20:59.160 --> 20:59.980
+they're tied,
+
+21:00.300 --> 21:00.980
+so we give
+
+21:00.980 --> 21:01.540
+each one
+
+21:01.540 --> 21:02.020
+rank
+
+21:02.020 --> 21:03.060
+four and
+
+21:03.060 --> 21:03.680
+a half,
+
+21:04.440 --> 21:05.240
+and proceed
+
+21:05.240 --> 21:05.980
+as before.
+
+21:06.600 --> 21:07.120
+We proceed
+
+21:07.120 --> 21:07.720
+as before,
+
+21:07.960 --> 21:08.820
+mindful that
+
+21:08.820 --> 21:10.040
+the rankings
+
+21:10.040 --> 21:10.960
+being tied
+
+21:10.960 --> 21:12.040
+makes no
+
+21:12.040 --> 21:12.700
+difference to
+
+21:12.700 --> 21:13.580
+the location
+
+21:13.580 --> 21:13.900
+of the
+
+21:13.900 --> 21:14.460
+distribution
+
+21:14.460 --> 21:15.000
+of the
+
+21:15.000 --> 21:15.660
+test statistic,
+
+21:16.180 --> 21:16.920
+but it does
+
+21:16.920 --> 21:17.360
+change the
+
+21:17.360 --> 21:17.980
+variance a
+
+21:17.980 --> 21:18.160
+little.
+
+21:19.220 --> 21:19.520
+So,
+
+21:19.660 --> 21:20.100
+although the
+
+21:20.100 --> 21:20.820
+test can work
+
+21:20.820 --> 21:21.620
+fine,
+
+21:22.000 --> 21:22.800
+if there
+
+21:22.800 --> 21:23.660
+are little
+
+21:23.660 --> 21:24.040
+in the
+
+21:24.040 --> 21:24.960
+way of
+
+21:24.960 --> 21:27.160
+ties,
+
+21:27.420 --> 21:27.760
+it does
+
+21:27.760 --> 21:28.440
+not work
+
+21:28.440 --> 21:29.000
+too well
+
+21:29.000 --> 21:29.800
+if there
+
+21:29.800 --> 21:30.180
+are lots
+
+21:30.180 --> 21:30.680
+of ties,
+
+21:31.500 --> 21:32.080
+and that's
+
+21:32.080 --> 21:32.500
+something to
+
+21:32.500 --> 21:32.860
+be born
+
+21:32.860 --> 21:33.360
+in mind.
+
+21:34.140 --> 21:34.720
+The way
+
+21:34.720 --> 21:35.140
+we've
+
+21:35.140 --> 21:36.480
+conducted the
+
+21:36.480 --> 21:37.140
+test here
+
+21:37.140 --> 21:39.480
+is by
+
+21:39.480 --> 21:40.320
+considering all
+
+21:40.320 --> 21:41.140
+the possibilities
+
+21:41.140 --> 21:44.440
+and enumerating
+
+21:44.440 --> 21:45.180
+the distribution
+
+21:45.180 --> 21:46.420
+of the test
+
+21:46.420 --> 21:47.240
+statistic that we
+
+21:47.240 --> 21:47.700
+chose
+
+21:47.700 --> 21:48.700
+explicitly.
+
+21:48.700 --> 21:50.160
+as such,
+
+21:50.200 --> 21:50.460
+it's an
+
+21:50.460 --> 21:50.980
+example of
+
+21:50.980 --> 21:51.440
+a so-called
+
+21:51.440 --> 21:52.160
+permutation
+
+21:52.160 --> 21:52.700
+test,
+
+21:53.420 --> 21:54.100
+and more
+
+21:54.100 --> 21:54.640
+on that
+
+21:54.640 --> 21:55.780
+later.
+
+21:57.980 --> 21:58.500
+So,
+
+21:58.560 --> 21:58.960
+that's the
+
+21:58.960 --> 21:59.320
+bank sum
+
+21:59.320 --> 21:59.700
+test,
+
+21:59.900 --> 22:00.520
+I hope
+
+22:00.520 --> 22:00.780
+you've
+
+22:00.780 --> 22:01.340
+enjoyed it.
+
+22:01.700 --> 22:02.260
+Thank you.
+

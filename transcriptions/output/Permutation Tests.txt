@@ -1,0 +1,669 @@
+We're going to describe a class of tests called permutation tests, and in particular two-sample
+permutation tests. Now permutation tests are a family of tests which are at least when sample
+sizes are not small, they're computationally intensive. Luckily today we have software
+available and the software package R provides commands for performing permutation tests.
+Well, we'll illustrate with an example. An example is a US trial, a civil trial, a discrimination
+case from 1981, and the plaintiff was named Andrea Capacci, and she brought a case to the
+court against her employers, Katz and Besthoff, Inc. Now you can Google this trial if you
+like. And this trial was a sexual discrimination trial, and as part of the evidence there were
+data presented about times to promotion in months for men and women in the company over a period
+of time. So, for the men's times to promotion, the figures in order were something like this,
+5, 7, 12, 40, 40, won't give the full data here. There were 22 promotion times for men, and the
+sample size was 483. So let's say N1 sample size for the men was 22. There were only actually two women
+who got promoted, and their promotion times were 229 and 453. So, what would our null hypothesis be here? Well, we'll
+return to the notion of the extent of inference in general, just at the end of this little lecture. We
+noticed that really the data here are not samples, they represent the complete data that were available
+for individuals who were promoted over a particular time period. The time period itself is a form of a sample, but
+given the time period was determined by the duration of time that the plaintiff Kapachi had been in the
+employment of the company, that was kind of fixed. So, the process by which the data give rise to the
+the the process by which these promotion times are created, I suppose, is the the essence of what we're
+interested in. And whatever the processes were, they give rise to some data, we've observed the data. The
+null hypothesis would be that the distribution of times to promotion for men and women were the same over the
+time period in question. This would, of course, imply that they have the same means, the same medians.
+What would we take as the alternative hypothesis? Well, for sure, the distributions are different, which would
+simply be the negation of the null hypothesis. But I would argue here that one should consider only a
+one-sided alternative. The one-sided alternative being that the women's promotion times are greater, on average. So, the
+distribution of the distribution of the women's promotion times was, on average, larger. So, I had a greater
+mean, say, or greater median than that for the men. Now, why would I take a one-sided case here? I would argue that, given
+that this is a discrimination trial, it is inconceivable that a case would make it to the court for a claim for
+discrimination against women, gender discrimination, where in fact there was evidence that there was positive
+discrimination, or it was plausible, in any way, that there was positive discrimination towards women. Hence, I consider here the
+only logical alternative one can take to the null is an alternative which is one-sided. And that is the case that
+we will consider. So, what do we do in a permutation test? Well, we choose some test statistic or other. So, what should I
+choose as a test statistic? You can pretty much choose anything that would be a sensible choice. I'm going to choose something very
+simple. The sum of the women's promotion times, which in this case is 229 plus 453 is 682. That might strike you as
+being an odd choice for test statistic, just the sum of the data for the women. In fact, I'd get exactly the same inference
+inference here, if I chose the sample means, the difference in the sample means of the test statistic, or even the t
+statistic. So, if you were doing a two-sample t-test here, well, you've only got two observations for the women's group, but you
+could do a two-sample t-test, and I'd get the same inference, actually. I think I'm at it saying. So, the question we ask ourselves is, we have data,
+we have data for men, and we have data for women, and we have 22 observations for the men, and two for the women's, so 24 observations in total, two of which were women's, and 22 were men. So, we ask ourselves, well, how many, I'll say regroupings, are there, of 24 observations, where we put two in one group,
+and 22 in another? Well, the answer is, of course, 24 choose 2. So, 24 observations. I don't really care about the ordering in each group, I just care about how many ways I can put two in one group and 22 in another.
+And if we work that out, that comes to 276. So, there are 276 ways of taking 24 numbers and putting two in one group, call that the women, and 22 in the other.
+And under the null hypothesis, well, all of those regroupings should be equally likely.
+Now, the question that we ask is, how many of those give a value of the test statistic at least as inconsistent as the one that we've observed, which is 682?
+Well, we can enumerate them.
+In particular, the one that we observed, so we always include that one.
+So, that was the one that we observed. What else might we have observed?
+Well, we might have observed 229 and 483.
+We might have observed 453 and 483, the two largest values.
+So, those three ways to group our data to give a test statistic
+at least as inconsistent with the null hypothesis as the one that we observed.
+So, how do we find our p-value?
+Well, our p-value says, well, actually there were 276 ways,
+all of which should be equally likely of grouping the data,
+of which three gave a value at least as inconsistent as the one we observed.
+Of course, that includes the one we observed.
+And given that we're doing a one-tailed test,
+the p-value is just based on that tail,
+and we have a p-value of 0.01,
+so around 1%.
+So, that's quite strong evidence
+against the null hypothesis that the men and women's promotion times
+were from the same distribution.
+Notice that if we did a two-tailed test,
+we'd also arrive at a conclusion that there was evidence,
+although a little less strong,
+against the null hypothesis.
+Let's talk in generality now,
+and describe what we've done in the general case,
+where we've got two samples
+of size,
+let's call them M and N, respectively.
+So, I choose a test statistic.
+You can simply choose a test statistic
+that is a test statistic for a test that you already know,
+so you could choose a two-sample-t-test statistic,
+or rank sum, or whatever.
+We find, at least in principle,
+the test statistic
+that we chose
+for all
+of the
+n plus m
+to n
+regroupings
+of the data.
+So, all the ways in which
+we can assign the n plus m
+numbers
+into a group of n and a group of m.
+find the number
+of samples
+that have a test statistic
+at least
+as inconsistent
+with the null hypothesis
+as not observed.
+It's the one that we saw.
+And we divide that number
+so that count
+by
+n plus m
+to n
+to give our p-value.
+So, let's just
+talk a little bit more
+about our example
+in this
+Apache case.
+So,
+the data in the trial
+was such that
+if we choose
+t
+as our test statistic,
+let's say it's the
+total of the women's
+promotion times.
+We notice that
+if we look back
+at our data,
+the smallest value
+that could have taken
+across the regroupings
+is when the two
+smallest observations
+were for the women,
+which were five and seven.
+So, there's one
+out of the 276
+groupings
+that gives a value
+of 12
+for our test statistic.
+The next smallest value
+is 17.
+Again, there's only one way
+to do that.
+The next smallest value
+is 19
+and actually there's
+quite a few ways
+that can arise
+and so on.
+So, we get
+different numbers
+of ways.
+So, remember,
+this is the sampling
+distribution of this
+test statistic
+under the null hypothesis
+and we actually observed
+something way up
+in the upper tail,
+682,
+and we were doing
+a one tail test
+and those three
+cases together
+would only have
+probability
+of about 0.1
+if all of these
+possibilities,
+all of the 276
+were equally likely.
+So, that seems large,
+it seems to be
+way up in the upper tail
+if, in fact,
+T really was
+following this
+distribution
+under our null hypothesis.
+So, as always,
+when we're performing
+a test,
+we're considering
+how does that
+test statistic behave
+if the null hypothesis
+was true?
+And here,
+we're doing a brute
+force approach.
+We're actually
+computing this
+sampling distribution
+explicitly.
+We're really only
+interested in the tails,
+but we should have
+this picture in our mind.
+Interestingly enough,
+the Capacci case
+was defeated
+even, I understand,
+after an appeal.
+Of course,
+although these data
+look compelling,
+there's more to the data
+than meets the eye.
+There's always a story
+behind our data.
+And, of course,
+the data
+only included information
+for people
+who made it to promotion.
+So, there's no
+information about
+people who
+served the company
+and who didn't get
+promoted in that time.
+And there was also
+evidence that there
+were women who had
+turned down promotion,
+so had been offered
+promotion but refused it.
+I think on the grounds
+that the nature of the
+work changed once they
+got promoted
+and didn't suit
+some women.
+So, although the data
+looked quite,
+these data looked
+quite convincing,
+the case was
+defeated in the event.
+Now, let's just
+conclude here
+with a brief
+talk
+about
+the extent
+of statistical
+inference.
+Because, as we
+described
+in this example,
+the data were not
+a sample.
+So, normally,
+when we're doing
+statistics,
+we're thinking to
+ourselves that we
+have some sort
+of population,
+so some sort
+of set
+of individuals
+or objects
+or something,
+and we take
+a sample
+from that
+population.
+We hope,
+or it should be
+hoped,
+that we take
+the sample
+in some sensible
+way as to
+minimise bias.
+And a simple
+random sample,
+rather like a
+lottery or
+raffle,
+is the optimal
+type of sample
+to take.
+And if we were
+to take such a
+sample,
+then we'd be
+probably quite
+happy in
+drawing inference
+about our sample
+back to the
+population.
+More often,
+particularly when
+we're dealing
+with populations
+of human beings,
+it's very difficult
+to take a true
+random sample
+like a lottery.
+Now,
+in the
+Capaccio case,
+the data were
+not a sample.
+So,
+the inference,
+if anything,
+was about the
+process which gave
+rise to the
+promotion times.
+So,
+whatever the
+processes were,
+or if there was
+a single process,
+really did it differ
+for the men
+and the women.
+So,
+we can imagine
+some mechanism,
+some pseudo-random
+process which is
+giving rise to the
+data,
+and we were
+interested in,
+well,
+however this process
+operated,
+is it giving the
+same sort of data
+for men as it did
+for women?
+So,
+there was no
+sample there
+as such,
+unless one thinks
+of hypothetical
+individuals who
+might have worked
+for the company
+but didn't,
+and their promotion
+times we weren't
+observed,
+but we actually
+observed some
+subset of people
+who did work
+for the company.
+Now,
+extending the
+idea a little
+further,
+we'll discuss
+in the course
+examples of
+what we would
+describe as
+experiments.
+So,
+sometimes we
+don't just
+stop at
+taking a
+sample and
+observing what
+we've seen
+from the sample,
+we do some
+sort of
+experiment,
+and an
+experiment
+involves,
+in the
+simplest form,
+just applying
+some treatments
+to our
+sample.
+Now,
+sample individuals
+tend to be
+called
+experimental
+units,
+or,
+less dispassionately
+if they're human
+beings,
+subjects,
+and we
+would hope,
+in a nice
+experiment,
+to allocate
+experimental
+units to
+treatments
+at random.
+And a
+well-designed
+experiment will
+be such that,
+well,
+however we've
+got our
+experimental
+units,
+which will
+almost always
+be by some
+sort of
+sampling
+procedure,
+then we
+have
+randomisation
+in that we
+randomly allocate
+individuals to
+treatments.
+So,
+for example,
+if we had a
+sample of
+cancer patients,
+so a
+sample of
+individuals who
+all suffer
+from,
+let's say,
+colon cancer,
+and we have
+some different
+treatments to
+test,
+then we would
+randomise
+patients to
+treatments.
+So,
+this would be
+done,
+hopefully,
+in a double
+blind way,
+the patients
+don't know
+what treatment
+they're getting,
+and the
+doctors making
+the diagnosis
+don't know
+what sort
+of treatment
+they're getting
+either.
+A little more
+on that later.
+Now,
+in that case,
+it probably
+doesn't matter
+a great deal
+how the
+sample were
+obtained,
+so long as
+there's
+randomisation
+in the
+allocation
+of
+patients to
+treatment,
+we can
+make
+inference
+from
+our
+data,
+so we
+measure some
+responses,
+we can
+make
+inference
+about
+the
+treatments.
+Whether
+we can
+then extend
+that to
+the
+population,
+well,
+that may
+be a little
+more tenuous
+because it
+may not
+be that the
+sample of
+individuals in
+our experiment
+were a
+random sample
+of all
+possible,
+well,
+individuals in
+the so-called
+target population.
+but even
+if the
+sample were
+biased in
+some way,
+we would
+hope that
+randomisation
+will still
+give
+appropriate
+inference
+about the
+treatments,
+whether we
+could extend
+to the
+whole
+target
+population,
+I mean,
+there may
+be,
+for example,
+subsets of
+the target
+population
+which were
+for some
+reason excluded
+from the
+possibility of
+appearing in
+our set of
+experimental
+subjects,
+experimental
+units,
+then we
+may not be
+able to make
+the inference
+that this
+will always
+apply to
+all members
+of the
+population,
+but the
+treatments we
+may be able
+to draw
+conclusions about.
+In the
+ideal world,
+we would have
+a random
+sample from
+our population
+and in an
+experiment
+randomly assign
+individuals to
+treatments,
+and then we
+really,
+we'd be quite
+happy to do
+a,
+in the ideal
+case,
+we'd be quite
+happy to do a
+permutation test
+in those cases,
+we probably don't
+need any statistical
+model to describe
+the variable that
+we're measuring,
+and in that
+case, a
+permutation test
+is simply
+dubbed a
+randomisation test
+just to make it
+clear that
+there was
+randomisation in
+the allocation
+of the units
+to the treatment.
+It's just a
+permutation test.
+the mechanism
+by which the
+test is
+performed
+is really
+just the
+same.
+So,
+permutation
+tests,
+sometimes known
+also as
+randomisation
+tests,
+are very
+powerful
+tests,
+powerful in
+the sense
+of they
+can be
+applied in
+a wide
+range of
+scenarios,
+they give
+an exact
+inference,
+but they
+are computationally
+intensive.
+We have
+computers these
+days, and
+the history
+of statistics
+would have
+looked rather
+different had
+the grandfathers
+and grandmothers
+of the subject
+had the
+computational
+power that
+we have
+available to
+us today.
+So that's a
+little bit about
+permutation tests.
+I hope you
+understood it
+and enjoyed it.

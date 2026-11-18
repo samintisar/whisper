@@ -1,0 +1,150 @@
+We're going to discuss the power of hypothesis tests.
+The power of hypothesis tests. So, a little introduction.
+So far, you'll have met some number of hypothesis tests and it may not have occurred to you to
+ask the question, what makes a good hypothesis test?
+What makes one hypothesis test preferable to another one?
+In particular, if we had, as we may have seen so far, more than one hypothesis test that
+we could use in a given situation, well, what makes one test better than another?
+Moreover, could we define the notion of a test being optimal for a given situation in the
+sense that it's better than any other test?
+How should we choose a test? How can we create a test?
+Well, these are rather deep ideas, a little beyond what we can discuss satisfactorily here.
+But, let's start by just recapping our basic theory of hypothesis testing.
+So, we have some null hypothesis, which is the default.
+It's there to be shot down, but it's what we'll accept unless data come along that make us feel
+that, via our test, some alternative hypothesis that I denote by HA is more plausible than the null.
+So, the null hypothesis is akin to the defendant in a criminal trial in North American and English law.
+So, really, what does a null hypothesis look like?
+Well, usually we have some parameter, let's just assume we're interested in a single parameter.
+And, typically in statistics we denote our parameters by Greek letters, let's say theta.
+And, the null hypothesis typically defines a single value for that parameter.
+So, it assigns some default value to that unknown parameter, in which case we call the null hypothesis simple.
+It's just assigning some single value to the parameter that we don't know.
+So, this could be the mean of some distribution, or the probability of an event occurring, or a standard deviation, or whatever our test may be about.
+The alternative hypothesis is usually not simple, in that it does not define a single alternative value.
+It may simply be the negation of the null hypothesis, so it says theta isn't theta naught, or it may be that we have only greater than, or equal to, or less than, as cases to consider.
+In which case we say that the alternative is composite.
+Composite in that it's collecting together more than one value of the primitive interest.
+So, we have a null hypothesis, there to be shot at, data come along, we summarize the data via a test statistic, we perform some sort of test, and on that we decide whether we should reject the null hypothesis, or not reject.
+And again, akin to a court of law, we do have two possible errors that can occur.
+Now, a type 1 error is defined to be the event where we reject H0, when it was true.
+The probability of a type 1 error is denoted by alpha, and it's called the significance level of the test.
+So, this is rather like rejecting, so it's rejecting the null hypothesis when it's true, it's rather like condemning an innocent defendant in a criminal trial.
+A type 2 error is that we don't reject, we fail to reject.
+Now notice that I'm falling short of saying we accept the null hypothesis.
+Remember, the null hypothesis typically defines a specific value on some unknown parameter, and maybe I'll never accept that some unknown parameter, so the mean of some population, is exactly equal to some value that I've specified.
+Maybe I'll never accept that.
+But it may be that it appears acceptable in that data do not come along that oblige me to reject that hypothesis.
+So a type 2 error occurs when we fail to reject the null hypothesis, when in fact the null hypothesis was false.
+And the probability of a type 2 error is, well guess what, we denoted by beta.
+So there are these two errors, two types of errors, both of which we'd like to avoid.
+Now, if we think about this a little further, we recognise that a type 1 error is an event conditional on the null hypothesis being true.
+But our null hypothesis typically tells us what's going on.
+It tells us the value of the null hypothesis, at least in the case, it tells us the value of the unknown parameter, rather, in the case where it's simple, which is usually the case.
+So we know what's going on when H0 is true.
+The type 2 error, on the other hand, says, hmm, now we're conditioning on H0 being false.
+And what's the probability of rejecting when H0 is false?
+Well, looking at the form of our alternative hypothesis, that won't specify exactly what's going on, because usually the alternative is composite.
+It doesn't tell us exactly what's going on.
+It sets a range of values for the unknown parameter.
+So, these two types of errors are rather different in their characteristics.
+It's helpful to define something called the power function.
+The power of a test is just one minus the probability of making a type 2 error.
+So, as the name would suggest, power's good.
+We like power.
+We want high power.
+And we don't want to make a type 2 error.
+So, it's one minus the probability of making a type 2 error.
+And we can think of this as the ability of the test to detect the null hypothesis when it's false.
+So, the ability of the test to weedle out a false null hypothesis.
+So, based on this idea, we define something that we call the power function.
+And I'll denote it by pi of theta.
+So, it's defined to be, I'll use that notation, because we've not seen this before.
+And this is the probability of rejecting the null hypothesis.
+Now, for a given test, this will depend on all sorts of things, not least the sample size.
+But let's be quite clear, the probability of rejecting the null hypothesis, as I've suggested on the left-hand side here,
+it depends on the value of the unknown parameter.
+So, this is a function that depends on what the value of the parameter may be.
+But the beauty is, we can consider it for every possible value of the parameter, should we wish.
+And it's the probability of rejecting the null hypothesis for that particular value of theta.
+So, we would like this power function to be large, so it would have a high probability,
+on values of theta that are consistent with the alternative,
+and are low, so a low probability of rejection, on values of theta that are consistent with H0.
+What's the ideal?
+Well, the ideal is a function that says, well, it has no probability of rejecting
+if theta, abusing notation slightly, is in the set of values that's consistent with the null hypothesis.
+So, if theta happens to be in that set, well, no chance of rejecting.
+One, on the other hand, so we're certain to reject if theta is in the set of values that's consistent with the alternative hypothesis.
+That would be the ideal. So, if a test could attain that, it would be optimal, in an absolute sense.
+But, in practice, unless we're in really trivial situations, in practical situations, no tests are ideal.
+No tests are going to satisfy that their power function looks like this guy.
+Well, let's have a look at an example in some detail.
+So, we have some random variable x, and we'll just say we've got three observations from this random variable.
+So, three independent observations from x, and our case we'll look at is that x is a binomial variable,
+or it's a special case, it's a Bernoulli variable.
+We're tossing a coin once, if you like, and observing heads with probability p.
+More generally, I might say that x takes the value 1, with probability p, and 0, with probability 1 minus p.
+So, maybe we observe a success if we see a 1, and a failure if we don't.
+We'll start off by looking at the following hypotheses.
+P is a probability, it's an unknown parameter, we know it has to be between 0 and 1.
+Let's suppose our null hypothesis specifies that it's between 0 and a half inclusive,
+and our alternative is that it's between 0 and 1.
+These are not the most natural hypotheses to consider in this sort of situation.
+We'll come to the most natural case presently, but let's have a look at this for the starters.
+And we're going to compare two tests.
+So, test 1, let's say it rejects the null hypothesis when we see three successes in our three observations.
+Well, each observation is a success with probability p, whatever p is, we observe three successes.
+So, each one with probability p would suggest that, let's say this has power function, let's call it pi 1,
+and the power function is going to be p times p times p, assuming these three observations are independent of one another,
+and so the power is p cubed.
+Test 2, on the other hand, will reject the null hypothesis when we see two or three successes.
+So, let's say it has power function pi 2.
+Well, we might see three successes, which we know happens with probability p cubed,
+or, and mutually exclusive, so we can just use our additive rule,
+or with probability 3 p squared 1 minus p, we observe two successes.
+So, what does our power functions look like in this case?
+So, let's plot the power function, just the probability rejecting the null hypothesis.
+We know that p has to go between 0 and 1, and both of the tests are such that, of course,
+if p is 0, it's 0, and if it's 1, it's 1.
+Pi 1 is just p cubed, and so that looks something like this over the range.
+Can't do it all that carefully, but...
+And pi 2 looks a little bit more like this over the range.
+So, of course, given the nature of the function, if we look at it, it can't be smaller.
+It's an increasing function of p.
+So, pi 2 is always at least pi 1.
+So, pi 2 suggests that, it tells us that test 2 always has a higher power function.
+But that's not so good in situations where, well, the null hypothesis is true,
+which is when we're over here.
+We don't really want to be rejecting the null hypothesis in that situation.
+So, this test will very often lead to a false rejection of the null hypothesis when it's actually true.
+Let's just, continuing to look at this example,
+let's look at more natural alternative, let's look at more natural hypotheses than we've chosen here,
+and compare the same two tests.
+So, we're not going to, we're going to keep these two tests, but let's consider the more natural case.
+The null hypothesis states that p is a half, so it's like we're tossing an unbiased coin,
+and the alternative is that, let's just say it's not a half.
+Now, in that case, we have simple, so we have a simple null hypothesis,
+and we know that test 1, which has lower power for all values of p,
+we know it's going to have a significance level.
+Well, that's the probability that we reject the null hypothesis,
+and we reject the null hypothesis in test 1 when we see three successes,
+and we see three successes with probability, well, under the null hypothesis,
+a half times a half times a half, so a half cubed, so it has significance level,
+let's call it alpha 1, an eighth.
+But test 2 has significance level, well, we get two or three heads,
+so we get three heads with probability an eighth, or two heads,
+so that's actually got significance level a half.
+So, if we go back to our picture, and the picture's not very good,
+but when p's a half, test 2 actually has, which is not very good to scale,
+you can sketch them better yourself, but has a power of a half,
+and we reject with probability a half.
+And so, although test 2 has higher power for all values of p,
+for this particular case, that significance level looks rather too high.
+We wouldn't probably be very happy, to beg the question,
+but we wouldn't be very happy doing a test which, when the null hypothesis were true,
+would reject the null hypothesis half the time.
+In this way, we can compare two tests by doing a power analysis,
+and I hope that this little lecture has given you that flavour.
+So, this is an introduction to the idea of the power of a hypothesis test,
+and I hope that you've taken something from it, and enjoyed it.
+Thank you.

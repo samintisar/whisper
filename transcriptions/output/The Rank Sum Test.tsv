@@ -1,0 +1,726 @@
+start	end	text
+0	20720	The rank sum test is a hypothesis test that's normally attributed to the statistician Wilcoxon.
+20720	34540	It is a two-sample test, and in that respect it's akin to the two-sample t-test that you will have met earlier.
+34540	55980	The rank sum test is an example of a so-called non-parametric test, and we meet other examples of such tests, such as the signed test and the signed rank test.
+55980	70480	And the term non-parametric, we may recall, refers to the fact that the test makes no explicit assumptions about the nature of the distribution, or in this case distributions, which give rise to our data.
+72340	76400	So, let us describe the test in general terms first.
+76400	99180	So, suppose we have data from a random variable, we'll call it capital X, and let's sketch the density function of X, we'll assume that it's continuous, although we don't need to assume that, and it can be of any shape.
+100080	105160	So that's the density function of X, and we'll denote it F subscript X.
+105160	120260	So, we have some data from this random variable, X1, X2, so independent observations, and let's say we have M of them.
+121960	133720	Now, independent to that, we have data from another random variable, which we'll call Y, and its density function.
+135160	146160	So, let's get to like that, and we have some data from Y.
+146680	158900	Let's say we have N observations, N independent observations from the random variable, Y.
+158900	177020	So, our null hypothesis, actually, is that the two distributions are exactly the same, so that the density function for Y is the same as the density function for X.
+177880	181420	Whatever their shape, whatever they look like, they're the same.
+181420	201340	Now, strictly speaking, the alternative hypothesis is that the density function for Y, let's put the argument in X there, is the same as the density function for X,
+201340	208400	but actually shifted by some constant, but actually shifted by some constant that will denote theta.
+210260	217420	Now, in the null hypothesis case, actually, that's the special case of theta being zero.
+217420	234220	So, the density function is not shifted, but we may have that theta is not zero, which leads to a two-sided case,
+234220	249600	or that it's greater than or less than zero, one or the other, which leads to one-sided cases.
+249600	253940	So, let's clarify.
+255640	259360	Let's go back to our random variable X and its density function.
+260080	267340	The null hypothesis would state that, in fact, the density function of Y is exactly the same as the density function of X.
+267720	278780	So, I could sketch over, the best I can do, the density function of X, and that would also be the density function of Y.
+278780	284100	So, basically, both data sets come from exactly the same density function.
+285220	296440	The alternative is that the density function of Y is exactly the same as that of X, but shifted by some parameter theta.
+297480	302160	If I can draw it as best as I can do, so these density functions are supposed to be the same.
+302160	312160	That's now the density function of Y, and it's just been shifted by some constant theta.
+312660	317040	It could be shifted up or down, depending whether theta is positive or negative.
+317040	328540	Now, this rather peculiar alternative hypothesis is sometimes overlooked
+328540	336760	in textbooks that describe the rank sum test,
+336760	343740	and often the test is taken as a general test for a change in location.
+345220	350160	That is sometimes acceptable, except when we think about the test a little further,
+350840	358840	the possibility may arise that simply testing for a shift in location
+358840	364340	will not be satisfactorily detected by the test.
+368340	370740	OK, so how do we do the test?
+371440	376620	Well, we rank all the data,
+376620	380800	that's all the X values and the Y values together,
+382160	382920	in order,
+385520	389240	smallest to largest.
+391380	394280	And we'll give the smallest value rank 1,
+394420	398300	and the largest value rank N plus M.
+398300	405740	We find as our test statistic,
+406800	409460	I'll call it W subscript X,
+410140	412440	and it's the sum over the X values,
+412520	414260	and remember we have M of those,
+414780	418080	of the ranks of the X values.
+418240	420740	So I'll denote by
+420740	423380	R subscript I superscript X,
+423680	425640	although we don't really need this notation,
+425640	426860	because we won't use it again,
+426860	431360	but it's the rank of the i-th X value
+431360	436480	in the combined data.
+437080	439120	So remember the smallest value
+439120	442720	would have rank 1,
+443140	444820	the largest value
+444820	450640	rank N plus M,
+451380	454660	and I'll briefly describe what we might do
+454660	457460	if we have ties at the end.
+461920	464100	Worthwhile considering a special case,
+464600	467500	supposing that the two data sets
+467500	469240	were of the same size,
+470060	472660	so we have as many X values as Y values,
+473160	476580	then under the null hypothesis,
+476580	481080	well, the sum of the ranks of the X values
+481080	487000	would have exactly the same distribution
+487000	488620	as a random variable,
+489080	490220	we write it like this,
+491220	494140	as the sum of the ranks of the Y values.
+495220	497120	They have exactly the same distribution.
+497120	499780	There's no reason why WX
+499780	503080	should behave any differently to WY
+503080	504900	in the case where N equals M.
+505840	506860	They will behave differently
+506860	509100	if we have more X values and Y values,
+509200	509980	or vice versa.
+510560	512600	So that's a special case to have in our minds.
+513400	515320	More generally, we ask the question,
+515980	516960	as we always ask
+516960	518640	when we're doing a hypothesis test,
+519060	520580	is how does our test statistic,
+520580	522100	in this case,
+522240	524060	how does WX behave
+524060	529680	under the null hypothesis?
+536820	538100	And, moreover,
+538340	540140	is the value that we actually observe
+540140	542340	consistent with what we would expect
+542340	544620	if the two distributions were the same?
+546220	549140	Now, one thing we can do
+549140	551880	in most situations
+551880	555380	is we can enumerate,
+557640	560640	which really means we can list and count,
+561400	562860	all the possibilities.
+566280	567480	In other words,
+567640	569580	all the configurations of,
+569580	572400	well, the X values in the combined data set,
+573260	577080	work them all out
+577080	579740	and compute the test statistic
+579740	580440	for each one.
+580860	582240	Well, how many ways are there?
+582960	584300	Well, there are
+584300	585900	N plus M
+585900	587720	choose M,
+588520	591580	which is also N plus M choose N,
+593820	594440	ways
+594440	596060	the
+596060	597880	X values
+597880	603540	can appear
+603540	608420	in the combined
+608420	613280	sample.
+616880	618220	For each of these,
+618720	620500	we can compute the test statistic,
+620740	621380	WX,
+622220	624620	and then we can see, well,
+624620	626040	whether the observed value
+626040	627220	looks to be
+627220	628700	a particularly large
+628700	630140	or particularly small value
+630140	631340	compared to all the
+631340	632960	possible values
+632960	634700	that the test statistic
+634700	635440	could take.
+637440	639040	So, let's have an example
+639040	641100	to fix ideas.
+643900	645300	A fictitious example,
+645420	646100	I should point out.
+646100	649100	So, my wife and I
+649100	649680	like to play
+649680	650680	a computer game
+650680	651640	and
+651640	653660	the scores
+653660	654840	in the computer game
+654840	655540	are
+655540	659840	in thousands.
+661140	662560	But for simplicity here,
+662640	664000	I'll round the scores
+664000	665300	to the nearest thousand.
+665300	667840	and
+667840	671880	I'll write
+671880	672660	my scores
+672660	673460	in the M
+673460	674980	for me
+674980	675680	and
+675680	676520	W
+676520	677560	for my wife.
+677640	678140	So, let's suppose
+678140	678720	we have
+678720	680560	five of my scores.
+681120	681900	So, let's say
+681900	682840	a random sample.
+683100	683280	Let's say
+683280	683820	five,
+683980	684380	seven,
+685000	685740	thirteen,
+686000	686400	eight,
+686700	687440	and four
+687440	689400	to the nearest thousand.
+690340	690900	And
+690900	692240	for my wife,
+692740	693340	nine,
+693960	694900	eleven,
+695300	696300	ten,
+696900	697840	and seventeen.
+698060	698340	Let's say
+698340	698620	we have
+698620	699680	just four scores
+699680	700080	for her.
+701920	703260	So, another hypothesis
+703260	704180	I can call
+704180	705140	my values
+705140	706160	the x values
+706160	707180	and her values
+707180	707840	the y values
+707840	708420	should I wish.
+709300	709660	And
+709660	711400	another hypothesis
+711400	712120	is that
+712120	713460	these two
+713460	714300	data sets
+714300	715020	are from
+715020	715620	the same
+715620	717540	distribution,
+718000	719000	whatever that may be.
+719860	721020	And our alternative,
+722440	723140	well,
+723140	726780	we'll just
+726780	727120	have
+727120	727700	the
+727700	732160	density
+732160	733020	is shifted.
+734340	735300	One is shifted
+735300	736160	from the other one,
+736480	738140	but we won't specify
+738140	738720	the sign
+738720	739660	of the shift parameter,
+740400	740940	which means
+740940	741680	that we're
+741680	742780	not ruling out
+742780	743220	that
+743220	745440	I might be better
+745440	746080	than my wife
+746080	746620	or my wife
+746620	747080	might be better
+747080	747640	than I
+747640	748760	at the start.
+748760	751040	So let's work out
+751040	751920	our test statistic
+751920	755360	and
+755360	756740	let's work out
+756740	758220	my
+758220	759040	ranks.
+759440	760280	So I get
+760280	761340	the lowest value,
+762440	763100	the next
+763100	763980	lowest,
+763980	766260	and
+766260	766560	then
+766560	767780	the next
+767780	768440	lowest,
+769140	771200	the next
+771200	771780	lowest,
+772460	773240	will denote
+773240	773980	my wife's
+773980	774380	ranks
+774380	775280	ry,
+776400	777760	she gets
+777760	778320	the next
+778320	778820	lowest,
+780820	783420	six,
+783980	785900	seven,
+786860	787380	I get the
+787380	788060	second highest
+788060	788560	score,
+789220	790020	and my wife
+790020	790440	gets the
+790440	791140	highest score.
+791140	791960	Now it doesn't
+791960	792500	really matter
+792500	793080	which of these
+793080	793820	test statistics
+793820	794780	we use,
+795500	797040	we'll actually
+797040	797700	use my
+797700	798600	sum of ranks
+798600	799200	which is
+799200	799900	18,
+800660	803900	my wife's
+803900	804580	sum of ranks
+804580	805560	is 27.
+806640	807500	So we have
+807500	808400	our test statistic,
+809900	818380	which is
+818380	820100	wx,
+820100	820760	and it's
+820760	821140	18.
+821860	822420	And we ask
+822420	823060	the question,
+824340	826160	is that
+826160	826940	consistent
+826940	830340	with what
+830340	830640	we would
+830640	831560	expect to see
+831560	832040	under the
+832040	832900	null hypothesis
+832900	835760	that both
+835760	836180	the data
+836180	836720	sets are
+836720	837020	from the
+837020	837220	same
+837220	837820	distribution?
+837820	837940	distribution.
+839860	840380	So,
+840960	842060	how many
+842060	842620	ways are
+842620	842960	there
+842960	844280	that my
+844280	846100	five values
+846100	846480	can be
+846480	846940	distributed
+846940	848020	in the
+848020	848380	nine?
+849500	850020	Well,
+850360	850960	in fact,
+851580	852280	there are
+852280	853860	nine
+853860	854780	choose five
+854780	855320	ways,
+855760	856960	which is
+856960	858040	126,
+858100	858340	and we
+858340	859080	observe one
+859080	859500	of them,
+859680	860120	let's just
+860120	860820	clarify what
+860820	861340	we observe,
+861340	862480	I get
+862480	862880	the four
+862880	863260	lowest
+863260	863940	values,
+865140	867400	my wife
+867400	867900	the next
+867900	868460	three,
+869740	870520	then I
+870520	870880	get the
+870880	872200	second highest
+872200	872640	score,
+873120	873500	and my
+873500	873920	wife the
+873920	874260	highest
+874260	874640	score.
+874640	875220	So,
+875240	875740	that's one
+875740	876120	of these
+876120	877080	126
+877080	877880	configurations.
+879640	880440	We can
+880440	881020	think a little
+881020	881460	bit more
+881460	882260	about this
+882260	883560	test statistic
+883560	884040	and how it
+884040	884680	can behave.
+885480	886020	You can
+886020	886500	demonstrate
+886500	887640	that the
+887640	887960	minimum
+887960	888640	value
+888640	889660	that the
+889660	890320	test statistic
+890320	891060	can take
+891060	892860	is actually
+892860	895040	15.
+895840	896400	That would
+896400	896840	be if all
+896840	897580	my values
+897580	898000	were the
+898000	899540	lowest values,
+899780	900180	the five
+900180	900960	lowest values,
+901760	902320	and in
+902320	902560	fact,
+902640	903140	the highest
+903140	903580	it could
+903580	904180	take
+904180	906780	the
+906780	907340	maximum
+907340	913100	is,
+913280	914080	in fact,
+914160	914760	35.
+914920	915180	That would
+915180	916140	be if my
+916140	916740	values were
+916740	917160	the highest
+917160	917620	values.
+921640	922300	We can
+922300	922820	go further
+922820	923400	than that,
+923620	924060	and perhaps
+924060	924380	with the
+924380	924760	aid of a
+924760	925240	computer,
+926560	927280	we can
+927280	928020	compute the
+928020	928580	exact,
+929900	931440	in this
+931440	931640	case,
+931740	932140	probability
+932140	932560	mass
+932560	933040	function.
+934180	935420	for our
+935420	936060	test statistic
+936060	936660	Wx.
+936720	937060	So let's
+937060	937460	denote a
+937460	938120	possible value
+938120	938920	by W,
+939760	940660	and here
+940660	941400	we'll have
+941400	942200	the probability
+942200	943580	that the
+943580	944300	test statistic
+944300	945020	takes that
+945020	945440	value.
+946720	947340	Now we know
+947340	947720	the lowest
+947720	948420	value it can
+948420	948840	take is
+948840	949440	15,
+949440	949480	15,
+949480	954740	we won't
+954740	955020	draw it
+955020	955440	quite to
+955440	955900	scale,
+956360	957720	and the
+957720	958640	highest value
+958640	961060	is
+961060	964500	35.
+969500	970000	Now,
+970000	970240	in fact,
+970300	970860	there's only one
+970860	971740	way the test statistic
+971740	972640	can take the value
+972640	973220	15.
+973220	974560	that's when
+974560	975240	all my values
+975240	975980	were the lowest,
+976460	978440	so there's
+978440	978880	one out of
+978880	979840	the 126
+979840	981080	ways of
+981080	981660	doing that.
+982860	983580	There's only
+983580	984960	one way it
+984960	985720	can be 16
+985720	986020	too,
+986120	986480	actually.
+987580	987960	There's a
+987960	988380	couple of
+988380	988780	ways it
+988780	989140	can be
+989140	990060	17,
+990520	991620	and three
+991620	992120	ways I
+992120	992500	think that
+992500	992820	it can
+992820	994500	be 18,
+995320	996040	and that's
+996040	996400	the value
+996400	996980	we observe.
+997300	997920	So most of
+997920	998500	the probability
+998500	999900	is around
+999900	1000520	values
+1000520	1001800	near the
+1001800	1002160	middle of
+1002160	1002620	the range,
+1002680	1003060	as we'd
+1003060	1003620	expect,
+1004340	1006160	and then we
+1006160	1007900	have some
+1007900	1008880	probability on
+1008880	1009880	the high values.
+1011140	1011940	So we
+1011940	1012840	actually observe
+1012840	1013960	the test
+1013960	1014800	statistic being
+1014800	1015880	18.
+1020440	1021360	In fact,
+1021460	1022020	there are
+1022020	1024260	seven
+1024260	1026400	ways
+1026400	1027220	in which
+1027220	1027600	the test
+1027600	1028700	statistic can
+1028700	1029640	be 18
+1029640	1030320	or less,
+1030960	1031700	and so
+1031700	1032680	those values
+1032680	1033280	collectively
+1033280	1034960	have probability
+1034960	1036000	on them
+1036000	1038040	of about
+1038040	1040680	0.055.
+1041660	1042740	So that's
+1042740	1043260	the probability
+1043260	1044040	of getting
+1044040	1044820	a value
+1044820	1045300	of the test
+1045300	1045880	statistic,
+1046020	1046840	WX,
+1047640	1049500	as inconsistent
+1049500	1051440	or lower,
+1051720	1052220	so that's
+1052220	1053260	18 or lower
+1053260	1054480	than what we
+1054480	1055000	observed.
+1055260	1055800	So 18
+1055800	1056280	was what we
+1056280	1056800	observed,
+1056800	1057700	and more
+1057700	1058360	inconsistent
+1058360	1059060	on the
+1059060	1059760	left tail
+1059760	1060620	would be
+1060620	1061160	17,
+1061420	1061780	16,
+1061880	1062320	or 15.
+1062880	1063460	But remember
+1063460	1063960	we're doing
+1063960	1065340	a two-sided
+1065340	1066640	hypothesis test
+1066640	1067000	here,
+1067200	1068460	so we need
+1068460	1069060	to consider
+1069060	1070000	the other
+1070000	1070720	tail too,
+1070940	1071780	because values
+1071780	1072240	at the other
+1072240	1072680	end of the
+1072680	1073220	tail would be
+1073220	1073540	just as
+1073540	1074100	inconsistent,
+1074440	1075480	except instead
+1075480	1076120	of being a lot
+1076120	1076620	smaller than
+1076620	1077200	we'd expect,
+1077320	1077740	they'd be
+1077740	1078400	larger.
+1079080	1080000	So we'd
+1080000	1080980	be considering
+1080980	1081900	these values
+1081900	1082580	0.055 as well.
+1084020	1084760	And by
+1084760	1085320	symmetry,
+1086480	1087200	these also
+1087200	1087600	have
+1087600	1088740	probability
+1088740	1092080	0.055.
+1093000	1093800	So that
+1093800	1094120	when we
+1094120	1094500	consider
+1094500	1095380	these two
+1095380	1096600	regions
+1096600	1097160	together,
+1098740	1099520	their combined
+1099520	1100100	probability,
+1100100	1100740	which gives
+1100740	1101440	the p-value
+1101440	1102820	for our test
+1102820	1104580	is approximately
+1104580	1107640	0.11.
+1115700	1116220	Hence,
+1116600	1118840	at the 5%
+1118840	1119840	significance level,
+1119840	1129280	there is
+1129280	1132300	not enough
+1132300	1132880	evidence
+1132880	1139980	to reject
+1139980	1144700	the null
+1144700	1145280	hypothesis
+1145280	1146020	that the
+1146020	1146460	two data
+1146460	1146920	sets are
+1146920	1147220	from the
+1147220	1147500	same
+1147500	1148260	distribution.
+1148260	1149940	Now,
+1150300	1152020	there may
+1152020	1152640	be a suspicion
+1152640	1153100	that if we
+1153100	1153320	were to
+1153320	1153780	gather some
+1153780	1154340	more data,
+1154900	1155600	that perhaps
+1155600	1156560	that picture
+1156560	1157300	would change,
+1157520	1157780	and that
+1157780	1158120	influence
+1158120	1158780	would change,
+1159740	1160560	and my
+1160560	1161140	wife might
+1161140	1161700	argue that
+1161700	1162020	we should
+1162020	1162520	be taking
+1162520	1163660	a one-sided
+1163660	1164400	alternative
+1164400	1165080	rather than
+1165080	1165440	a two.
+1166160	1166580	However,
+1167020	1167640	as the test
+1167640	1168200	would stand,
+1168400	1168820	we would
+1168820	1169560	not reject
+1169560	1169900	the null
+1169900	1170560	hypothesis.
+1170560	1182040	I could
+1182040	1182420	have used
+1182420	1182800	a normal
+1182800	1183600	approximation.
+1189240	1189880	Why?
+1190360	1191220	Because if we
+1191220	1191720	look at our
+1191720	1192520	test statistic,
+1193760	1194500	it's a
+1194500	1194900	summation,
+1194900	1197740	and the
+1197740	1198300	central limit
+1198300	1199200	theorem tells
+1199200	1200440	us that
+1200440	1202940	sums and
+1202940	1205600	averages are
+1205600	1206200	approximately
+1206200	1207180	normally distributed,
+1207740	1208520	at least as the
+1208520	1209200	sample grows
+1209200	1209760	large.
+1210080	1210660	Now, we only
+1210660	1212940	have a modest
+1212940	1213720	number of terms
+1213720	1214460	in the sum here,
+1214460	1215180	so we might not
+1215180	1216760	expect the normal
+1216760	1217580	approximation to
+1217580	1218240	work too well,
+1218560	1219280	but in any event,
+1219360	1220060	we have computers
+1220060	1220740	these days,
+1220940	1222140	so the computations
+1222140	1222720	can be quite
+1222720	1223360	easily done,
+1223800	1224240	for example,
+1224340	1224800	using the
+1224800	1226000	software R
+1226000	1227100	and the
+1227100	1228340	related command.
+1229740	1230520	What if we'd
+1230520	1231580	had ties?
+1232000	1232560	So what if
+1232560	1233020	two of the
+1233020	1233580	observations
+1233580	1234300	had been the
+1234300	1234640	same?
+1235360	1235740	Well, let's
+1235740	1236280	go back to
+1236280	1236820	our data,
+1237980	1238260	and let's
+1238260	1238920	suppose that
+1238920	1239460	if instead
+1239460	1240080	of having
+1240080	1241280	a score
+1241280	1242080	of nine
+1242080	1242920	here,
+1243400	1244220	my wife
+1244220	1244640	had actually
+1244640	1245360	scored eight,
+1246060	1247100	which ties
+1247100	1247580	with one of
+1247580	1248260	my scores.
+1249120	1249800	What we do
+1249800	1250280	in the case
+1250280	1250820	of ties
+1250820	1252000	is we
+1252000	1252460	assign
+1252460	1253040	average
+1253040	1253580	ranks,
+1253700	1254060	so now
+1254060	1254580	both of
+1254580	1255340	these values
+1255340	1256040	have rank.
+1256440	1256800	Well,
+1257140	1257420	they would
+1257420	1257820	have rank
+1257820	1258240	four and
+1258240	1258900	five,
+1259160	1259980	they're tied,
+1260300	1260980	so we give
+1260980	1261540	each one
+1261540	1262020	rank
+1262020	1263060	four and
+1263060	1263680	a half,
+1264440	1265240	and proceed
+1265240	1265980	as before.
+1266600	1267120	We proceed
+1267120	1267720	as before,
+1267960	1268820	mindful that
+1268820	1270040	the rankings
+1270040	1270960	being tied
+1270960	1272040	makes no
+1272040	1272700	difference to
+1272700	1273580	the location
+1273580	1273900	of the
+1273900	1274460	distribution
+1274460	1275000	of the
+1275000	1275660	test statistic,
+1276180	1276920	but it does
+1276920	1277360	change the
+1277360	1277980	variance a
+1277980	1278160	little.
+1279220	1279520	So,
+1279660	1280100	although the
+1280100	1280820	test can work
+1280820	1281620	fine,
+1282000	1282800	if there
+1282800	1283660	are little
+1283660	1284040	in the
+1284040	1284960	way of
+1284960	1287160	ties,
+1287420	1287760	it does
+1287760	1288440	not work
+1288440	1289000	too well
+1289000	1289800	if there
+1289800	1290180	are lots
+1290180	1290680	of ties,
+1291500	1292080	and that's
+1292080	1292500	something to
+1292500	1292860	be born
+1292860	1293360	in mind.
+1294140	1294720	The way
+1294720	1295140	we've
+1295140	1296480	conducted the
+1296480	1297140	test here
+1297140	1299480	is by
+1299480	1300320	considering all
+1300320	1301140	the possibilities
+1301140	1304440	and enumerating
+1304440	1305180	the distribution
+1305180	1306420	of the test
+1306420	1307240	statistic that we
+1307240	1307700	chose
+1307700	1308700	explicitly.
+1308700	1310160	as such,
+1310200	1310460	it's an
+1310460	1310980	example of
+1310980	1311440	a so-called
+1311440	1312160	permutation
+1312160	1312700	test,
+1313420	1314100	and more
+1314100	1314640	on that
+1314640	1315780	later.
+1317980	1318500	So,
+1318560	1318960	that's the
+1318960	1319320	bank sum
+1319320	1319700	test,
+1319900	1320520	I hope
+1320520	1320780	you've
+1320780	1321340	enjoyed it.
+1321700	1322260	Thank you.

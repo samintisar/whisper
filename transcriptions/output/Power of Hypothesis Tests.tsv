@@ -1,0 +1,151 @@
+start	end	text
+0	9840	We're going to discuss the power of hypothesis tests.
+9840	23400	The power of hypothesis tests. So, a little introduction.
+23400	37400	So far, you'll have met some number of hypothesis tests and it may not have occurred to you to
+37400	51400	ask the question, what makes a good hypothesis test?
+51400	57400	What makes one hypothesis test preferable to another one?
+57400	63400	In particular, if we had, as we may have seen so far, more than one hypothesis test that
+63400	69400	we could use in a given situation, well, what makes one test better than another?
+69400	77400	Moreover, could we define the notion of a test being optimal for a given situation in the
+77400	81400	sense that it's better than any other test?
+81400	85400	How should we choose a test? How can we create a test?
+85400	93400	Well, these are rather deep ideas, a little beyond what we can discuss satisfactorily here.
+93400	102400	But, let's start by just recapping our basic theory of hypothesis testing.
+102400	107400	So, we have some null hypothesis, which is the default.
+107400	114400	It's there to be shot down, but it's what we'll accept unless data come along that make us feel
+114400	126400	that, via our test, some alternative hypothesis that I denote by HA is more plausible than the null.
+126400	137400	So, the null hypothesis is akin to the defendant in a criminal trial in North American and English law.
+137400	142400	So, really, what does a null hypothesis look like?
+142400	149400	Well, usually we have some parameter, let's just assume we're interested in a single parameter.
+149400	156400	And, typically in statistics we denote our parameters by Greek letters, let's say theta.
+156400	162400	And, the null hypothesis typically defines a single value for that parameter.
+162400	172400	So, it assigns some default value to that unknown parameter, in which case we call the null hypothesis simple.
+172400	177400	It's just assigning some single value to the parameter that we don't know.
+177400	186400	So, this could be the mean of some distribution, or the probability of an event occurring, or a standard deviation, or whatever our test may be about.
+186400	201400	The alternative hypothesis is usually not simple, in that it does not define a single alternative value.
+201400	221400	It may simply be the negation of the null hypothesis, so it says theta isn't theta naught, or it may be that we have only greater than, or equal to, or less than, as cases to consider.
+221400	228400	In which case we say that the alternative is composite.
+228400	234400	Composite in that it's collecting together more than one value of the primitive interest.
+234400	255400	So, we have a null hypothesis, there to be shot at, data come along, we summarize the data via a test statistic, we perform some sort of test, and on that we decide whether we should reject the null hypothesis, or not reject.
+255400	265400	And again, akin to a court of law, we do have two possible errors that can occur.
+265400	280400	Now, a type 1 error is defined to be the event where we reject H0, when it was true.
+280400	305400	The probability of a type 1 error is denoted by alpha, and it's called the significance level of the test.
+305400	317400	So, this is rather like rejecting, so it's rejecting the null hypothesis when it's true, it's rather like condemning an innocent defendant in a criminal trial.
+317400	330400	A type 2 error is that we don't reject, we fail to reject.
+330400	336400	Now notice that I'm falling short of saying we accept the null hypothesis.
+336400	353400	Remember, the null hypothesis typically defines a specific value on some unknown parameter, and maybe I'll never accept that some unknown parameter, so the mean of some population, is exactly equal to some value that I've specified.
+353400	355400	Maybe I'll never accept that.
+355400	364400	But it may be that it appears acceptable in that data do not come along that oblige me to reject that hypothesis.
+364400	379400	So a type 2 error occurs when we fail to reject the null hypothesis, when in fact the null hypothesis was false.
+379400	392400	And the probability of a type 2 error is, well guess what, we denoted by beta.
+392400	399400	So there are these two errors, two types of errors, both of which we'd like to avoid.
+399400	409400	Now, if we think about this a little further, we recognise that a type 1 error is an event conditional on the null hypothesis being true.
+409400	412400	But our null hypothesis typically tells us what's going on.
+412400	423400	It tells us the value of the null hypothesis, at least in the case, it tells us the value of the unknown parameter, rather, in the case where it's simple, which is usually the case.
+423400	428400	So we know what's going on when H0 is true.
+428400	439400	The type 2 error, on the other hand, says, hmm, now we're conditioning on H0 being false.
+439400	443400	And what's the probability of rejecting when H0 is false?
+443400	455400	Well, looking at the form of our alternative hypothesis, that won't specify exactly what's going on, because usually the alternative is composite.
+455400	458400	It doesn't tell us exactly what's going on.
+458400	462400	It sets a range of values for the unknown parameter.
+465400	471400	So, these two types of errors are rather different in their characteristics.
+475400	481400	It's helpful to define something called the power function.
+485400	496400	The power of a test is just one minus the probability of making a type 2 error.
+496400	498400	So, as the name would suggest, power's good.
+498400	499400	We like power.
+499400	500400	We want high power.
+500400	503400	And we don't want to make a type 2 error.
+503400	507400	So, it's one minus the probability of making a type 2 error.
+507400	525400	And we can think of this as the ability of the test to detect the null hypothesis when it's false.
+525400	534400	So, the ability of the test to weedle out a false null hypothesis.
+534400	540400	So, based on this idea, we define something that we call the power function.
+540400	544400	And I'll denote it by pi of theta.
+544400	549400	So, it's defined to be, I'll use that notation, because we've not seen this before.
+549400	555400	And this is the probability of rejecting the null hypothesis.
+555400	560400	Now, for a given test, this will depend on all sorts of things, not least the sample size.
+560400	568400	But let's be quite clear, the probability of rejecting the null hypothesis, as I've suggested on the left-hand side here,
+568400	575400	it depends on the value of the unknown parameter.
+575400	582400	So, this is a function that depends on what the value of the parameter may be.
+582400	588400	But the beauty is, we can consider it for every possible value of the parameter, should we wish.
+588400	595400	And it's the probability of rejecting the null hypothesis for that particular value of theta.
+595400	602400	So, we would like this power function to be large, so it would have a high probability,
+602400	605400	on values of theta that are consistent with the alternative,
+605400	614400	and are low, so a low probability of rejection, on values of theta that are consistent with H0.
+614400	617400	What's the ideal?
+617400	627400	Well, the ideal is a function that says, well, it has no probability of rejecting
+627400	636400	if theta, abusing notation slightly, is in the set of values that's consistent with the null hypothesis.
+636400	641400	So, if theta happens to be in that set, well, no chance of rejecting.
+641400	651400	One, on the other hand, so we're certain to reject if theta is in the set of values that's consistent with the alternative hypothesis.
+651400	660400	That would be the ideal. So, if a test could attain that, it would be optimal, in an absolute sense.
+660400	672400	But, in practice, unless we're in really trivial situations, in practical situations, no tests are ideal.
+672400	681400	No tests are going to satisfy that their power function looks like this guy.
+681400	686400	Well, let's have a look at an example in some detail.
+686400	694400	So, we have some random variable x, and we'll just say we've got three observations from this random variable.
+694400	706400	So, three independent observations from x, and our case we'll look at is that x is a binomial variable,
+706400	709400	or it's a special case, it's a Bernoulli variable.
+709400	715400	We're tossing a coin once, if you like, and observing heads with probability p.
+715400	731400	More generally, I might say that x takes the value 1, with probability p, and 0, with probability 1 minus p.
+731400	738400	So, maybe we observe a success if we see a 1, and a failure if we don't.
+738400	747400	We'll start off by looking at the following hypotheses.
+747400	754400	P is a probability, it's an unknown parameter, we know it has to be between 0 and 1.
+754400	759400	Let's suppose our null hypothesis specifies that it's between 0 and a half inclusive,
+759400	771400	and our alternative is that it's between 0 and 1.
+771400	776400	These are not the most natural hypotheses to consider in this sort of situation.
+776400	780400	We'll come to the most natural case presently, but let's have a look at this for the starters.
+780400	782400	And we're going to compare two tests.
+782400	800400	So, test 1, let's say it rejects the null hypothesis when we see three successes in our three observations.
+800400	807400	Well, each observation is a success with probability p, whatever p is, we observe three successes.
+807400	815400	So, each one with probability p would suggest that, let's say this has power function, let's call it pi 1,
+815400	821400	and the power function is going to be p times p times p, assuming these three observations are independent of one another,
+821400	824400	and so the power is p cubed.
+824400	848400	Test 2, on the other hand, will reject the null hypothesis when we see two or three successes.
+848400	852400	So, let's say it has power function pi 2.
+852400	860400	Well, we might see three successes, which we know happens with probability p cubed,
+860400	864400	or, and mutually exclusive, so we can just use our additive rule,
+864400	872400	or with probability 3 p squared 1 minus p, we observe two successes.
+872400	884400	So, what does our power functions look like in this case?
+884400	889400	So, let's plot the power function, just the probability rejecting the null hypothesis.
+889400	896400	We know that p has to go between 0 and 1, and both of the tests are such that, of course,
+896400	902400	if p is 0, it's 0, and if it's 1, it's 1.
+902400	911400	Pi 1 is just p cubed, and so that looks something like this over the range.
+911400	916400	Can't do it all that carefully, but...
+916400	924400	And pi 2 looks a little bit more like this over the range.
+924400	930400	So, of course, given the nature of the function, if we look at it, it can't be smaller.
+930400	934400	It's an increasing function of p.
+934400	943400	So, pi 2 is always at least pi 1.
+943400	951400	So, pi 2 suggests that, it tells us that test 2 always has a higher power function.
+951400	966400	But that's not so good in situations where, well, the null hypothesis is true,
+966400	968400	which is when we're over here.
+968400	971400	We don't really want to be rejecting the null hypothesis in that situation.
+971400	986400	So, this test will very often lead to a false rejection of the null hypothesis when it's actually true.
+986400	990400	Let's just, continuing to look at this example,
+990400	997400	let's look at more natural alternative, let's look at more natural hypotheses than we've chosen here,
+997400	1000400	and compare the same two tests.
+1000400	1012400	So, we're not going to, we're going to keep these two tests, but let's consider the more natural case.
+1012400	1023400	The null hypothesis states that p is a half, so it's like we're tossing an unbiased coin,
+1023400	1030400	and the alternative is that, let's just say it's not a half.
+1030400	1042400	Now, in that case, we have simple, so we have a simple null hypothesis,
+1042400	1049400	and we know that test 1, which has lower power for all values of p,
+1049400	1054400	we know it's going to have a significance level.
+1054400	1061400	Well, that's the probability that we reject the null hypothesis,
+1061400	1067400	and we reject the null hypothesis in test 1 when we see three successes,
+1067400	1071400	and we see three successes with probability, well, under the null hypothesis,
+1071400	1080400	a half times a half times a half, so a half cubed, so it has significance level,
+1080400	1086400	let's call it alpha 1, an eighth.
+1086400	1093400	But test 2 has significance level, well, we get two or three heads,
+1093400	1103400	so we get three heads with probability an eighth, or two heads,
+1103400	1108400	so that's actually got significance level a half.
+1108400	1113400	So, if we go back to our picture, and the picture's not very good,
+1113400	1119400	but when p's a half, test 2 actually has, which is not very good to scale,
+1119400	1130400	you can sketch them better yourself, but has a power of a half,
+1130400	1134400	and we reject with probability a half.
+1134400	1142400	And so, although test 2 has higher power for all values of p,
+1142400	1150400	for this particular case, that significance level looks rather too high.
+1150400	1155400	We wouldn't probably be very happy, to beg the question,
+1155400	1159400	but we wouldn't be very happy doing a test which, when the null hypothesis were true,
+1159400	1166400	would reject the null hypothesis half the time.
+1166400	1176400	In this way, we can compare two tests by doing a power analysis,
+1176400	1180400	and I hope that this little lecture has given you that flavour.
+1180400	1184400	So, this is an introduction to the idea of the power of a hypothesis test,
+1184400	1190400	and I hope that you've taken something from it, and enjoyed it.
+1190400	1192400	Thank you.

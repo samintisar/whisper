@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:21,840
+The signed rank test. Now this test is usually attributable to Wilcoxon, statistician Wilcoxon,
+
+2
+00:00:21,840 --> 00:00:33,120
+and it's nearly always used as a test for matched pair data. So we have data in matched pairs.
+
+3
+00:00:33,120 --> 00:00:43,280
+We'll clarify what that looks like presently. And as with a number of other methods we've looked at so far,
+
+4
+00:00:43,280 --> 00:00:55,120
+it's a non-parametric test in that it makes no explicit assumption about the nature of the
+
+5
+00:00:55,120 --> 00:01:03,040
+distribution that gives rise to the matched pairs. Well, here we'll start with an example. And an
+
+6
+00:01:03,040 --> 00:01:14,240
+example is based here on assessing the mileage of a fuel with and without an additive, which is
+
+7
+00:01:14,240 --> 00:01:22,960
+designed to increase the mileage per gallon. So the data is as follows. There are 12 compact cars
+
+8
+00:01:22,960 --> 00:01:49,760
+cars. And their mileages were found with eight gallons of regular fuel. Let's call that R. And
+
+9
+00:01:49,760 --> 00:02:03,920
+the same fuel with an additive. The additive being designed to, if anything, increase the miles per
+
+10
+00:02:03,920 --> 00:02:13,840
+gallon. Let's call that A. So what would our data look like in this case? Well, let's label our cars
+
+11
+00:02:13,840 --> 00:02:29,040
+one, two, three, four, and so on, up to 12. And for each car we have two mileages, one with the regular fuel
+
+12
+00:02:29,040 --> 00:02:38,240
+and one with the fuel with the additive. Well, the full data are included in the online notes. But let's say
+
+13
+00:02:38,240 --> 00:02:49,680
+for car one, it takes 142 miles for the eight gallons on the regular fuel and 144 with the additive.
+
+14
+00:02:50,560 --> 00:03:01,360
+Car two actually did better with the regular fuel than with the additive. Car three 137 with the regular
+
+15
+00:03:01,360 --> 00:03:15,920
+150 with the additive. And let's say for the final car 134 miles on the regular and 146 with the additive.
+
+16
+00:03:18,480 --> 00:03:27,360
+So our data are in pairs. And that's a very important feature of the data in that we cannot assume
+
+17
+00:03:28,080 --> 00:03:33,520
+that let's say the observations on each car. So if we chose a particular car, let's say car three,
+
+18
+00:03:33,520 --> 00:03:39,760
+we couldn't assume that these observations 137 and 150 are independent of one another.
+
+19
+00:03:39,760 --> 00:03:47,200
+So we don't have two independent samples of size 12. We have 12 sets of pairs of observations.
+
+20
+00:03:47,200 --> 00:03:57,280
+Now, you have already met a test which considers paired data, and that's the paired t-test. And what do we do in the paired t-test?
+
+21
+00:03:58,720 --> 00:04:04,960
+Well, we look at the within-pair differences. And I'll call the within-pair differences D.
+
+22
+00:04:04,960 --> 00:04:16,240
+And I'll take the regular away from the additive. You could do it the other way around without any loss.
+
+23
+00:04:16,240 --> 00:04:28,960
+So here we have 2, here minus 8, 13, and so on, and 12 at the end here.
+
+24
+00:04:28,960 --> 00:04:38,000
+I'll write out the full set of differences later on. Now, these are taken to be observations
+
+25
+00:04:40,800 --> 00:04:47,200
+from some random variable, let's call it capital D. So that's the distribution
+
+26
+00:04:47,200 --> 00:04:56,720
+of the differences. And we have 12 observed differences. And our null hypothesis is that
+
+27
+00:04:56,720 --> 00:05:03,040
+this random variable D, the distribution of the differences, is such that it's symmetric.
+
+28
+00:05:03,040 --> 00:05:13,600
+So it has a symmetric distribution about zero. So whatever it looks like, whatever the shape is,
+
+29
+00:05:15,440 --> 00:05:18,960
+it's symmetrically distributed about zero.
+
+30
+00:05:23,840 --> 00:05:30,080
+Our alternative could be just the negation of that. But here, in this particular example,
+
+31
+00:05:30,080 --> 00:05:40,640
+we consider that the only possible alternative to the null hypothesis would be that, well,
+
+32
+00:05:40,640 --> 00:05:48,400
+the additive increases mileage per gallon. And so the differences then would be expected,
+
+33
+00:05:48,400 --> 00:05:53,280
+because we're taking the regular value away from the additive value, we'd expect
+
+34
+00:05:54,880 --> 00:05:58,960
+more of these differences to be positive than negative. And so we'd expect
+
+35
+00:05:58,960 --> 00:06:11,520
+D to have a median greater than zero. So the median difference between the mileage on the additive
+
+36
+00:06:12,080 --> 00:06:20,000
+and the regular fuel, in the way that we've subtracted them here, is tending to be positive.
+
+37
+00:06:21,280 --> 00:06:27,920
+So that will be our null hypothesis here. And that's a one-sided case. Now let me just reiterate,
+
+38
+00:06:27,920 --> 00:06:33,200
+because this is often a source of confusion. Why do we sometimes take a one-sided? Why do we sometimes
+
+39
+00:06:33,200 --> 00:06:38,640
+take a two-sided? Well, we have to consider the context. And the context here is that the additive
+
+40
+00:06:39,440 --> 00:06:45,680
+to the fuel is expected, if it has any effect at all, to increase mileage, not decrease.
+
+41
+00:06:45,680 --> 00:06:57,520
+That seems to be the logical case to take. So let's consider the test in more generality before we return
+
+42
+00:06:57,520 --> 00:07:04,880
+to our example. So in general, we have n pairs of observations. So we have an x and a y
+
+43
+00:07:05,920 --> 00:07:12,240
+value paired together, and we've got n such pairs. What sort of circumstances do we have paired data?
+
+44
+00:07:12,240 --> 00:07:18,320
+Well, it could be like the example in hand, where we have different measurements on the same individual
+
+45
+00:07:18,320 --> 00:07:26,080
+or the same item. It could be something like a before and an after test. So we apply a treatment
+
+46
+00:07:26,080 --> 00:07:31,600
+before and take a measurement. We apply a treatment afterwards and take a measurement. Or it could be
+
+47
+00:07:31,600 --> 00:07:41,600
+something like data on identical twins. So it's very important that when we have data in pairs, that we do
+
+48
+00:07:41,600 --> 00:07:50,560
+not overlook the fact because analyzing the data as if they were two independent samples will be nonsensical.
+
+49
+00:07:50,560 --> 00:08:06,800
+So what do we do? Well, we find the differences. And let's take the x value away from the y value.
+
+50
+00:08:06,800 --> 00:08:14,800
+We could do it the other way around. It really doesn't matter. So we're going to have n differences.
+
+51
+00:08:14,800 --> 00:08:27,280
+And we're going to rank the absolute value of these differences, smallest to largest.
+
+52
+00:08:27,280 --> 00:08:39,520
+So the smallest one will have rank one, and the largest one will have rank n. And our test statistic
+
+53
+00:08:39,520 --> 00:08:53,280
+is, I'll denote it by t plus. It's the sum of the ranks of the differences
+
+54
+00:08:57,040 --> 00:09:02,480
+for which, let's say, the y value was greater than the x value,
+
+55
+00:09:02,480 --> 00:09:09,360
+which I could write, which I could write if I want to use some notation. I could write it as the sum
+
+56
+00:09:10,400 --> 00:09:20,880
+of all the pairs of t subscript i, where t subscript i takes the value 0, so it really doesn't count in
+
+57
+00:09:20,880 --> 00:09:38,000
+the sum if the y value were less than the x value. And it's the rank of the i-th difference if the y value
+
+58
+00:09:38,000 --> 00:09:44,800
+was greater than the x value. This begs the question, what happens if the y value and the x value do equal?
+
+59
+00:09:44,800 --> 00:09:55,120
+Well, the simple answer to that is we usually would simply remove that observation and reduce n by 1.
+
+60
+00:09:58,320 --> 00:10:04,560
+So another hypothesis is that the difference is d is symmetric
+
+61
+00:10:04,560 --> 00:10:16,320
+symmetric about 0. And a necessary condition, sorry, rather a sufficient condition for that,
+
+62
+00:10:16,320 --> 00:10:22,160
+is that the x and the y values each come from the same distribution, so they're identically distributed.
+
+63
+00:10:22,160 --> 00:10:27,840
+That's not actually necessary, but that would be a sufficient case. So that's a special case
+
+64
+00:10:27,840 --> 00:10:37,360
+which would make the distribution of the differences symmetric about 0. So when we're looking at the
+
+65
+00:10:37,360 --> 00:10:43,680
+the signs of the ranks, so we're looking at these ranks before we took absolute values,
+
+66
+00:10:45,360 --> 00:10:52,640
+well, we'd pretty much expect under another hypothesis that either positive or negative in sign
+
+67
+00:10:53,200 --> 00:11:01,040
+so neither is equally likely. So neither the y value is expected to be bigger than the x value, nor the x value is
+
+68
+00:11:01,040 --> 00:11:09,200
+expected to be bigger than the y value. If we go back to our example, I'll work through this in some detail.
+
+69
+00:11:09,200 --> 00:11:31,680
+Let me write out the differences. The differences are 2, minus 8, 13, 7, minus 6, 5, 17, minus 3, 8, 10, 4, and 12.
+
+70
+00:11:31,680 --> 00:11:49,440
+And then, when I rank the absolute values, well, the smallest value is 2, in absolute terms the next value is the minus 3 there, forget about the sign,
+
+71
+00:11:49,440 --> 00:12:00,800
+1, then that has, sorry, this has the next value, this has the next value, this the next one.
+
+72
+00:12:03,600 --> 00:12:12,480
+We have two 8s, a plus 8 and a minus 8, in absolute terms they're equal, we give them both rank
+
+73
+00:12:13,280 --> 00:12:20,160
+seven and a half, because they're the seventh and eighth values in order, then we move on to the
+
+74
+00:12:20,160 --> 00:12:30,000
+ninth observation, which is 10, 13 has rank, sorry, 13 has rank 11, 12 has rank 10,
+
+75
+00:12:30,560 --> 00:12:34,560
+apologies for going out of order slightly, 17 has rank 12.
+
+76
+00:12:34,560 --> 00:12:44,880
+When we add up the sum of the positive ranks, so remember, that's a positive, that's a positive,
+
+77
+00:12:44,880 --> 00:12:51,680
+that's a positive, positive, positive, positive, positive, positive, positive, all but four of the
+
+78
+00:12:51,680 --> 00:13:02,240
+observations, all but three of the observations actually were positive, then the sum of these ranks
+
+79
+00:13:03,040 --> 00:13:13,280
+comes to 63.5, and we ask the question, is that consistent with the null hypothesis
+
+80
+00:13:13,280 --> 00:13:17,840
+that the ranks are from a distribution?
+
+81
+00:13:25,520 --> 00:13:28,160
+Now, we have 12 pairs of observations,
+
+82
+00:13:28,160 --> 00:13:34,560
+and in this case, it's not too difficult to completely enumerate
+
+83
+00:13:37,680 --> 00:13:39,360
+all the possible values of t
+
+84
+00:13:45,440 --> 00:13:50,080
+at least if we have access to a computer. So the smallest value would occur
+
+85
+00:13:50,080 --> 00:13:59,280
+in fact, when all of all of these values here were negative, because then when we're computing our
+
+86
+00:13:59,280 --> 00:14:04,880
+test statistic, in fact, if the y value is always less than the x value,
+
+87
+00:14:07,520 --> 00:14:14,000
+all of the terms in this sum would be zero. And so the test statistic would be zero.
+
+88
+00:14:15,040 --> 00:14:19,040
+What's the largest value that the test statistic can take? Well, the largest value is when
+
+89
+00:14:19,760 --> 00:14:28,240
+all of the ranks are of positive values, so all of the y values are bigger than the x values,
+
+90
+00:14:28,960 --> 00:14:40,800
+and in that case, there would be 78 when we add up the numbers 1 to 12. And we can observe values
+
+91
+00:14:40,800 --> 00:14:44,640
+and so on, and so on, and so on in that range.
+
+92
+00:14:47,040 --> 00:14:50,480
+Now, clearly, under the null hypothesis,
+
+93
+00:14:50,480 --> 00:15:00,240
+not all of these values are equally likely, and there will be very little chance of observing
+
+94
+00:15:01,920 --> 00:15:06,880
+all the y values being less than all the x values, not much chance of the test statistic being 1,
+
+95
+00:15:06,880 --> 00:15:17,200
+and so on, and so on. So we would get a distribution, which looks normal-like, over the range of numbers,
+
+96
+00:15:17,200 --> 00:15:24,880
+0 to 78. Now we observed
+
+97
+00:15:24,880 --> 00:15:34,160
+the test statistic taking the value 63.5. So we have to ask the question,
+
+98
+00:15:34,960 --> 00:15:42,000
+what's the probability that the test statistic takes a value at least as extreme as that under the null hypothesis?
+
+99
+00:15:42,000 --> 00:15:47,200
+Now remember, we're here in a one-tailed case,
+
+100
+00:15:47,200 --> 00:16:00,240
+because we are only considering that the additive can, if anything, increase the mileage per gallon,
+
+101
+00:16:00,240 --> 00:16:04,880
+in which case the y values will be greater than the x values. We will not consider that there's
+
+102
+00:16:04,880 --> 00:16:13,440
+any possibility that the additive decreases the mileage. Well, via the software package R,
+
+103
+00:16:15,760 --> 00:16:23,200
+we can discover that, in fact, the p-value of our test statistic, so the probability of observing
+
+104
+00:16:23,200 --> 00:16:37,040
+the value of the test statistic t-plus as being 63.5 or bigger is 0.0271. So our p-value
+
+105
+00:16:37,040 --> 00:16:49,760
+is around 0.0271. And so at the 5% significance level,
+
+106
+00:16:55,600 --> 00:17:02,000
+because our p-value is smaller than 0.05, there is quite strong evidence
+
+107
+00:17:07,040 --> 00:17:19,920
+to reject the null hypothesis that the differences in the mileages on the regular fuel and the fuel
+
+108
+00:17:19,920 --> 00:17:23,280
+with the additive are symmetrically distributed about zero.
+
+109
+00:17:25,920 --> 00:17:32,240
+Just a couple of points about the assigned rank test. We could have used a normal approximation.
+
+110
+00:17:32,240 --> 00:17:44,560
+Why could we do that? Well, remember, our test statistic is a summation. So by the central limit theorem,
+
+111
+00:17:45,440 --> 00:17:52,720
+sums and averages are approximately normally distributed, at least as the sample size,
+
+112
+00:17:52,720 --> 00:17:57,920
+the number of terms in the sum grows large. The sample size isn't particularly large here,
+
+113
+00:17:57,920 --> 00:18:04,720
+but if we didn't have a computer, it might have to do. So we could compute a normal approximation.
+
+114
+00:18:04,720 --> 00:18:08,960
+The details of how you do that are in the notes. But actually, we have computers these days,
+
+115
+00:18:09,600 --> 00:18:15,360
+and the use of a normal approximation is not so important.
+
+116
+00:18:17,920 --> 00:18:22,880
+You might say, well, perhaps we could have used a paired t-test here. Maybe it would be reasonable to
+
+117
+00:18:22,880 --> 00:18:32,000
+assume that the differences are normally distributed. Unlike some non-parametric tests, the sidelamp test
+
+118
+00:18:32,000 --> 00:18:39,040
+actually compares well with its most commonly used parametric equivalent,
+
+119
+00:18:41,360 --> 00:18:43,840
+even when the differences are normally distributed.
+
+120
+00:18:43,840 --> 00:19:00,400
+If you're rather smart, and have thought carefully about the sign test, you might say,
+
+121
+00:19:00,400 --> 00:19:07,280
+well, just a minute, couldn't we just look at our differences, as we have them here,
+
+122
+00:19:07,280 --> 00:19:16,240
+and use the sign test on those. And the sign test would simply record the number of pluses and
+
+123
+00:19:16,240 --> 00:19:22,880
+the number of minuses, and say, well, under the null hypothesis, each observation, each difference here,
+
+124
+00:19:22,880 --> 00:19:28,480
+is equally likely to be positive and negative, and use the sign test. Now that's a valid test to use.
+
+125
+00:19:29,760 --> 00:19:36,480
+Most often, this is inferior to using the sign rank test, because it fails to take into account
+
+126
+00:19:37,120 --> 00:19:43,840
+the magnitude of the differences. So it fails to take into account how large the differences were.
+
+127
+00:19:43,840 --> 00:19:53,280
+And for example, we noticed that the three largest values, for example, 17, 13, and 12,
+
+128
+00:19:54,880 --> 00:20:00,400
+in fact, the fourth largest value, were all positive. And the sign test would simply ignore
+
+129
+00:20:00,400 --> 00:20:04,960
+that, and just be recording their sign. There are circumstances where, perhaps,
+
+130
+00:20:04,960 --> 00:20:11,360
+we only want to incorporate the sign. But otherwise, I would say, the signed rank test
+
+131
+00:20:11,360 --> 00:20:17,920
+is preferable to the sign test, and will have more power. That's the signed rank test,
+
+132
+00:20:17,920 --> 00:20:28,560
+and I hope you've enjoyed it.
+

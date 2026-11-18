@@ -1,0 +1,356 @@
+1
+00:00:00,000 --> 00:00:15,360
+We're going to talk about a test called the sine test, which is the simplest useful hypothesis
+
+2
+00:00:15,360 --> 00:00:24,840
+test that we'll encounter, so it's a good place for us to start. Now we'll consider the univariate
+
+3
+00:00:24,840 --> 00:00:37,920
+case first, so we have data from some random variable, let's call it capital X. Now this
+
+4
+00:00:37,920 --> 00:00:43,960
+test doesn't care what the distribution of X looks like, so let's suppose a density function
+
+5
+00:00:43,960 --> 00:00:49,680
+of X, well it can be any old shape, so we'll have it looking like that, but it really doesn't
+
+6
+00:00:49,680 --> 00:01:02,880
+matter. And the test concerns the location of the distribution as described by the median,
+
+7
+00:01:02,880 --> 00:01:12,680
+which we denote theta. Now every distribution has a median, and it's such that we have half
+
+8
+00:01:12,680 --> 00:01:20,880
+the distribution to the left of the median, theta, and half to the right.
+
+9
+00:01:20,880 --> 00:01:32,940
+So if we had our data, and let's say we have an independent sample of size n from this random
+
+10
+00:01:32,940 --> 00:01:39,320
+variable X, which has median theta, then we'd ask ourselves, well, you know, if the median
+
+11
+00:01:39,320 --> 00:01:49,320
+really is theta, how would the data distribute themselves with respect to theta? Now, actually
+
+12
+00:01:49,320 --> 00:01:58,200
+how they distribute themselves will be governed by this density function. But, for sure, if the
+
+13
+00:01:58,200 --> 00:02:09,300
+median really is theta, we'd expect about half of our data to be greater than theta, then we'd
+
+14
+00:02:09,300 --> 00:02:23,300
+about half to be less than theta. And that, simple idea, is the basis of our test. So we're
+
+15
+00:02:23,300 --> 00:02:31,300
+testing the null hypothesis that the median of the random variable we're interested in, which, for simplicity
+
+16
+00:02:31,300 --> 00:02:53,300
+here will denote by X, is some chosen value theta. Our alternative could be one-sided or two-sided. If the
+
+17
+00:02:53,300 --> 00:03:07,300
+alternative is simply the negation of the null hypothesis, then that would be the two-sided case.
+
+18
+00:03:07,300 --> 00:03:17,300
+And whether we're in a one-sided case or a two-sided case determines the set of values of the test statistic,
+
+19
+00:03:17,300 --> 00:03:31,300
+which would lead to the rejection of the null hypothesis. So what is our test statistic in this case? Well, our test statistic
+
+20
+00:03:31,300 --> 00:03:59,300
+we'll denote it by capital T, where T is the number of the observations, x1 up to xn, which are, let's say, greater than theta, the postulated value of the median, which would also be,
+
+21
+00:03:59,300 --> 00:04:21,300
+which would also be, if we took theta away from each observation, so we look at x1 minus theta, and x2 minus theta, the number of these differences, that are positive.
+
+22
+00:04:21,300 --> 00:04:35,300
+We could have equally have chosen less than, without really any loss. So as always in a hypothesis testing situation, we ask ourselves,
+
+23
+00:04:35,300 --> 00:04:49,300
+how does this test statistic T behave under the null hypothesis? So if the median of the distribution from which the data are arising really is theta, how does T behave?
+
+24
+00:04:49,300 --> 00:05:07,300
+Well, let's go back to our picture, and think to ourselves, well, if the data really are from a distribution with median theta, then each of these observations
+
+25
+00:05:07,300 --> 00:05:19,300
+is just like tossing a coin, where we've got a probability of a half of being above theta, and a probability of a half of being below.
+
+26
+00:05:19,300 --> 00:05:33,300
+So, we know the distribution that tells us the number of heads when we toss an unbiased coin.
+
+27
+00:05:33,300 --> 00:05:45,300
+That's the binomial distribution, where n is the number of tosses, the number of observations in this case, and p is the probability of getting ahead,
+
+28
+00:05:45,300 --> 00:05:52,300
+which in our case is the probability of an observation falling above the median, which is a half.
+
+29
+00:05:52,300 --> 00:05:59,300
+So, under the null hypothesis.
+
+30
+00:05:59,300 --> 00:06:04,300
+Of course, we know what this distribution looks like. So what does the binomial distribution look like?
+
+31
+00:06:04,300 --> 00:06:17,300
+Well, we've got these values, let's denote them T, and we're distributed over the values 0, 1, up to n.
+
+32
+00:06:17,300 --> 00:06:28,300
+And the picture one should have in one's mind is that this is a symmetrical distribution, and, well, if we toss a coin a lot of times,
+
+33
+00:06:28,300 --> 00:06:34,300
+we don't expect to see 0 heads, at least not if the coins are biased, which is what we're assuming here.
+
+34
+00:06:34,300 --> 00:06:43,300
+We don't expect to see hardly any heads, so these values down here have low probability, and these values up here would have low probability too.
+
+35
+00:06:47,300 --> 00:07:06,300
+We may, if we choose, use the normal approximation to the binomial.
+
+36
+00:07:06,300 --> 00:07:14,300
+Which would be useful to us if n is large, and we don't have access to a computer.
+
+37
+00:07:14,300 --> 00:07:28,300
+Otherwise, if we have a computer, or if n is not too large, we can find the distribution of the test statistic under the null hypothesis exactly, without reference to an approximation.
+
+38
+00:07:28,300 --> 00:07:35,300
+So let's have a little look at the example that's in the notes.
+
+39
+00:07:35,300 --> 00:07:59,300
+The situation is about the weight gain of mice, we can assume these mice are independent of one another, in grams.
+
+40
+00:07:59,300 --> 00:08:06,300
+On a new diet.
+
+41
+00:08:06,300 --> 00:08:15,300
+So these mice apparently are on some new diet for a month, and we monitor their weight gains in grams.
+
+42
+00:08:15,300 --> 00:08:30,300
+And the data are, well there's 15 observations, the first one was 20 grams, second observation 22, and so on.
+
+43
+00:08:30,300 --> 00:08:36,300
+And the 15th is 24.
+
+44
+00:08:36,300 --> 00:08:51,300
+And we're going to take our null hypothesis, that the median weight gain is 25 grams.
+
+45
+00:08:51,300 --> 00:09:06,300
+And take the alternative hypothesis, let's take it that the median is less than 25 grams.
+
+46
+00:09:06,300 --> 00:09:17,300
+So this is a one-sided, a one-sided case.
+
+47
+00:09:17,300 --> 00:09:23,300
+So, to recap, we have mice on a new diet.
+
+48
+00:09:23,300 --> 00:09:36,300
+We believe that the median weight gain on the diet may be 25 grams, or it may be, because maybe the 25 grams was some value from a previous diet.
+
+49
+00:09:36,300 --> 00:09:43,300
+But it may be that we think that the new diet gives a lower weight gain, which is why we've chosen a one-sided case.
+
+50
+00:09:43,300 --> 00:09:54,300
+In other words, we think it's improbable that the new diet would give a weight gain that's larger than 25 grams, so we're discounting that.
+
+51
+00:09:54,300 --> 00:10:06,300
+And our alternative hypothesis is simply stating that the only alternative to the median being 25 grams is that it's actually less than 25.
+
+52
+00:10:06,300 --> 00:10:15,300
+So what happens in our case is we're interested in the test statistic t, which counts up how many observations are greater than the median.
+
+53
+00:10:15,300 --> 00:10:18,300
+The median as postulated in another hypothesis.
+
+54
+00:10:18,300 --> 00:10:23,300
+So we'd go through our data, and we count up basically pluses and minuses.
+
+55
+00:10:23,300 --> 00:10:27,300
+This is less than the postulated median, so that's a minus.
+
+56
+00:10:27,300 --> 00:10:31,300
+That's a plus. We continue. That's a minus.
+
+57
+00:10:31,300 --> 00:10:42,300
+And we count up the number of pluses, so that in this case, from the data in the notes, we observe that t is actually 4.
+
+58
+00:10:42,300 --> 00:10:48,300
+So there were 4 observations greater than the hypothesized median of 25.
+
+59
+00:10:48,300 --> 00:11:05,300
+Now under the null hypothesis, the number of observations greater than the median of 25, or the proposed median of 25, should follow the binomial distribution.
+
+60
+00:11:05,300 --> 00:11:14,300
+In this case, 15 observations, each one equally likely to be greater than 25 or less than 25.
+
+61
+00:11:14,300 --> 00:11:24,300
+So let's have a look at what this distribution looks like.
+
+62
+00:11:24,300 --> 00:11:34,300
+So we've got probability over the set of values 0 up to 15, the integer value 0 up to 15.
+
+63
+00:11:34,300 --> 00:11:42,300
+Of course, if we were to toss a coin 15 times, and it's an unbiased coin, very little probability of getting no heads, or one head,
+
+64
+00:11:42,300 --> 00:11:52,300
+of course very little probability of getting 15 heads, or 14 heads, a little more getting 2, a little more getting 3, a little more getting 4, and so on.
+
+65
+00:11:52,300 --> 00:12:00,300
+But the majority of the probability is on values closer to the mean of the distribution, which is 7.5.
+
+66
+00:12:00,300 --> 00:12:06,300
+So the picture we have in our minds is something that's approximately like a normal curve.
+
+67
+00:12:06,300 --> 00:12:14,300
+Now we've observed t equals 4.
+
+68
+00:12:14,300 --> 00:12:26,300
+And we have to ask ourselves, well, which set of values would be more consistent with the alternative hypothesis than the null?
+
+69
+00:12:26,300 --> 00:12:38,300
+Now if the median is actually less than 25 grams, which is what our alternative hypothesis says,
+
+70
+00:12:38,300 --> 00:12:44,300
+then we would expect in our data to see a lot more negatives than positives.
+
+71
+00:12:44,300 --> 00:12:52,300
+So we'd expect to see a lot more observations less than 25 grams than above, depending how much less the median is than 25, of course.
+
+72
+00:12:52,300 --> 00:13:00,300
+So we would expect to see a low value of t, consistent more with the alternative than the null.
+
+73
+00:13:00,300 --> 00:13:10,300
+Now when we're considering the p-value, we're therefore going to look at all of the observations, possible values of t,
+
+74
+00:13:10,300 --> 00:13:18,300
+that were at least as inconsistent as that observed, as the one that we actually did observe.
+
+75
+00:13:18,300 --> 00:13:26,300
+So we observed t equals 4, even more inconsistent would have been t equals 3, t equals 2, t equals 1, and so on.
+
+76
+00:13:26,300 --> 00:13:32,300
+We can find from r, or doing the calculations on the computer or by tables,
+
+77
+00:13:32,300 --> 00:13:38,300
+that that probability, the probability on these five possible values,
+
+78
+00:13:38,300 --> 00:13:43,300
+each one at least as inconsistent with the null hypothesis as that we observed,
+
+79
+00:13:43,300 --> 00:13:53,300
+is 0.059.
+
+80
+00:13:53,300 --> 00:13:55,300
+So that's quite small.
+
+81
+00:13:55,300 --> 00:13:59,300
+The question is, is it very small?
+
+82
+00:13:59,300 --> 00:14:08,300
+Is it so small that we would reject the null hypothesis that the median weight gain is 25 grams?
+
+83
+00:14:08,300 --> 00:14:19,300
+Well, there's certainly some evidence against the null hypothesis.
+
+84
+00:14:19,300 --> 00:14:27,300
+Because this value that we observed of t is pretty small, if the median really is 25,
+
+85
+00:14:27,300 --> 00:14:33,300
+because we'd expect to see values of t closer to the middle of the page.
+
+86
+00:14:33,300 --> 00:14:52,300
+Nonetheless, it's not in the lower 5%, and at the 5% level, so at the 5% significance level,
+
+87
+00:14:52,300 --> 00:15:10,300
+there is not enough evidence to reject the null hypothesis that the median weight gain is 25 grams.
+
+88
+00:15:10,300 --> 00:15:15,300
+Probably, there's enough evidence to suggest that we should gather some more data.
+
+89
+00:15:15,300 --> 00:15:24,300
+So that's a brief introduction to the sign test, and I hope that you've enjoyed it.
+

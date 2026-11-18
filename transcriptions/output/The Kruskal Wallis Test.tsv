@@ -1,0 +1,217 @@
+start	end	text
+0	20920	The Kruskal-Wallis test, a test which I understand is named after two statisticians who invented
+20920	32300	it independently. It's another non-parametric procedure, non-parametric meaning as we may
+32300	39020	recall that the procedure makes no explicit assumptions about the distributions that give
+39020	50900	rise to the data. Let's just reflect on a situation that we've met before where we have data arising
+50900	57860	in, let's say, two groups. Let's call them group 1 and group 2. So we have some observations
+57860	67760	in these two groups, and it may be of interest to say whether those two data sets appear to
+67760	74580	be from the same distribution, or less generally whether they appear to be from distributions
+74580	83080	with the same mean. Now we've met at least two procedures for looking at two-sample data.
+83800	92960	You've encountered the two-sample t-test, and we've also met the rank sum test. Now to think
+92960	98540	about the two-sample t-test, the two-sample t-test says, well, we'll summarize the data from
+98540	107680	group 1 to get an estimate of the location of the distribution of the data, the distribution
+107680	118880	that gave rise to the data as a sample mean, and a natural estimate for the mean of the distribution
+118880	126740	that gives rise to the data in group 2 would be x2 bar. So our test as to whether the two
+126740	133500	means, underlying means, are equal, let's call them mu 1 and mu 2, is naturally based on some
+133500	144000	function of these two statistics. Now, without thinking about this at all deeply, we could recognize
+144000	150480	that obviously there's at least two ways we could compare these two statistics. We could
+150480	162340	look at their difference, or maybe we could look at their ratio. Looking at the difference
+162340	169280	proves to be statistically a little easier, and gives rise to something called the two-sample
+169280	179720	t-test, which we've met earlier. Well, we could base a test on the ratio of the two test statistics,
+179720	188300	of the two statistics, but that statistically would be a little harder to construct. My point
+188300	199100	is that a method that involves analyzing data from two groups does not obviously extend to when
+199100	206100	we have more than two groups. So when we have three or more groups. More generally we could say we have g groups.
+206100	218100	Because a method that involves looking at a difference, or even looking at a ratio, works well for a comparison
+218100	226100	between two things, but not when we have more than two. So we need something different.
+226100	253100	What sort of procedure gives rise to data in groups? Well, broadly there are two. We may have samples from multiple, so three or more populations.
+253100	268100	In other words, we may have taken random samples from three or more populations, and we're interested in comparing the population means, for example.
+268100	296100	So we may have a sampling procedure, or we may have performed an experiment. And in which case we've got responses from an experiment, a one-factor experiment. And so, for example, we may have a sample from a population of individuals,
+296100	311100	from a population of individuals who have a particular condition, let's say a particular type of cancer, and we may allocate them at random to, let's suppose, four different treatments, in which case g would be four.
+311100	323100	And then we monitor them. And then we monitor them, and measure some response, under each of the four different treatments, and attempt to decide whether there is a difference between the responses on the treatments.
+323100	339100	For the purposes of the conducting of the test, it makes no difference where the data, how the data arose. It does make some difference in terms of how we can draw inference, a slightly subtle point that we'll discuss subsequently.
+339100	346100	Well, let's have an example.
+346100	368100	And this example is in our notes, and it describes a study where there were 36 children, and they were split into five groups of nine, and they're taught arithmetic.
+368100	375100	Some method of arithmetic, some method of arithmetic for a week, let's supposing it was long division or something.
+375100	381100	And we'll label the groups A, B, C, and D.
+381100	386100	Group A was taught by the usual method.
+386100	391100	Group B were praised while they were taught.
+391100	399100	Group C were criticised, so negative feedback.
+399100	404100	And group D were somehow ignored while they were taught.
+404100	434100	Group C are written gpa, R G and D areanianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianianian
+434100	441620	is not so critical now from the way that i've described it so far you don't know whether this
+441620	452180	was an experiment in other words whether we had a set of 36 children who perhaps could be assumed
+452180	457700	to be a random sample from some larger population of children of the same age range and educational
+457700	463540	level and they were randomly assigned to one of these four different teaching conditions
+464340	470340	or whether it just happened that we had maybe four teachers who taught using different methods
+470340	477380	and we took a sample from each of those teachers classes and which would give somewhat different
+477380	487140	influences we'll assume it's an experiment which would be the best uh the best way in which the
+487140	488180	data could be obtained
+493380	496980	so in such a situation what would our null hypothesis be
+496980	509860	well the null hypothesis is the data in the groups are all from
+509860	515380	the same distribution
+522100	528580	in other words each observate each set of observations in this case nine observations
+528580	534980	is just a sample from a distribution and they're all samples from the same distribution
+536500	543140	this actually implies of course that the means and for that matter the medians
+543140	546660	of the distributions
+552740	553300	are equal
+556740	562980	so that's an implication if they're all all the data from the same distribution they're all from
+562980	565220	different distributions with the same mean
+567700	569860	the alternative is simply that the data
+569860	574020	the data
+575860	576260	are not
+579780	580260	or not
+580260	580420	all from
+583940	584420	the same
+587860	588580	distribution
+588580	594340	you might ponder well does that imply that they're from distributions with
+596340	601060	different means or medians well actually no because they could be from different
+601060	602500	distributions with the same mean
+603220	605780	but certainly it is implied by
+605780	611700	the means and medians of the underlying distributions
+615300	620740	are not equal so a special case of the alternative hypothesis is when the means and medians are
+621540	621940	different
+625300	630020	now if you've done the first course in statistics you may have met an approach
+630020	634420	called the excuse me the analysis of variance
+636420	640260	which can be applied to data of this sort of structure
+641860	647540	the analysis of variance does have some assumptions behind it in particular it assumes that the data
+647540	649540	within each group are from a normal distribution
+652180	654100	it's somewhat robust to those assumptions
+654100	660660	it's not completely robust and in circumstances like in our example
+661940	667380	we don't have lots of data and if we were to do ANOVA we may be a little bit uncomfortable
+667380	674180	with the inference because we're not sure that the assumptions are valid and moreover
+674900	677140	the sample sizes are rather small
+677140	686740	so how would we decide whether ANOVA is appropriate
+687380	692100	well whether we would consider using ANOVA or not
+693460	696980	it's good to do a graph of the data of some description so it's good to graph
+699060	701780	of our data now how would we plot our data here
+701780	711140	how would we do that well we have four different data sets that we would like to compare
+711860	716740	ideally on the same graph and the best approach for this
+718820	722660	would almost certainly be side by side
+722660	726020	box plots
+729620	738580	I'll roughly sketch what these look like so we have four different teaching methods
+739220	740820	so we have four samples
+743060	747700	and these are very rough and ready sketches if you remember with the box plot
+747700	753460	the box covers the interquartile range and within the box there's a
+758580	760420	a line indicating the median
+762020	764420	these pictures are really not super accurate but
+767460	769060	the box plot is given in the notes
+770180	775060	one thing that strikes us is that it does look like there's a difference between the underlying
+775060	778820	distributions they certainly look as though they're differing in terms of location
+778820	783700	they're also perhaps differing in terms of variation so it looks like there's more variation
+784180	787220	of the data in certainly in groups a and c than in b
+788100	793860	so we might be a little bit uncomfortable using the analysis of variance method for these data
+793860	798580	although it would not be wrong as such it would not actually be wrong to do that
+798580	804420	before we proceed we'll introduce a
+806660	814980	probability distribution which you may have met before called the chi-squared distribution
+818660	822980	and it's defined as the following if we have n
+822980	827300	independent
+831300	832980	standard normal variables
+834500	835940	so mean zero
+837940	840900	that's the mean standard deviation one
+842500	844420	so they're all independent of one another so
+845140	850020	from that we mean that the value of one of them doesn't impact the value of any of the others
+850020	851780	we're not getting more technical than that
+853780	856180	then the sum of their squares
+863860	870420	i use this notation to till the sign it's short for is distributed
+870420	874180	as
+874180	876180	so a little short hand notation
+877540	881140	where we see this till the sign just read it as distributed as
+881860	886180	and then we'll define a distribution we use the greek letter chi
+888420	889860	it's the chi-squared
+893460	894260	distribution
+894260	900580	and it has one parameter which i'll denote by its subscript here
+901460	911060	and it's on here n degrees of freedom so the parameter is known as the degrees of freedom
+913140	914180	so we have
+915700	919540	sum of squares of n independent normals standard normals
+920260	920580	and
+921780	924580	it transpires that quite often in statistics we have
+925700	930900	a statistic which is sums of squares and sums of squares of things that are at least
+930900	933860	approximately normal so they can be standardized to be
+934500	939700	approximately standard normal and we're interested in the distribution of their sums of squares
+940260	945380	and so it's convenient to have a name for the distribution and somebody's done the math
+946100	950820	and divide this distribution which has a rather complicated density function in terms of its
+950820	956100	mathematical form but we can picture what it looks like
+958100	959700	so what does the density of the function
+961300	963540	what does the density function look like
+963540	968340	well for start with we know that because we're looking at sums of squares the random variable
+968980	970660	well it can't be negative
+970660	975940	so the chi-square distribution doesn't assign any probability to negative values
+976820	983460	and the picture one should have in one's mind is of a unimodal distribution
+983460	990020	in fact the mode is at n minus 2 so the mode increases
+990980	995220	as the number of terms in the sum increases so as the degrees of freedom increase
+995220	1007540	this isn't actually the picture when n is 1 or 2 but we're most interested in here in cases where n is bigger than 2
+1008420	1011620	so this is the picture one should have in one's mind for the chi-square distribution
+1011620	1014900	at least when n is bigger than 2
+1016340	1019940	well there are tables for this distribution which you may have seen
+1020740	1025140	but these days we have computer software which can find
+1026740	1030660	percentiles and probabilities over ranges for the chi-square distribution
+1030660	1042580	so let's come back to our test so our test ranks all our data
+1045060	1053780	in order so combining all the data together we rank them in order and we give the lowest observation
+1053780	1060260	rank one so in general let's supposing we've got g groups
+1064740	1071220	so on we don't have to have equal observation number of observations in each group supposing the lowest
+1071220	1077940	observation was in group two uh maybe the next lowest was in group three somewhere maybe the next
+1077940	1083060	lowest was in group two uh the next lowest was in group four and so on
+1083940	1090980	next lowest was sorry the next lowest was in whatever group that is and um maybe the largest observation
+1090980	1098100	was in group one say we deal with ties in the same way as we deal with ties in the rank sum test
+1098100	1101300	we would assign average ranks to tie data
+1103700	1113540	so we can find the mean of the ranks within each group so let's call that our one bar so that's the
+1113540	1122820	mean of these ranks our two bar is the mean of these ranks and so on up to our g bar
+1124180	1126420	now we replace the data by their ranks
+1128580	1136020	so we've lost the original data so for example the smallest observation may have been way smaller than
+1136020	1143220	all the others but in terms of its ranking it is its rank is one different from the next smallest
+1147620	1149940	let's say the overall mean of these ranks
+1152100	1152820	is our bar
+1152820	1163700	so how does the test operate well the test appealing to common sense says well if i look at the differences
+1165940	1170100	between the mean ranks within a group and the overall mean rank
+1170900	1176180	then i would expect these ranks to be pretty close to the overall mean
+1178900	1183860	if the null hypothesis were true so if all the data were from the same distribution there's no reason
+1183860	1189140	why any of these individual mean ranks should be particularly much different from the overall mean
+1189140	1200580	that should be reflected in a difference in a difference in the mean ranks for that group
+1200580	1203780	so that's supposing for example that the data within group two
+1206820	1211780	tended on average to be much smaller than than the data from the other groups
+1211780	1219540	then the data within group two would tend to have lower ranks and that would be reflected in the mean ranks
+1219540	1226980	for that group and so that statistic would be smaller than the overall mean of the ranks
+1228900	1239620	and it that would be reflected in the an increased variation so more variability in the within group mean ranks
+1239620	1247460	now how do we measure variability well one measure is by considering the variance
+1248820	1253620	and so we could imagine a test statistic summing up
+1255780	1264820	across all the groups the square difference in the within group mean rank and the overall mean ranks
+1264820	1268100	and that's the basis of the test statistic
+1270580	1275220	i call the test statistic capital h in fact there's some normalization goes on
+1276020	1280100	and it takes into account how many observations we've got in each group
+1282740	1288260	so ni is the number of observations in group i and we have our observations in total
+1288260	1291860	this formula is really not worth memorizing
+1294500	1299220	but the basic idea is is not difficult
+1302100	1308740	so as always we ask our question how does our test statistic h behave
+1308740	1312900	under the null hypothesis
+1316020	1320420	well in fact under the null hypothesis that all the data from the same distribution
+1323540	1329860	the test statistic follows a chi-square distribution on g minus one degrees of freedom
+1329860	1333620	under the null hypothesis
+1337700	1339940	but what if h naught is not true
+1344820	1345700	then what happens
+1348820	1355460	well then the test statistic becomes inflated it it will tend to be larger
+1356180	1364420	why because there will be more variation in the within group rankings so the mean rankings within the
+1364420	1369140	groups will tend to vary more and that will increase this statistic
+1370340	1375220	which is basically a measure of the variation on these r1 bar up to rg bar
+1375220	1382340	okay so let's conclude by looking at our example
+1383780	1392580	we have our data in four groups we replace the data by their ranks i won't go through this but
+1392580	1400980	you can work it out for yourself based on the data in the notes
+1402740	1403060	and
+1406340	1421140	the mean rank in group a is 12.4 within group b 30.6 within group c 22.5 and within group d 8.5 and as
+1421140	1427140	was reflected by the the box plot it's kind of what we'd expect there is quite a lot of variation in
+1427140	1441780	these group group rankings the overall mean rank is 18.5 there's some ties in the data as we observed
+1443540	1448500	so if we work out our test statistic here and we won't go through all the details because the
+1448500	1456260	computer could do that for us but it's essentially routine we have a value of around 24.48
+1457940	1463460	now we have four groups here so we ask the question is h consistent
+1467380	1472340	with in this case the chi-squared three distribution
+1472340	1478980	well we might know the answer to that let's draw a picture so the chi-squared three
+1481780	1482980	looks something like that
+1486180	1492740	and in fact this test statistic lies way up in the upper tail here
+1492740	1502340	so the probability of being as extreme or more extreme with respect to the null hypothesis
+1504740	1511540	the p value is approximately two times ten to the minus five we can get that from software
+1514420	1517300	so in other words this value of the test statistic it looks
+1517860	1522420	very large to be the sort of value that we'd expect to see from the chi-squared three
+1525060	1526260	we'd only get a value
+1529140	1533620	as small as that or more or sorry as large as that or larger
+1535540	1539060	with probability about two times ten to the minus five
+1539060	1551220	so there's strong evidence here very strong evidence against the null hypothesis
+1558340	1561780	so that's the classical wallace test and i hope you've enjoyed it
